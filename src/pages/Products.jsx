@@ -7,7 +7,7 @@ import Star from '../assets/img/Star.png'
 import { Link } from "react-router-dom";
 import { addToCart, getCartTotal } from "../redux/cartSlice";
 import { useDispatch } from "react-redux";
-import Testimonials from '../components/Testimonials';
+//import Testimonials from '../components/Testimonials';
 
 const Products = () => {
   // const navigate = useNavigate();
@@ -148,7 +148,7 @@ const Products = () => {
                     <div className="menu-item d-flex align-items-center bg-white p-3 rounded">
                       <img
                         className="flex-shrink-0 img-fluid rounded-circle"
-                        src={item.img} style={{width:'90px'}}
+                        src={item.img} style={{width:'130px'}}
                         alt="img"
                       />
                       <div className="w-100 d-flex flex-column text-start ps-4">
@@ -165,16 +165,7 @@ const Products = () => {
                         <img style={{width:'15px'}} src={Star} alt="" />
                         </div>
                         <button onClick={() => handleAddToCart(item)} className="btn btn-primary mt-5 rounded-pill">Add to Cart</button>
-                        {/* <div className="mt-3">
-                            <h5>Reviews</h5>
-                            <ul className="list-unstyled">
-                              {menuItem.map((review, index) => (
-                                <li key={index}>
-                                  <strong>{review.user}:</strong> {review.comment} (Rating: {review.rating})
-                                </li>
-                              ))}
-                            </ul>
-                          </div> */}
+                        
                       </div>
                     </div>
                   </div>
@@ -185,7 +176,7 @@ const Products = () => {
         </div>
       </div>
     </div>
-    <Testimonials/>
+ 
             </div>
     
   )

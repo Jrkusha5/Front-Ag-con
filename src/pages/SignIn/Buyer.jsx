@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link ,useNavigate} from "react-router-dom";
 // import axios from 'axios';
-import { BASE_URL } from '../../config';
+//import { BASE_URL } from '../../config';
 import {toast} from 'react-toastify'
+import { BiShow, BiHide } from "react-icons/bi";
 import Register from "../../assets/img/register.png";
 import HashLoader from 'react-spinners/HashLoader'
 
@@ -40,7 +41,7 @@ const Buyer = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res= await fetch(`${BASE_URL}/auth/register`,{
+      const res= await fetch ('http://localhost:3000/api/v1/auth/register',{
         method:'post',
         headers:{
           'Content-Type':' application/json'
@@ -129,11 +130,11 @@ const Buyer = () => {
                     onChange={handleOnChange}
                   />
                   <button
-                    className="btn btn-outline-secondary"
+                    className="btn btn-outline-primary"
                     type="button"
                     onClick={handleShowPassword}
                   >
-                    {showPassword ? "Show" : "Hide"}
+                    {showPassword ? "Show" : <BiHide />}
                   </button>
                 </div>
 
@@ -148,11 +149,11 @@ const Buyer = () => {
                     onChange={handleOnChange}
                   />
                   <button
-                    className="btn btn-outline-secondary"
+                    className="btn btn-outline-primary"
                     type="button"
                     onClick={handleShowConfirmPassword}
                   >
-                    {showConfirmPassword ? "Show" : "Hide"}
+                    {showConfirmPassword ? <BiShow /> : <BiHide />}
                   </button>
                 </div>
 
@@ -168,7 +169,9 @@ const Buyer = () => {
                 </select>
 
                 <div className="text-center rounded-pill">
-                  <button className="btn btn-primary btn-block">Sign up</button>
+                  <button onClick={()=>handleSubmit()} className="btn btn-primary btn-block">
+                    SignUp
+                  </button>
                 </div>
               </form>
               <p className="text-left mt-2" style={{color:"black", fontFamily:''}}>

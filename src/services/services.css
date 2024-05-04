@@ -1,6 +1,7 @@
 
 
 .service__item{
+    
     padding: 20px;
     display: flex;
     align-items: center;
@@ -10,7 +11,7 @@
 }
 .service__item span i{
     font-style: 2.2rem;
-    background: var(--primary-color);
+    background: var();
     padding: 10px;
     border-radius: 50px;
     color: #fff;

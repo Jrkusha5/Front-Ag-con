@@ -19,8 +19,8 @@ const serviceData = [
   },
   {
     icon:[<i className='bi bi-cash-stack text-dark fa-2x'></i>],
-    title: " Back Guarantee",
-    subtitle: "Lorem ipsum dolor sit amet.",
+    title: " 24/7 Support",
+    subtitle: "support every time fast",
     bg: "#d6e5fb",
   },
 ];

@@ -35,7 +35,7 @@ const Cart = () => {
     dispatch(updateQuantity({ id: cartProductId, quantity: newQty }));
   };
   const emptyCartMsg = (
-    <h4 className="container text-center mb-2 pt-5">Your Cart is Empty</h4>
+    <h4 className="container text-center mb-2 pt-3">Your Cart is Empty</h4>
   );
 
   // const publishableKey =
@@ -48,6 +48,17 @@ const Cart = () => {
   return (
     <>
       {/* <Heading title="Cart" subtitle="Home" heading="Cart" /> */}
+      <div class="container-fluid page-header mb-1 wow fadeIn text-center " data-wow-delay="0.2s" style={{fontSize:'25px'}}>
+        <div class="container text-center">
+            <h1 class="display-3 mb-2 animated slideInDown">Cart</h1>
+            <nav aria-label="breadcrumb animated slideInDown ">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a class="text-body" href="#">Home</a></li>
+                    <li class="breadcrumb-item text-dark active" aria-current="page">Cart</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
 
       {cartProducts.length === 0 ? (
         emptyCartMsg

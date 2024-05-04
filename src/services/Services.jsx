@@ -5,7 +5,7 @@ import serviceData from '../assets/data/serviceData';
 
 const Services = () => {
     return (
-        <section className="services">
+        <section className="services" style={{fontFamily:'revert-layer'}}>
             <div className="container">
                 <div className="row">
                     {serviceData.map((item, index) => (
