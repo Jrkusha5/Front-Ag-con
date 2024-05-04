@@ -1,22 +1,19 @@
 import React, { useState } from "react";
-import { Link ,useNavigate} from "react-router-dom";
-// import axios from 'axios';
-//import { BASE_URL } from '../../config';
-import {toast} from 'react-toastify'
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { BiShow, BiHide } from "react-icons/bi";
 import Register from "../../assets/img/register.png";
-import HashLoader from 'react-spinners/HashLoader'
-
+import HashLoader from 'react-spinners/HashLoader'; // Assuming you're using HashLoader for loading indication
 
 const Buyer = () => {
   const [data, setData] = useState({
-    Name: "",
+    name: "",
     email: "",
     password: "",
     confirmPassword: "",
     role: "buyer", // Default role is set to buyer
   });
-  const [loading, setLoading]=useState(false)
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -40,74 +37,70 @@ const Buyer = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true); // Show loading indicator
+
     try {
-      const res= await fetch ('http://localhost:3000/api/v1/auth/register',{
-        method:'post',
-        headers:{
-          'Content-Type':' application/json'
+      const response = await fetch("http://localhost:3000/api/v1/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        body :JSON.stringify(data)
-  
-      })
-      const {message} =await res.json()
-  
-      if(!res.ok){
-        throw new Error(message)
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const { message } = await response.json();
+        throw new Error(message); // Re-throw for error handling
       }
-      setLoading(false)
-      toast.success(message)
-      navigate('/login')
-  
-      } catch(err){
-        toast.error(err.message)
-        setLoading(false)
-  
-  
-     }
-     
-    
+
+      const responseData = await response.json(); // Parse successful response
+      setLoading(false); // Hide loading indicator
+      toast.success(responseData.message);
+      navigate("/login"); // Redirect to login page on success
+    } catch (error) {
+      setLoading(false); // Hide loading indicator in case of error
+      toast.error(error.message);
+    }
   };
 
   return (
     <div>
-      <div className="container-fluid  mb-3 wow fadeIn" data-wow-delay="0.1s">
+      <div className="container-fluid mb-3 wow fadeIn" data-wow-delay="0.1s">
         <div className="container">
           <h1 className="display-3 mb-3 animated slideInDown">Buyer</h1>
           <nav aria-label="breadcrumb animated slideInDown">
             <ol className="breadcrumb mb-0">
               <li className="breadcrumb-item">
-                <a className="text-body">Home</a>
+                <Link className="text-body" to="/">
+                  Home
+                </Link>
               </li>
-              <li
-                className="breadcrumb-item text-dark active"
-                aria-current="page"
-              >
+              <li className="breadcrumb-item text-dark active" aria-current="page">
                 SignUp
               </li>
             </ol>
           </nav>
         </div>
       </div>
-      <div className="container w-100 py-3 " >
+      <div className="container w-100 py-3">
         <h2 className="text-center">SignUp</h2>
-        <div className="row justify-content-center" >
-          <div className="col-12 col-md-6 d-flex g-1  ">
-            <div class="col-md-6 ">
-              <img src={Register} style={{width:"90%",height:'100%'}} alt="Logo" class="login-img" />
+        <div className="row justify-content-center">
+          <div className="col-12 col-md-6 d-flex g-1 ">
+            <div className="col-md-6">
+              <img src={Register} style={{ width: "90%", height: "100%" }} alt="Logo" className="login-img" />
             </div>
             <div className="card bg-white p-4">
-              <form className="py-2" onSubmit={handleSubmit} style={{color:"black", fontFamily:''}}>
+              <form className="py-2" onSubmit={handleSubmit} style={{ color: "black", fontFamily: "" }}>
                 <label htmlFor="Name">Name</label>
                 <input
                   type={"text"}
-                  id="Name"
-                  name="Name"
+                  id="name"
+                  name="name"
                   className="form-control mb-2 border-2"
-                  value={data.Name}
+                  value={data.name}
                   onChange={handleOnChange}
+                  required // Add validation for required fields
                 />
-
-                
 
                 <label htmlFor="email">Email</label>
                 <input
@@ -116,7 +109,8 @@ const Buyer = () => {
                   name="email"
                   className="form-control mb-2"
                   value={data.email}
-                  onChange={handleOnChange}
+                  onChange ={handleOnChange}
+                  required // Add validation for required fields
                 />
 
                 <label htmlFor="password">Password</label>
@@ -128,13 +122,15 @@ const Buyer = () => {
                     className="form-control"
                     value={data.password}
                     onChange={handleOnChange}
+                    required // Add validation for required fields
+                    minLength={8} // Enforce minimum password length
                   />
                   <button
                     className="btn btn-outline-primary"
                     type="button"
                     onClick={handleShowPassword}
                   >
-                    {showPassword ? "Show" : <BiHide />}
+                    {showPassword ? "Hide" : <BiHide />}
                   </button>
                 </div>
 
@@ -147,6 +143,7 @@ const Buyer = () => {
                     className="form-control"
                     value={data.confirmPassword}
                     onChange={handleOnChange}
+                    required // Add validation for required fields
                   />
                   <button
                     className="btn btn-outline-primary"
@@ -164,18 +161,23 @@ const Buyer = () => {
                   className="form-select mb-2"
                   value={data.role}
                   onChange={handleOnChange}
+                  disabled // Disable role selection for simplicity (adjust as needed)
                 >
-                 <option value="buyer">Buyer</option>
+                  <option value="buyer">Buyer</option>
                 </select>
 
                 <div className="text-center rounded-pill">
-                  <button onClick={()=>handleSubmit()} className="btn btn-primary btn-block">
-                    SignUp
-                  </button>
+                  {loading ? (
+                    <HashLoader color={'#36D7B7'} loading={loading} size={50} />
+                  ) : (
+                    <button  className="btn btn-primary btn-block">
+                      SignUp
+                    </button>
+                  )}
                 </div>
               </form>
-              <p className="text-left mt-2" style={{color:"black", fontFamily:''}}>
-                Already have an account ?{" "}
+              <p className="text-left mt-2" style={{ color: "black", fontFamily: "" }}>
+                Already have an account?{" "}
                 <Link to={"/login"} className="text-primary">
                   Login
                 </Link>
