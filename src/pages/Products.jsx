@@ -85,7 +85,7 @@ const Products = () => {
             </div> */}
             <div className="container-fluid menu bg-light py-6 my-6">
             <h2 className="commodity__title white text-center text-uppercase mt-4"style={{ color:'black'}}>
-                    Select a product to Buy/Sell
+                    Select a product to Buy
                   </h2>
       <div className="container" >
        
