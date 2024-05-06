@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import CommonHeading from './CommonHeading'
 import recentData  from '../assets/data/recentData'
+import Star from '../assets/img/Star.png'
+
 
 
 const Latest = () => {
@@ -22,21 +24,21 @@ const Latest = () => {
             <ul className='nav nav-pills d-inline-flex justify-content-center mb-5 bounceInUp'>
             <li className="nav-items p-2">
                     <a href="" className='d-flex mx-2 py-2 border border-primary text-uppercase  bg-light rounded-pill'>
-                        <span className="text-dark" style={{width:'150px', fontFamily:'',fontSize:"20px",color:'black'}}>
+                        <span className="text-dark" style={{width:'150px',fontSize:"20px",color:'black'}}>
                             All Items
                         </span>
                     </a>
                 </li>
                 <li className="nav-items p-2">
                     <a href="" className='d-flex mx-2 py-2 border border-primary text-uppercase  bg-light rounded-pill'>
-                        <span className="text-dark" style={{width:'150px', fontFamily:'',fontSize:"20px",color:'black'}}>
+                        <span className="text-dark" style={{width:'150px', fontSize:"20px",color:'black'}}>
                             Grains
                         </span>
                     </a>
                 </li>
                 <li className="nav-items p-2">
                     <a href="" className='d-flex mx-2 py-2 border border-primary text-uppercase  bg-light rounded-pill'>
-                        <span className="text-dark" style={{width:'150px', fontFamily:'',fontSize:"20px",color:'black'}}>
+                        <span className="text-dark" style={{width:'150px', fontSize:"20px",color:'black'}}>
                             Vegetables
                         </span>
                     </a>
@@ -44,7 +46,7 @@ const Latest = () => {
 
                 <li className="nav-items p-2">
                     <a href="" className='d-flex mx-2 py-2 border border-primary text-uppercase  bg-light rounded-pill '>
-                        <span className="text-dark" style={{width:'150px', fontFamily:'',fontSize:"20px",color:'black',}}>
+                        <span className="text-dark" style={{width:'150px', fontSize:"20px",color:'black',}}>
                             Fruits
                         </span>
                     </a>
@@ -52,7 +54,7 @@ const Latest = () => {
 
                 <li className="nav-items p-2">
                     <a href="" className='d-flex mx-2 py-2 border border-primary text-uppercase  bg-light rounded-pill'>
-                        <span className="text-dark" style={{width:'150px', fontFamily:'',fontSize:"20px",color:'black'}}>
+                        <span className="text-dark" style={{width:'150px', fontSize:"20px",color:'black'}}>
                             Dairy
                         </span>
                     </a>
@@ -74,7 +76,13 @@ const Latest = () => {
                        </div>
                        <div className=' p-3' >
                         <h4 className='me-auto' >{val.productName}</h4>
-                        <button className='my-auto rounded-pill ' style={{fontFamily:'',}}>Add to Cart</button>
+                        <label htmlFor="">Farmer: {val.farmer}</label>
+                        <div>
+                        <img style={{width:'15px'}} src={Star} alt="" />
+                        <img style={{width:'15px'}} src={Star} alt="" />
+                        <img style={{width:'15px'}} src={Star} alt="" />
+                        </div>
+                        <button className='btn btn-primary mt-5 rounded-pill ' >Add to Cart</button>
                        </div>
                     </div>
                 ))

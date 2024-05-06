@@ -3,6 +3,7 @@ import CommonHeading from '../components/CommonHeading'
 import grains from '../assets/img/grains.png'
 import { menu } from "../assets/data/Item";
 import Star from '../assets/img/Star.png'
+import { FaHeart } from 'react-icons/fa'
 
 import { Link } from "react-router-dom";
 import { addToCart, getCartTotal } from "../redux/cartSlice";
@@ -159,6 +160,11 @@ const Products = () => {
                         </div>
                         <p className="mb-0">{item.content}</p>
                         <label htmlFor="">Farmer: {item.farmer}</label>
+                        <div >
+                          <button>
+                          <FaHeart className=' rounded-circle '/>
+                          </button>
+                        </div>
                         <div>
                         <img style={{width:'15px'}} src={Star} alt="" />
                         <img style={{width:'15px'}} src={Star} alt="" />

@@ -65,7 +65,7 @@ const Home = () => {
 
    <Services/>
     
-    <div className="container-xxl py-5" style={{fontFamily:'',fontSize:'23px',color:'black'}}>
+    <div className="container-xxl py-5" style={{fontSize:'23px',color:'black'}}>
         <div className="container">
             <div className="row g-5 align-items-center">
                 <div className="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
@@ -74,7 +74,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h1 className="display-5 mb-4" style={{fontFamily:'',fontSize:'50px'}}>Best Organic Fruits And Vegetables</h1>
+                    <h1 className="display-5 mb-4" style={{fontSize:'50px'}}>Best Organic Fruits And Vegetables</h1>
                     <p className="mb-4">Transparent and reliable market information, deal creation and negotiation.</p>
                     <p><i className="fa fa-check text-primary me-3"></i>Trusted Organic Food</p>
                     <p><i className="fa fa-check text-primary me-3"></i>Tasty And Healthier Organic Vegetables</p>
@@ -124,7 +124,7 @@ const Home = () => {
           <img src={Trust} style={{ width: '200px' }} alt="" />
         </div>
         <p className="container-features__subtitle" style={{ fontWeight: 'bold', fontSize: '25px' }}>Transparency</p>
-        <p className="container-features__text">Direct transaction between farmers and industry/retail</p>
+        <p className="container-features__text">Direct transaction between farmers and buyers/retail</p>
       </div>
       <div className="col-md-3 col-adv">
         <div className="container">
