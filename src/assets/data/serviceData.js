@@ -1,29 +1,31 @@
+import React from 'react';
+import { FaTruck, FaRedoAlt, FaLock, FaMoneyBillAlt } from 'react-icons/fa'; // Import icons from FontAwesome
+
 const serviceData = [
   {
-    icon: [<i class="bi bi-truck text-dark"></i>],
+    icon: <FaTruck className="text-dark fa-2x" />, // Use FaTruck component
     title: "Facilitating Shipping",
     subtitle: "From Cart to Doorstep.",
     bg: "#fdefe6",
   },
   {
-    icon: [<i class="bi bi-arrow-return-left text-dark"></i>],
+    icon: <FaRedoAlt className="text-dark fa-2x" />, // Use FaRedoAlt component
     title: "Easy Returns",
     subtitle: "Lorem ipsum dolor sit amet.",
     bg: "#ceebe9",
   },
   {
-    icon: [<i class="bi bi-lock-fill text-dark"></i>],
+    icon: <FaLock className="text-dark fa-2x" />, // Use FaLock component
     title: "Secure Payment",
     subtitle: "Shop and pay with security..",
     bg: "#e2f2b2",
   },
   {
-    icon:[<i className='bi bi-cash-stack text-dark fa-2x'></i>],
-    title: " 24/7 Support",
-    subtitle: "support every time fast",
+    icon: <FaMoneyBillAlt className="text-dark fa-2x" />, // Use FaMoneyBillAlt component
+    title: "24/7 Support",
+    subtitle: "Support every time fast",
     bg: "#d6e5fb",
   },
 ];
-
 
 export default serviceData;
