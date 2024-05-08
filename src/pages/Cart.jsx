@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-// import Heading from "../common/Heading";
-// import { menu } from "../data/Item";
+
 import { useDispatch, useSelector } from "react-redux";
 import {
   getCartTotal,
   removeItem,
   updateQuantity,
 } from "../redux/cartSlice";
+import emptyCartImage from "../assets/img/empty.gif"
 // import StripeCheckout from "react-stripe-checkout";
 
 const Cart = () => { 
@@ -35,7 +35,10 @@ const Cart = () => {
     dispatch(updateQuantity({ id: cartProductId, quantity: newQty }));
   };
   const emptyCartMsg = (
-    <h4 className="container text-center mb-2 pt-3">Your Cart is Empty</h4>
+    <h4 className="container text-center mb-2 pt-3">Your Cart is Empty
+    <img src={emptyCartImage} />
+    </h4>
+    
   );
 
   // const publishableKey =
@@ -132,7 +135,7 @@ const Cart = () => {
                         </div>
                       </td>
                       <td>
-                        <p className="mb-0 mt-4">{cartProduct.totalPrice} $</p>
+                        <p className="mb-0 mt-4">Birr:{cartProduct.totalPrice} </p>
                       </td>
                       <td>
                         <button
@@ -157,18 +160,18 @@ const Cart = () => {
                     </h1>
                     <div className="d-flex justify-content-between mb-4">
                       <h5 className="mb-0 me-4">Subtotal:</h5>
-                      <p className="mb-0">${totalAmount}</p>
+                      <p className="mb-0">Birr:{totalAmount}</p>
                     </div>
-                    {/* <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between">
                       <h5 className="mb-0 me-4">Shipping</h5>
-                      <div> */}
-                        {/* <p className="mb-0">Flat rate: ${deliverCharge}</p> */}
+                      <div> 
+                         <p className="mb-0">Flat rate: ${deliverCharge}</p>
                       </div>
                     </div>
                   </div>
                   <div className="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
                     <h5 className="mb-0 ps-4 me-4">Total</h5>
-                    <p className="mb-0 pe-4">$ {totalAmount + deliverCharge}</p>
+                    <p className="mb-0 pe-4">Birr: {totalAmount + deliverCharge}</p>
                   </div>
                    <button
                     className="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"
@@ -188,8 +191,8 @@ const Cart = () => {
                 </div>
               </div>
             </div>
-        //   </div>
-        // </div>
+           </div>
+         </div>
         
       )}
     </>

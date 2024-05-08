@@ -62,9 +62,7 @@ const Latest = () => {
 
             </ul>
          
-         {/* <div className='tab-content'>
-         <div className='fade show p-0'>
-         <div className='row g-4'> */}
+       
          <div className='col-lg-12'>
          <div className='row g-4'>
             {
@@ -76,7 +74,7 @@ const Latest = () => {
                        </div>
                        <div className=' p-3' >
                         <h4 className='me-auto' >{val.productName}</h4>
-                        <label htmlFor="">Farmer: {val.farmer}</label>
+                        <label  style={{fontSize:'20px',color:'black'}} >Farmer: {val.farmer}</label>
                         <div>
                         <img style={{width:'15px'}} src={Star} alt="" />
                         <img style={{width:'15px'}} src={Star} alt="" />
@@ -91,9 +89,7 @@ const Latest = () => {
             </div>
             </div>
             
-            {/* </div>
-         </div>
-        </div> */}
+          
      </div>
 
    </div>

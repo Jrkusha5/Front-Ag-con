@@ -37,10 +37,10 @@ const Farmer = () => {
         <div className="container">
             <h1 className="display-3 mb-3 animated slideInDown">Farmer</h1>
             <nav aria-label="breadcrumb animated slideInDown">
-                <ol className="breadcrumb mb-0">
-                    <li className="breadcrumb-item"><a className="text-body" ></a></li>
+                {/* <ol className="breadcrumb mb-0">
+                    <li className="breadcrumb-item"></li>
                     <li className="breadcrumb-item text-dark active" aria-current="page"></li>
-                </ol>
+                </ol> */}
             </nav>
         </div>
     </div>
@@ -50,7 +50,7 @@ const Farmer = () => {
         <Col md={6}>
           <Form onSubmit={handleSubmit} className="p-4">
             <h2 style={{fontFamily:'sans-serif'}} className="mb-4">Create Account(Farmer)</h2>
-            <Form.Group controlId="firstName" style={{fontFamily:'sans-serif',fontSize:'20px'}}>
+            <Form.Group controlId="firstName" style={{fontSize:'20px'}}>
               <Form.Label>First Name</Form.Label>
               <Form.Control
                 type="text"
