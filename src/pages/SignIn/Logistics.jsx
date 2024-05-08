@@ -59,12 +59,12 @@ const Logistics = () => {
             </nav>
         </div>
     </div>
-    <h2 className='text-center mb-4' style={{fontFamily:''}}> Sign Up</h2>
+    <h2 className='text-center mb-4' style={{}}> Sign Up</h2>
     <div className="container w-25 bg-white justify-content-center">
       
       <form onSubmit={handleSubmit}  >
-        <div className="mb-3" style={{color:"black", fontFamily:''}}>
-          <label htmlFor="companyName" className="form-label" style={{color:"black", fontFamily:''}}>Company Name:</label>
+        <div className="mb-3" style={{color:"black", }}>
+          <label htmlFor="companyName" className="form-label" style={{color:"black", }}>Company Name:</label>
           <input
             type="text"
             id="companyName"
