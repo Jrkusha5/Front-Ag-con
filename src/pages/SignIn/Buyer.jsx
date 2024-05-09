@@ -94,12 +94,13 @@ const Buyer = () => {
             </div>
             <div className="card bg-white p-4">
               <form className="py-2" onSubmit={handleSubmit} style={{ color: "black" }}>
-              <label htmlFor="photo">Photo (optional)</label>
+                <label htmlFor="photo">Photo </label>
       <input
         type="file" // Specify file input type
         id="photo"
         name="photo"
-        className="form-control mb-2 rounded-pill"
+        className="form-control mb-2 rounded-full px-4 py-2 cursor-pointer
+         bg-gray-200 hover:bg-gray-300 transition ease-in-out duration-150 outline-none"
         onChange={handleOnChange}
       />
                 <label htmlFor="Name">Name</label>
