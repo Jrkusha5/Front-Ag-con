@@ -22,7 +22,7 @@ const SignUp = () => {
 
     <div class="container">
     <h1 class="text-center mb-4">Welcome to One ገበያ</h1>
-    <p class="text-center">Before you start, please tell us who you are:</p>
+    <h3 class="text-center">Before you start, please tell us who you are:</h3>
     <div class="row justify-content-center mt-4">
       <div class="col-md-4">
         <div class="card mb-3">

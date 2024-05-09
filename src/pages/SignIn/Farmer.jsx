@@ -51,7 +51,7 @@ const Farmer = () => {
               <img src={Register} style={{ width: "100%", height: "100%" }} alt="Logo" className="login-img" />
             </div>
       <Row className="justify-content-center  ">
-        <Col md={12} className="bg-white" style={{color:'#36D7B7'}}>
+        <Col md={12} className="bg-white" style={{color:'#096111'}}>
           <Form onSubmit={handleSubmit} className="p-4">
             <h2 className="mb-4">Create Account(Farmer)</h2>
             <Form.Group controlId="firstName" style={{fontSize:'20px'}}>

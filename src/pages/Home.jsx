@@ -87,12 +87,14 @@ const Home = () => {
     
      <Latest/>
     
+    
     <div className="container-fluid bg-light1 bg-icon mt-5 py-6">
         <div className="container">
             <div className="row g-5 align-items-center">
                 <div className="col-md-7 wow fadeIn" data-wow-delay="0.1s">
-                    <h1 className="display-5 text-black mb-3" style={{fontSize:'50px'}}>Pricing</h1>
-                    <p className="text-black mb-0" style={{fontSize:'25px',color:'black'}}>Both buyer and seller pay a small fee to Agri Marketplace once a transaction is made. We price transparently and keep you updated through all steps of the process. Our pricing is based on your transaction’s value & volume</p>
+                    <h1 className="display-5 text-black mb-3" style={{fontSize:'50px'}}>Overview</h1>
+                    <p className="text-black mb-0" style={{fontSize:'25px',color:'black'}}>Our mission is to Provide customers with access to nutritions food that is free from genetically modified ingridients.
+                       We work with local farmers who share our commitment to Organic agriculture, and we carefully select every product that we selll to ensure that it meets our high quality standards</p>
                 </div>
                 <div className='col-md-4'>
                     <img src={Price1} style={{width:'500px'}} alt="" />

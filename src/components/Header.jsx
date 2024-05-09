@@ -57,28 +57,28 @@ const Header = () => {
               !showMenu && 'd-none d-md-flex' // Responsive hiding for medium screens and above
             }`}
           >
-            <Link to="/" className="nav-item nav-link active" style={{ color: 'black' }}>
+            <Link to="/" className="nav-item nav-link active" >
               Home
             </Link>
-            <Link to="/aboutUs" className="nav-item nav-link" style={{ color: 'black' }}>
+            <Link to="/aboutUs" className="nav-item nav-link" >
               About
             </Link>
-            <Link to="/Products" className="nav-item nav-link" style={{ color: 'black' }}>
+            <Link to="/Products" className="nav-item nav-link" >
               Products
             </Link>
-            <Link to="/contactUs" className="nav-item nav-link" style={{ color: 'black' }}>
+            <Link to="/contactUs" className="nav-item nav-link" >
               Contact
             </Link>
-            <Link to="/login" className="nav-item nav-link" style={{ color: 'black' }}>
-              {/* <span className="fa fa-user" style={{ color: 'black' }}></span> */}
+            <Link to="/login" className="nav-item nav-link" >
+              {/* <span className="fa fa-user" ></span> */}
               Login
             </Link>
           </div>
        <h1>{user?.name}</h1>
           <div className="d-none d-lg-flex ms-4 justify-content-end">
-            <Link to="/" className="btn-sm-square rounded-pill bg-white ms-3">
-              <span className="fa fa-search" style={{ color: 'black' }}></span>
-            </Link>
+            {/* <Link to="/" className="btn-sm-square rounded-pill bg-white ms-3">
+              <span className="fa fa-search" ></span>
+            </Link> */}
             
             <Link to="/Cart" className="btn-cart btn-md-square btn btn-black bg-white rounded-pill ms-3 d-none d-lg-inline-flex">
               <i className="fa fa-shopping-cart"></i>
