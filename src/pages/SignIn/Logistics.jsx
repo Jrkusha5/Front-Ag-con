@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { BiShow, BiHide } from "react-icons/bi";
 
 const Logistics = () => {
-  // State variables for form fields
-  const [companyName, setCompanyName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+ 
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -16,7 +14,24 @@ const Logistics = () => {
     confirmPassword: "",
     role: "logistics", // Default role is set to buyer
   });
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setData({
+      ...data,
+      [name]: value,
+    });
+  };
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleShowConfirmPassword = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
 
   // Function to handle form submission
   const handleSubmit = async (e) => {
@@ -45,6 +60,7 @@ const Logistics = () => {
       setLoading(false); // Hide loading indicator in case of error
       toast.error(error.message);
     }
+   
   };
   
   return (
@@ -66,10 +82,11 @@ const Logistics = () => {
         <div className="mb-3" style={{color:"black", }}>
           <label htmlFor="companyName" className="form-label" style={{color:"black", }}>Company Name:</label>
           <input
-            type="text"
-            id="companyName"
-            value={companyName}
-            onChange={(e) => setCompanyName(e.target.value)}
+            type={"text"}
+            id="name"
+            name="name"
+            value={data.name}
+            onChange={handleOnChange}
             className="form-control"
             required
           />
@@ -77,10 +94,11 @@ const Logistics = () => {
         <div className="mb-3">
           <label htmlFor="email" className="form-label">Email:</label>
           <input
-            type="email"
+            type={"email"}
             id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name="email"
+            value={data.email}
+            onChange={handleOnChange}
             className="form-control"
             required
           />
@@ -88,24 +106,40 @@ const Logistics = () => {
         <div className="mb-3">
           <label htmlFor="password" className="form-label">Password:</label>
           <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+           type={showPassword ? "text" : "password"}
+           id="password"
+           name="password"
+            value={data.password}
+            onChange={handleOnChange}
             className="form-control"
             required
           />
+          <button
+                    className="btn btn-outline-primary"
+                    type="button"
+                    onClick={handleShowPassword}
+                  >
+                    {showPassword ? <BiShow/> : <BiHide />}
+                  </button>
         </div>
         <div className="mb-3">
           <label htmlFor="confirmPassword" className="form-label">Confirm Password:</label>
           <input
-            type="password"
+            type={showConfirmPassword ? "text" : "password"}
             id="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            name="confirmPassword"
+            value={data.confirmPassword}
+            onChange={handleOnChange}
             className="form-control"
             required
           />
+               <button
+                    className="btn btn-outline-primary"
+                    type="button"
+                    onClick={handleShowPassword}
+                  >
+                    {showPassword ? <BiShow/> : <BiHide />}
+                  </button>
         </div>
         <label htmlFor="role">Role</label>
                 <select

@@ -90,7 +90,7 @@ const Buyer = () => {
               <img src={Register} style={{ width: "90%", height: "100%" }} alt="Logo" className="login-img" />
             </div>
             <div className="card bg-white p-4">
-              <form className="py-2" onSubmit={handleSubmit} style={{ color: "black", fontFamily: "" }}>
+              <form className="py-2" onSubmit={handleSubmit} style={{ color: "black" }}>
                 <label htmlFor="Name">Name</label>
                 <input
                   type={"text"}
@@ -176,7 +176,7 @@ const Buyer = () => {
                   )}
                 </div>
               </form>
-              <p className="text-left mt-2" style={{ color: "black", fontFamily: "" }}>
+              <p className="text-left mt-2" style={{ color: "black" }}>
                 Already have an account?{" "}
                 <Link to={"/login"} className="text-primary">
                   Login

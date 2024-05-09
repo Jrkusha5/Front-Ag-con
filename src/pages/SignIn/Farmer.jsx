@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import Register from "../../assets/img/register.png";
 
 const Farmer = () => {
   const [formData, setFormData] = useState({
@@ -45,11 +46,14 @@ const Farmer = () => {
         </div>
     </div>
     
-    <Container>
-      <Row className="justify-content-center">
-        <Col md={6}>
+    <Container className="d-flex justify-content-center " style={{fontSize:'20px'}}>
+    <div className="col-md-4 ">
+              <img src={Register} style={{ width: "100%", height: "100%" }} alt="Logo" className="login-img" />
+            </div>
+      <Row className="justify-content-center  ">
+        <Col md={12} className="bg-white" style={{color:'#36D7B7'}}>
           <Form onSubmit={handleSubmit} className="p-4">
-            <h2 style={{fontFamily:'sans-serif'}} className="mb-4">Create Account(Farmer)</h2>
+            <h2 className="mb-4">Create Account(Farmer)</h2>
             <Form.Group controlId="firstName" style={{fontSize:'20px'}}>
               <Form.Label>First Name</Form.Label>
               <Form.Control
@@ -120,7 +124,7 @@ const Farmer = () => {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button variant="primary text-center" type="submit">
               Sign Up
             </Button>
           </Form>

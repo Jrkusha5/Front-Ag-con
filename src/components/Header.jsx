@@ -74,7 +74,7 @@ const Header = () => {
               Login
             </Link>
           </div>
-
+       <h1>{user?.name}</h1>
           <div className="d-none d-lg-flex ms-4 justify-content-end">
             <Link to="/" className="btn-sm-square rounded-pill bg-white ms-3">
               <span className="fa fa-search" style={{ color: 'black' }}></span>
