@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo1 from '../assets/img/logo1.png';
 import '../styles/header.css'; // Import your CSS file for styling
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartTotal } from '../redux/cartSlice';
+import { authContext } from '../context/AuthContext';
 
 const Header = () => {
   const dispatch = useDispatch();
   const { totalItems } = useSelector((state) => state.cart);
+  const {user,role,token}= useContext(authContext);
 
   useEffect(() => {
     dispatch(getCartTotal());
