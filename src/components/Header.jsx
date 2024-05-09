@@ -1,7 +1,6 @@
 import React, { useState, useEffect,useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo1 from '../assets/img/logo1.png';
-import '../styles/header.css'; // Import your CSS file for styling
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartTotal } from '../redux/cartSlice';
 import { authContext } from '../context/AuthContext';
@@ -69,12 +68,13 @@ const Header = () => {
             <Link to="/contactUs" className="nav-item nav-link" >
               Contact
             </Link>
-            <Link to="/login" className="nav-item nav-link" >
+           
+          </div>
+          <Link to="/login" className="nav-item nav-link" style={{color:'black'}} >
               {/* <span className="fa fa-user" ></span> */}
               Login
             </Link>
-          </div>
-       <h1>{user?.name}</h1>
+       
           <div className="d-none d-lg-flex ms-4 justify-content-end">
             {/* <Link to="/" className="btn-sm-square rounded-pill bg-white ms-3">
               <span className="fa fa-search" ></span>

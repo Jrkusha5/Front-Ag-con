@@ -11,7 +11,8 @@ const Buyer = () => {
     email: "",
     password: "",
     confirmPassword: "",
-    role: "buyer", // Default role is set to buyer
+    role: "buyer",
+    photo: "", // Default role is set to buyer
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -21,12 +22,14 @@ const Buyer = () => {
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
-    setData({
-      ...data,
-      [name]: value,
-    });
-  };
 
+    if (name === "photo") { // Handle photo upload separately
+      const uploadedFile = e.target.files[0];
+      setData({ ...data, photo: uploadedFile }); // Store the uploaded file object
+    } else {
+      setData({ ...data, [name]: value });
+    }
+  };
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -91,6 +94,14 @@ const Buyer = () => {
             </div>
             <div className="card bg-white p-4">
               <form className="py-2" onSubmit={handleSubmit} style={{ color: "black" }}>
+              <label htmlFor="photo">Photo (optional)</label>
+      <input
+        type="file" // Specify file input type
+        id="photo"
+        name="photo"
+        className="form-control mb-2 rounded-pill"
+        onChange={handleOnChange}
+      />
                 <label htmlFor="Name">Name</label>
                 <input
                   type={"text"}
