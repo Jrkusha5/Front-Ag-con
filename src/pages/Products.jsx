@@ -1,6 +1,5 @@
 import React, { useState }  from 'react'
-import CommonHeading from '../components/CommonHeading'
-import grains from '../assets/img/grains.png'
+
 import { menu } from "../assets/data/Item";
 import Star from '../assets/img/Star.png'
 import { FaHeart } from 'react-icons/fa'
@@ -52,38 +51,6 @@ const Products = () => {
     </div>
     
     
-            {/* <div className='content'>
-              <div className="container-commodity">
-              <CommonHeading title="Our Products" description="Most Popular products in the Oneገበያ"/>
-
-                <div className="container ">
-                  <h2 className="commodity__title white text-center mt-4">
-                    Select a product to Buy/Sell
-                  </h2>
-                  <div className="row  rounded-pill">
-                    <div className="col-md-12 text-center ms-2 rounded-pill" style={{fontSize:'20px',color:'black',fontFamily:''}}>
-                      <button type='button' id='button_1' className='family_button rounded-pill' >
-                        <img src={grains} style={{height:'70px'}}  className="family__white-circle rounded-pill " alt="" />
-                        Grains
-                      </button>
-                      <button type='button' id='button_2' className='family_button rounded-pill' >
-                        <img src={grains} style={{height:'70px'}}  className="family__white-circle rounded-pill" alt="" />
-                        Vegetables
-                      </button>
-                      <button type='button' id='button_3' className='family_button rounded-pill' >
-                        <img src={grains} style={{height:'70px'}} className="family__white-circle rounded-pill" alt="" />
-                        Dairy
-                      </button>
-                      <button type='button' id='button_4' className='family_button rounded-pill' >
-                        <img src={grains} style={{height:'70px'}} className="family__white-circle rounded-pill" alt="" />
-                        Fruits
-                      </button>
-                    </div>
-
-                  </div>
-                  
-            </div>
-            </div> */}
             <div className="container-fluid menu bg-light py-6 my-6">
             <h2 className="commodity__title white text-center text-uppercase mt-4"style={{ color:'black'}}>
                     Select a product to Buy
@@ -94,8 +61,9 @@ const Products = () => {
           <ul className="nav nav-pills d-inline-flex justify-content-center mb-5">
             <li className="nav-item" >
               <a
-                className='nav-link py-2 mx-2 border border-primary text-uppercase bg-white rounded-pill' 
+                className='nav-link py-2 mx-2 border border-primary text-uppercase bg-white rounded-pill hover-primary' 
                 onClick={() => filterItems("all")} style={{color:'black'}}
+                
               >
                 All Items
               </a>
@@ -124,14 +92,7 @@ const Products = () => {
                 Dairy
               </a>
             </li>
-            <li className="nav-item">
-              <a
-                className='nav-link py-2 mx-2 border border-primary text-uppercase bg-white rounded-pill'
-                onClick={() => filterItems("offers")} style={{color:'black'}}
-              >
-                Offers
-              </a>
-            </li>
+            
             <li className="nav-item">
               <a
                 className='nav-link py-2 mx-2 border border-primary text-uppercase bg-white rounded-pill'
@@ -162,7 +123,7 @@ const Products = () => {
                         <label htmlFor="">Farmer: {item.farmer}</label>
                         <div >
                           <button>
-                          <FaHeart className=' rounded-circle '/>
+                          <FaHeart />
                           </button>
                         </div>
                         <div>

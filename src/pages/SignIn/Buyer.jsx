@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { BiShow, BiHide } from "react-icons/bi";
-import Register from "../../assets/img/register.png";
+import Images from "../../assets/img/images.png";
 import HashLoader from 'react-spinners/HashLoader'; // Assuming you're using HashLoader for loading indication
 
 const Buyer = () => {
@@ -90,7 +90,7 @@ const Buyer = () => {
         <div className="row justify-content-center">
           <div className="col-12 col-md-6 d-flex g-1 ">
             <div className="col-md-6">
-              <img src={Register} style={{ width: "90%", height: "100%" }} alt="Logo" className="login-img" />
+              <img src={Images} style={{ width: "90%", height: "100%" }} alt="Logo" className="login-img" />
             </div>
             <div className="card bg-white p-4">
               <form className="py-2" onSubmit={handleSubmit} style={{ color: "black" }}>

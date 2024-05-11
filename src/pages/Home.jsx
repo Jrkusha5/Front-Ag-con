@@ -1,8 +1,8 @@
 import React from 'react'
 import Carousel1 from '../assets/img/carousel-1.jpg'
 import Carousel2 from '../assets/img/carousel-2.jpg'
-import About2 from '../assets/img/about2.jpg'
-import Price1 from '../assets/img/price .png'
+import Green from '../assets/img/green-1.webp'
+import Price1 from '../assets/img/green-2.webp'
 import Trust from '../assets/img/trust.png'
 import Trading from '../assets/img/trading.png'
 import Check from '../assets/img/check.png'
@@ -70,7 +70,7 @@ const Home = () => {
             <div className="row g-5 align-items-center">
                 <div className="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div className="about-img position-relative overflow-hidden p-5 pe-0">
-                        <img className="img-fluid w-100 rounded-pill" src={About2}/>
+                        <img className="img-fluid w-100 rounded-pill" src={Green}/>
                     </div>
                 </div>
                 <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
@@ -144,7 +144,7 @@ const Home = () => {
     <div className="row">
       <div className="col-12">
         <h1 className='text-center'>
-          KEY <green>FEATURES</green>
+          KEY FEATURES
         </h1>
       </div>
     </div>
