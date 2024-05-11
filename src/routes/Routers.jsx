@@ -3,7 +3,7 @@ import Home from '../pages/Home';
 import ContactUs from '../pages/ContactUs'
 import Login from '../pages/Login'
 import Products from '../pages/Products'
-import AboutUs from '../pages/AboutUs';
+// import AboutUs from '../pages/AboutUs';
 import SignUp from '../pages/SignUp';
 import Cart from '../pages/Cart';
 import Farmer from '../pages/SignIn/Farmer'
@@ -18,7 +18,7 @@ const Routers = () => {
     <Routes>
     <Route path='/' element={<Home/>}/>
     <Route path='/contactUs' element={<ContactUs/>}/>
-    <Route path='/aboutUs' element={<AboutUs/>}/>
+    {/* <Route path='/aboutUs' element={<AboutUs/>}/> */}
     <Route path='/login' element={<Login/>}/>
     <Route path='/Signup' element={<SignUp/>}/>
     <Route path='/Cart' element={<Cart/>}/>

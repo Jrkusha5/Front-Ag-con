@@ -21,7 +21,7 @@ const Header = () => {
   };
 
   return (
-    <div className="container-fluid fixed-top pt-3 wow fadeIn" data-wow-delay="0.1s">
+    <div className="container-fluid fixed-top pt-4 wow fadeIn" data-wow-delay="0.1s">
       {/* Top bar can be added here if needed */}
 
       <nav
@@ -30,7 +30,7 @@ const Header = () => {
         }`}
         data-wow-delay="0.1s"
       >
-        <Link to="/" className="navbar-brand ms-4 ms-lg-0">
+        <Link to="/" className="navbar-brand pt-3 ms-4 ms-lg-0">
           <img src={logo1} alt="Your Logo" style={{ width: '300px', height: '120px' }} />
         </Link>
         <button
@@ -59,9 +59,7 @@ const Header = () => {
             <Link to="/" className="nav-item nav-link active" >
               Home
             </Link>
-            <Link to="/aboutUs" className="nav-item nav-link" >
-              About
-            </Link>
+            
             <Link to="/Products" className="nav-item nav-link" >
               Products
             </Link>
@@ -70,9 +68,13 @@ const Header = () => {
             </Link>
            
           </div>
-          <Link to="/login" className="nav-item nav-link" style={{color:'black'}} >
+          <Link to="/login" className="nav-item nav-link justify-content-end " style={{color:'black'}} >
               {/* <span className="fa fa-user" ></span> */}
               Login
+            </Link>
+            <Link to="/Cart" className="btn-cart btn-md-square btn btn-black bg-white rounded-pill ms-4 d-lg-inline-flex">
+              <i className="fa fa-shopping-cart"></i>
+              <span className="btn-sm rounded-circle btn-danger d-lg-inline-block">{totalItems}</span>
             </Link>
        
           <div className="d-none d-lg-flex ms-4 justify-content-end">
@@ -80,10 +82,7 @@ const Header = () => {
               <span className="fa fa-search" ></span>
             </Link> */}
             
-            <Link to="/Cart" className="btn-cart btn-md-square btn btn-black bg-white rounded-pill ms-3 d-none d-lg-inline-flex">
-              <i className="fa fa-shopping-cart"></i>
-              <span className="btn-sm rounded-circle btn-danger d-none d-lg-inline-block">{totalItems}</span>
-            </Link>
+          
           </div>
         </div>
       </nav>

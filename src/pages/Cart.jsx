@@ -162,19 +162,19 @@ const Cart = () => {
                       <h5 className="mb-0 me-4">Subtotal:</h5>
                       <p className="mb-0">Birr:{totalAmount}</p>
                     </div>
-                    <div className="d-flex justify-content-between">
+                    {/* <div className="d-flex justify-content-between">
                       <h5 className="mb-0 me-4">Shipping</h5>
                       <div> 
                          <p className="mb-0">Flat rate: ${deliverCharge}</p>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
                     <h5 className="mb-0 ps-4 me-4">Total</h5>
                     <p className="mb-0 pe-4">Birr: {totalAmount + deliverCharge}</p>
                   </div>
                    <button
-                    className="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"
+                    className="btn border-primary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"
                     type="button"
                   >
                     Proceed Checkout

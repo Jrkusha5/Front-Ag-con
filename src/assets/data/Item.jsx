@@ -8,7 +8,7 @@ export const menu = [
     content:
       "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
     img:'../assets/img/product-4.jpg',
-    category: "starter",
+    category: "Grains",
     farmer:"kebede",
     btn: "Add To Cart",
     "reviews": [
@@ -33,7 +33,7 @@ export const menu = [
     content:
       "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
     img: '../assets/img/product-3.jpg',
-    category: "starter",
+    category: "Vegetables",
     farmer:"kebede",
     btn: "Add To Cart",
   },
@@ -44,7 +44,7 @@ export const menu = [
     content:
       "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
     img: '../assets/img/product-2.jpg',
-    category: "starter",
+    category: "Fruits",
     farmer:"kebede",
     btn: "Add To Cart",
   },
@@ -55,7 +55,7 @@ export const menu = [
     content:
       "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
     img: '../assets/img/product-6.jpg',
-    category: "starter",
+    category: "Dairy",
     farmer:"Bekele",
     btn: "Add To Cart",
   },
@@ -66,7 +66,7 @@ export const menu = [
     content:
       "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
     img: '../assets/img/product-4.jpg',
-    category: "starter",
+    category: "Dairy",
     farmer:"kebede",
     btn: "Add To Cart",
   },
@@ -76,8 +76,8 @@ export const menu = [
     price: "90",
     content:
       "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img:'../assets/img/product-4.jpg',
-    category: "starter",
+    img:'../assets/img/product-11.jpg',
+    category: "Fruits",
     farmer:"kebede",
     btn: "Add To Cart",
   },
@@ -88,7 +88,7 @@ export const menu = [
     content:
       "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
     img: '../assets/img/product-6.jpg',
-    category: "starter",
+    category: "Vegetables",
     farmer:"kebede",
     btn: "Add To Cart",
   },
@@ -99,8 +99,8 @@ export const menu = [
     content:
       "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
     img: '../assets/img/product-2.jpg',
-    category: "starter",
-    farmer:"kebede",
+    category: "Grains",
+    farmer:"Bekelle",
     btn: "Add To Cart",
   },
   {
@@ -114,121 +114,121 @@ export const menu = [
     farmer:"kebede",
     btn: "Add To Cart",
   },
-  {
-    id: 10,
-    name: "Crispy",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: '../assets/img/product-8.jpg',
-    category: "maincourse",
-    farmer:"kebede",
-    btn: "Add To Cart",
-  },
-  {
-    id: 11,
-    name: "Lemon",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: '../assets/img/product-7.jpg',
-    category: "maincourse",
-    farmer:"kebede",
-    btn: "Add To Cart",
-  },
-  {
-    id: 12,
-    name: "Blooming",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: '../assets/img/product-7.jpg',
-    category: "ourspecials",
-    farmer:"kebede",
-    btn: "Add To Cart",
-  },
-  {
-    id: 13,
-    name: "Paneer",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-01.jpg",
-    category: "ourspecials",
-    farmer:"Fikadu",
-    btn: "Add To Cart",
-  },
-  {
-    id: 14,
-    name: "Crispy Water",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-03.jpg",
-    category: "drinks",
-    farmer:"kassahun",
-    btn: "Add To Cart",
-  },
-  {
-    id: 15,
-    name: "Orange Juice",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-09.jpg",
-    category: "drinks",
-    btn: "Add To Cart",
-  },
-  {
-    id: 16,
-    name: "Crispy Water",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-10.jpg",
-    category: "offers",
-    btn: "Add To Cart",
-  },
-  {
-    id: 17,
-    name: "Juice",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/product-4.jpg",
-    category: "drinks",
-    btn: "Add To Cart",
-  },
-  {
-    id: 18,
-    name: "Apple Juice",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-01.jpg",
-    category: "drinks",
-    btn: "Add To Cart",
-  },
-  {
-    id: 19,
-    name: "Paneer",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-01.jpg",
-    category: "maincourse",
-    btn: "Add To Cart",
-  },
-  {
-    id: 20,
-    name: "Lemon",
-    price: "90",
-    content:
-      "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: "../assets/img/menu-01.jpg",
-    category: "offers",
-    btn: "Add To Cart",
-  },
+  // {
+  //   id: 10,
+  //   name: "Crispy",
+  //   price: "90",
+  //   content:
+  //     "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
+  //   img: '../assets/img/product-8.jpg',
+  //   category: "maincourse",
+  //   farmer:"kebede",
+  //   btn: "Add To Cart",
+  // },
+  // {
+  //   id: 11,
+  //   name: "Lemon",
+  //   price: "90",
+  //   content:
+  //     "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
+  //   img: '../assets/img/product-7.jpg',
+  //   category: "maincourse",
+  //   farmer:"kebede",
+  //   btn: "Add To Cart",
+  // },
+  // {
+  //   id: 12,
+  //   name: "Blooming",
+  //   price: "90",
+  //   content:
+  //     "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
+  //   img: '../assets/img/product-7.jpg',
+  //   category: "ourspecials",
+  //   farmer:"kebede",
+  //   btn: "Add To Cart",
+  // },
+  // {
+  //   id: 13,
+  //   name: "Paneer",
+  //   price: "90",
+  //   content:
+  //     "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
+  //   img: "../assets/img/menu-01.jpg",
+  //   category: "ourspecials",
+  //   farmer:"Fikadu",
+  //   btn: "Add To Cart",
+  // },
+  // {
+  //   id: 14,
+  //   name: "Crispy Water",
+  //   price: "90",
+  //   content:
+  //     "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
+  //   img: "../assets/img/menu-03.jpg",
+  //   category: "drinks",
+  //   farmer:"kassahun",
+  //   btn: "Add To Cart",
+  // },
+  // {
+  //   id: 15,
+  //   name: "Orange Juice",
+  //   price: "90",
+  //   content:
+  //     "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
+  //   img: "../assets/img/menu-09.jpg",
+  //   category: "drinks",
+  //   btn: "Add To Cart",
+  // },
+  // {
+  //   id: 16,
+  //   name: "Crispy Water",
+  //   price: "90",
+  //   content:
+  //     "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
+  //   img: "../assets/img/menu-10.jpg",
+  //   category: "offers",
+  //   btn: "Add To Cart",
+  // },
+  // {
+  //   id: 17,
+  //   name: "Juice",
+  //   price: "90",
+  //   content:
+  //     "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
+  //   img: "../assets/img/product-4.jpg",
+  //   category: "drinks",
+  //   btn: "Add To Cart",
+  // },
+  // {
+  //   id: 18,
+  //   name: "Apple Juice",
+  //   price: "90",
+  //   content:
+  //     "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
+  //   img: "../assets/img/menu-01.jpg",
+  //   category: "drinks",
+  //   btn: "Add To Cart",
+  // },
+  // {
+  //   id: 19,
+  //   name: "Paneer",
+  //   price: "90",
+  //   content:
+  //     "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
+  //   img: "../assets/img/menu-01.jpg",
+  //   category: "maincourse",
+  //   btn: "Add To Cart",
+  // },
+  // {
+  //   id: 20,
+  //   name: "Lemon",
+  //   price: "90",
+  //   content:
+  //     "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
+  //   img: "../assets/img/menu-01.jpg",
+  //   category: "offers",
+  //   btn: "Add To Cart",
+  // },
 ];
 
 export const footerIcon = [

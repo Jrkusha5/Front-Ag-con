@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {  useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { BiShow, BiHide } from "react-icons/bi";
+import Bg1 from '../../assets/img/bg.svg'
 
 const Logistics = () => {
  
@@ -75,12 +76,21 @@ const Logistics = () => {
             </nav>
         </div>
     </div>
-    <h2 className='text-center mb-4' style={{}}> Sign Up</h2>
-    <div className="container w-25 bg-white justify-content-center">
+    <div className="container pt-7">
+    <div className="row justify-content-center">
+    <div className="col-md-8 mx-auto">
+    <div className="row d-flex">
+    <div className="col-md-6 d-flex pt-4 align-items-center">
+                <img src={Bg1} alt="Logo" className="login-img" />
+              </div>
+    
+              <div className="col-md-6">
+                <div className="form-container">
+                  <h1 className="text-center mb-4">SignUp(Logistic)</h1>
       
       <form onSubmit={handleSubmit}  >
-        <div className="mb-3" style={{color:"black", }}>
-          <label htmlFor="companyName" className="form-label" style={{color:"black", }}>Company Name:</label>
+        <div className="mb-3" style={{color:"black",fontSize:'20px' }}>
+          <label htmlFor="companyName" className="form-label" style={{color:"black", fontSize:'20px' }}>Company Name:</label>
           <input
             type={"text"}
             id="name"
@@ -91,7 +101,7 @@ const Logistics = () => {
             required
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-3" style={{color:"black",fontSize:'20px' }}>
           <label htmlFor="email" className="form-label">Email:</label>
           <input
             type={"email"}
@@ -103,7 +113,7 @@ const Logistics = () => {
             required
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-3" style={{color:"black",fontSize:'20px' }}>
           <label htmlFor="password" className="form-label">Password:</label>
           <input
            type={showPassword ? "text" : "password"}
@@ -122,7 +132,7 @@ const Logistics = () => {
                     {showPassword ? <BiShow/> : <BiHide />}
                   </button>
         </div>
-        <div className="mb-3">
+        <div className="mb-3" style={{color:"black",fontSize:'20px' }}>
           <label htmlFor="confirmPassword" className="form-label">Confirm Password:</label>
           <input
             type={showConfirmPassword ? "text" : "password"}
@@ -141,7 +151,7 @@ const Logistics = () => {
                     {showPassword ? <BiShow/> : <BiHide />}
                   </button>
         </div>
-        <label htmlFor="role">Role</label>
+        <label htmlFor="role" style={{color:"black",fontSize:'20px' }}>Role</label>
                 <select
                   id="role"
                   name="role"
@@ -150,12 +160,17 @@ const Logistics = () => {
                   onChange={handleOnChange}
                   disabled // Disable role selection for simplicity (adjust as needed)
                 >
-                  <option value="transportation">Transportation</option>
+                  <option value="transportation" style={{color:"black",fontSize:'20px' }}>Transportation</option>
                 </select>
         <button type="submit" className="btn btn-primary text-center">Sign Up</button>
       </form>
     </div>
     </div>
+    </div>
+    </div>
+    </div>
+     </div>
+     </div>
   )
 }
 

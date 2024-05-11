@@ -103,7 +103,7 @@ const Products = () => {
             <li className="nav-item">
               <a
                 className='nav-link py-2 mx-2 border border-primary text-uppercase bg-white rounded-pill' 
-                onClick={() => filterItems("starter")} style={{color:'black'}}
+                onClick={() => filterItems("Grains")} style={{color:'black'}}
               >
                 Grains
               </a>
@@ -111,7 +111,7 @@ const Products = () => {
             <li className="nav-item">
               <a
                 className='nav-link py-2 mx-2 border border-primary text-uppercase bg-white rounded-pill'
-                onClick={() => filterItems("maincourse")} style={{color:'black'}}
+                onClick={() => filterItems("Vegetables")} style={{color:'black'}}
               >
                 Vegetables
               </a>
@@ -119,7 +119,7 @@ const Products = () => {
             <li className="nav-item">
               <a
                 className='nav-link py-2 mx-2 border border-primary text-uppercase  bg-white rounded-pill'
-                onClick={() => filterItems("drinks")} style={{color:'black'}}
+                onClick={() => filterItems("Dairy")} style={{color:'black'}}
               >
                 Dairy
               </a>
@@ -135,7 +135,7 @@ const Products = () => {
             <li className="nav-item">
               <a
                 className='nav-link py-2 mx-2 border border-primary text-uppercase bg-white rounded-pill'
-                onClick={() => filterItems("ourspecials")} style={{color:'black'}}
+                onClick={() => filterItems("Fruits")} style={{color:'black'}}
               >
                 Fruits
               </a>
