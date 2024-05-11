@@ -3,8 +3,8 @@
 export const menu = [
   {
     id: 1,
-    name: "Paneer",
-    price: "90",
+    name: "Strawberry",
+    price: "190",
     content:
       "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
     img:'../assets/img/product-4.jpg',
@@ -28,8 +28,8 @@ export const menu = [
   },
   {
     id: 2,
-    name: "Sweet Potato",
-    price: "90",
+    name: "Chilli(ቃሪያ)",
+    price: "80",
     content:
       "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
     img: '../assets/img/product-3.jpg',
@@ -39,8 +39,8 @@ export const menu = [
   },
   {
     id: 3,
-    name: "Sabudana Tikki",
-    price: "90",
+    name: "PineApple",
+    price: "110",
     content:
       "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
     img: '../assets/img/product-2.jpg',
@@ -50,8 +50,8 @@ export const menu = [
   },
   {
     id: 4,
-    name: "Pizza",
-    price: "90",
+    name: "Tomato",
+    price: "60",
     content:
       "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
     img: '../assets/img/product-6.jpg',
@@ -61,41 +61,41 @@ export const menu = [
   },
   {
     id: 5,
-    name: "Bacon",
-    price: "90",
+    name: "Sweat Tomato",
+    price: "80",
     content:
       "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: '../assets/img/product-4.jpg',
+    img: '../assets/img/product-1.jpg',
     category: "Dairy",
     farmer:"kebede",
     btn: "Add To Cart",
   },
   {
     id: 6,
-    name: "Chicken",
-    price: "90",
+    name: "Banana",
+    price: "60",
     content:
       "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img:'../assets/img/product-11.jpg',
+    img:'../assets/img/product-8.jpg',
     category: "Fruits",
     farmer:"kebede",
     btn: "Add To Cart",
   },
   {
     id: 7,
-    name: "Blooming",
-    price: "90",
+    name: "Cucumber",
+    price: "120",
     content:
       "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: '../assets/img/product-6.jpg',
+    img: '../assets/img/product-5.jpg',
     category: "Vegetables",
     farmer:"kebede",
     btn: "Add To Cart",
   },
   {
     id: 8,
-    name: "Sweet",
-    price: "90",
+    name: "Sweet PineApple",
+    price: "100",
     content:
       "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
     img: '../assets/img/product-2.jpg',
@@ -105,12 +105,12 @@ export const menu = [
   },
   {
     id: 9,
-    name: "Argentinian",
+    name: "Potato",
     price: "90",
     content:
       "Consectetur adipiscing elit sed dwso eiusmod tempor incididunt ut labore.",
-    img: '../assets/img/grains.png',
-    category: "maincourse",
+    img: '../assets/img/product-7.jpg',
+    category: "Vegetables",
     farmer:"kebede",
     btn: "Add To Cart",
   },
