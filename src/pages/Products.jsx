@@ -122,9 +122,9 @@ const Products = () => {
                         <p className="mb-0">{item.content}</p>
                         <label htmlFor="">Farmer: {item.farmer}</label>
                         <div >
-                          <button>
-                          <FaHeart />
-                          </button>
+                        <button type="button" class="btn btn-light btn-lg rounded-pill shadow-sm">
+                           <FaHeart />
+                        </button>
                         </div>
                         <div>
                         <img style={{width:'15px'}} src={Star} alt="" />
