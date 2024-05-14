@@ -20,38 +20,38 @@ const SignUp = () => {
     </div>
     </div>
 
-    <div class="container">
-    <h1 class="text-center mb-4">Welcome to One ገበያ</h1>
-    <h3 class="text-center">Before you start, please tell us who you are:</h3>
-    <div class="row justify-content-center mt-4">
-      <div class="col-md-4">
-        <div class="card mb-3">
-          <div class="card-body text-center">
-            <h5 class="card-title">🌾Farmer</h5>
-            <Link to='/signUpFarmer' class="btn btn-primary rounded-pill btn-lg btn-block">Select</Link>
+    <div className="container">
+    <h2 className="text-center mb-4">Welcome to One ገበያ</h2>
+    <h4 className="text-center">Before you start, please tell us who you are:</h4>
+    <div className="row justify-content-center mt-4">
+      <div className="col-md-4">
+        <div className="card mb-3">
+          <div className="card-body text-center">
+            <h5 className="card-title">🌾Farmer</h5>
+            <Link to='/signUpFarmer' className="btn btn-primary rounded-pill btn-lg btn-block">Select</Link>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card mb-3">
-          <div class="card-body text-center">
-            <h5 class="card-title">🛒Buyer</h5>
-            <Link to='/signUpBuyer' class="btn btn-primary rounded-pill btn-lg btn-block">Select</Link>
+      <div className="col-md-4">
+        <div className="card mb-3">
+          <div className="card-body text-center">
+            <h5 className="card-title">🛒Buyer</h5>
+            <Link to='/signUpBuyer' className="btn btn-primary rounded-pill btn-lg btn-block">Select</Link>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card mb-3">
-          <div class="card-body text-center">
-            <h5 class="card-title">🚚Logistic</h5>
-            <Link to='/signUpLogistics' class="btn btn-primary rounded-pill btn-lg btn-block">Select</Link>
+      <div className="col-md-4">
+        <div className="card mb-3">
+          <div className="card-body text-center">
+            <h5 className="card-title">🚚Logistic</h5>
+            <Link to='/signUpLogistics' className="btn btn-primary rounded-pill btn-lg btn-block">Select</Link>
 
           </div>
         </div>
       </div>
     </div>
-    <Link to='/login' class="btn btn-success btn-lg btn-block mt-4 rounded-pill">Back to Login</Link>
-    <p class="text-center mt-3">By clicking "Continue", you agree to our Terms of Service and <a href="#">Privacy Policy</a>.</p>
+    <Link to='/login' className="btn btn-success btn-lg btn-block mt-4 rounded-pill">Back to Login</Link>
+    <p className="text-center mt-3">By clicking "Continue", you agree to our Terms of Service and <a href="#">Privacy Policy</a>.</p>
   </div>
     </div>
 

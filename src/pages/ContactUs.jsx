@@ -21,7 +21,7 @@ const ContactUs = () => {
         <div className="container mt-2">
             <div className="section-header text-center mx-auto mb-3 wow fadeInUp" data-wow-delay="0.1s"  style={{maxWidth: '500px',fontFamily:'',fontSize:'22px'}}>
                 <h1 className="display-5 mb-3">Contact Us</h1>
-                <p className='text-dark' >Got a technical issue? Want to send feedback about a beta feature? let 
+                <p className='text-dark' >Got a technical issue? Want to send feedback about the site let 
           us Know.</p>
             </div>
             <div className="row g-5 justify-content-center">

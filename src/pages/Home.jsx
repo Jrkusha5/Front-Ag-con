@@ -22,14 +22,14 @@ const Home = () => {
         <div id="header-carousel" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-inner">
                 <div className="carousel-item active">
-                    <img className="w-100" src={Carousel1} alt="Image"/>
+                    <img className="w-100" src={Green} alt="Image"/>
                     <div className="carousel-caption">
                         <div className="container">
                             <div className="row justify-content-start">
                                 <div className="col-lg-7">
-                                    <h1 className="display-2 mb-5 animated slideInDown" style={{fontFamily:''}} >OnE ገበያ where Fair trade made Easy.</h1>
-                                    <Link to='/products' className="btn btn-primary  py-sm-3 px-sm-5" style={{borderRadius:'50px',fontFamily:'inherit',fontSize:'23px',color:'black'}}>Products</Link>
-                                    <Link to ='/contactUs'  className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3"style={{borderRadius:'50px',fontFamily:'inherit',fontSize:'23px',color:'black'}}>Services</Link>
+                                    <h2 className="display-2 mb-5 animated slideInDown" style={{fontFamily:''}} >OnE ገበያ where Fair trade made Easy.</h2>
+                                    <Link to='/products' className="btn btn-primary  py-sm-3 px-sm-5" style={{borderRadius:'50px',fontSize:'23px',color:'black'}}>Products</Link>
+                                    <Link to ='/contactUs'  className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3"style={{borderRadius:'50px',fontSize:'23px',color:'black'}}>Services</Link>
                                 </div>
                             </div>
                         </div>
@@ -42,8 +42,8 @@ const Home = () => {
                             <div className="row justify-content-start">
                                 <div className="col-lg-7">
                                     <h1 className="display-2 mb-5 animated bounceInDown" style={{fontFamily:''}}>Organic Products Are Always Healthy</h1>
-                                    <Link to='/products' className="btn btn-primary rounded-pill py-sm-3 px-sm-5" style={{borderRadius:'50px',fontFamily:'inherit',fontSize:'23px',color:'black'}}>Products</Link >
-                                    <Link to='/contactUs' className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3" style={{borderRadius:'50px',fontFamily:'inherit',fontSize:'23px',color:'black'}}>Contact Us</Link>
+                                    <Link to='/products' className="btn btn-primary rounded-pill py-sm-3 px-sm-5" style={{borderRadius:'50px',fontSize:'23px',color:'black'}}>Products</Link >
+                                    <Link to='/contactUs' className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3" style={{borderRadius:'50px',fontSize:'23px',color:'black'}}>Contact Us</Link>
                                 </div>
                             </div>
                         </div>

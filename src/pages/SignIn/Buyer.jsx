@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { BiShow, BiHide } from "react-icons/bi";
+import {BsArrowLeft} from 'react-icons/bs';
 import Images from "../../assets/img/images.png";
 import HashLoader from 'react-spinners/HashLoader'; // Assuming you're using HashLoader for loading indication
 
@@ -85,6 +86,11 @@ const Buyer = () => {
           </nav>
         </div>
       </div>
+      <div className="col-md-4">
+<Link className="btn btn-success btn-lg btn-block mt-4 rounded-pill" to='/Signup'>
+<BsArrowLeft/>
+</Link>
+</div>
       <div className="container w-100 py-3">
         <h2 className="text-center">SignUp</h2>
         <div className="row justify-content-center">

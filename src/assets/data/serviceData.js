@@ -11,7 +11,7 @@ const serviceData = [
   {
     icon: <FaRedoAlt className="text-dark fa-2x" />, // Use FaRedoAlt component
     title: "Easy Returns",
-    subtitle: "Lorem ipsum dolor sit amet.",
+    subtitle: "we will return easily.",
     bg: "#ceebe9",
   },
   {
