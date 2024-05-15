@@ -8,7 +8,7 @@ import {
   updateQuantity,
 } from "../redux/cartSlice";
 import emptyCartImage from "../assets/img/empty.gif"
-// import StripeCheckout from "react-stripe-checkout";
+
 
 const Cart = () => { 
   const dispatch = useDispatch();
@@ -42,12 +42,7 @@ const Cart = () => {
     
   );
 
-  // const publishableKey =
-  //   "pk_test_51OcmIbCxCPSowgrvLVfa9jUamXTHsITT2UNGG7Ojx60KkvMcQakUBVZtKgzE5TmXMJAlarNwxuzFQ4e0r7ZNcGrW00dnVF5R6o";
-
-  // const onToken = (token) => {
-  //   // Handle the token (send it to your server for further processing)
-  //   console.log(token);
+ 
   
   return (
     <>
@@ -67,7 +62,7 @@ const Cart = () => {
       {cartProducts.length === 0 ? (
         emptyCartMsg
       ) : (
-        <div className="container-fluid py-5" style={{ fontFamily:'',fontSize:"20px",color:'black'}}>
+        <div className="container-fluid py-5" style={{ fontSize:"20px",color:'black'}}>
           <div className="container py-5" >
             <div className="table-responsive">
               <table className="table" style={{color:'black'}}>
@@ -180,15 +175,7 @@ const Cart = () => {
                   >
                     Proceed Checkout
                   </button>
-                  {/* <StripeCheckout
-                    token={onToken}
-                    stripeKey={publishableKey}
-                    amount={100 * totalAmount} // Amount in cents
-                    name="MD"
-                    currency="USD"
-                    label="Proceed Checkout"
-                    className="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"
-                  /> */}
+                 
                 </div>
               </div>
             </div>
