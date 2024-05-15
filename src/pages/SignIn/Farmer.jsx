@@ -10,6 +10,7 @@ const Farmer = () => {
     confirmPassword: "",
     image: null,
     licenses: "",
+    role: "transportation",
   });
 
   const handleChange = (e) => {

@@ -13,7 +13,7 @@ const Logistics = () => {
     email: "",
     password: "",
     confirmPassword: "",
-    role: "logistics", // Default role is set to buyer
+    role: "transportation", // Default role is set to buyer
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();

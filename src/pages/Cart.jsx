@@ -41,6 +41,52 @@ const Cart = () => {
     </h4>
     
   );
+  const handleCheckout = async () => {
+    const cartData = { cartItems: cartProducts, totalAmount }; // Cart data for backend
+
+    // 1. Create Chapa Payment Link on Backend
+    const response = await fetch("http://localhost:3000/api/v1/create-chapa-link", {
+      method: "POST",
+      body: JSON.stringify(cartData),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error(data.message);
+      return; // Handle errors (display user-friendly message)
+    }
+
+    const { paymentLink } = data; // Get Chapa payment link from backend response
+
+    // 2. Redirect User to Chapa Payment Link
+    window.location.href = paymentLink;
+  };
+
+  const handleOrderConfirmation = async () => {
+    // This function will be called by your backend after successful Chapa payment
+    // You'll likely receive a notification from Chapa and use that to confirm the order.
+
+    const response = await fetch("http://localhost:3000/api/v1/order", {
+      method: "POST",
+      body: JSON.stringify({ cartProducts }), // Order confirmation data (cart items)
+      headers: { "Content-Type": "application/json" },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error(data.message);
+      return; // Handle errors (display user-friendly message)
+    }
+
+    console.log("Order confirmed successfully!", data); // Log confirmation details
+
+    // Update UI to show successful order confirmation (optional)
+    alert("Order confirmed! Thank you for your purchase."); // Simple confirmation alert
+    dispatch(getCartTotal()); // Refresh cart data (assuming it's cleared on backend)
+  };
 
  
   
@@ -171,7 +217,7 @@ const Cart = () => {
                   </div>
                    <button
                     className="btn border-primary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"
-                    type="button"
+                    type="button" onClick={handleCheckout}
                   >
                     Proceed Checkout
                   </button>
