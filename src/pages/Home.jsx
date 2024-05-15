@@ -22,7 +22,7 @@ const Home = () => {
         <div id="header-carousel" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-inner">
                 <div className="carousel-item active">
-                    <img className="w-100" src={Green} alt="Image"/>
+                    <img className="w-100" src={Carousel1} alt="Image"/>
                     <div className="carousel-caption">
                         <div className="container">
                             <div className="row justify-content-start">

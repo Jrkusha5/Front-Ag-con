@@ -3,14 +3,14 @@ import Home from '../pages/Home';
 import ContactUs from '../pages/ContactUs'
 import Login from '../pages/Login'
 import Products from '../pages/Products'
-// import AboutUs from '../pages/AboutUs';
+
 import SignUp from '../pages/SignUp';
 import Cart from '../pages/Cart';
 import Farmer from '../pages/SignIn/Farmer'
 import Buyer from '../pages/SignIn/Buyer'
 import Logistics from '../pages/SignIn/Logistics'
 
-// import Product from '../components/Product';
+
 import {Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoutes';
 import MyAccount from '../Dashboard/buyer-account/MyAccount';
@@ -21,7 +21,7 @@ const Routers = () => {
     <Routes>
     <Route path='/' element={<Home/>}/>
     <Route path='/contactUs' element={<ContactUs/>}/>
-    {/* <Route path='/aboutUs' element={<AboutUs/>}/> */}
+    
     <Route path='/login' element={<Login/>}/>
     <Route path='/Signup' element={<SignUp/>}/>
     <Route path='/Cart' element={<Cart/>}/>
@@ -30,8 +30,8 @@ const Routers = () => {
     <Route path='/signUpBuyer' element={<Buyer/>}/>
     <Route path='/signUpLogistics' element={<Logistics/>}/>
 
-    <Route path="/buyer/profile" element={<ProtectedRoute allowedRoles={['buyer']}><MyAccount/></ProtectedRoute>}/>
-    <Route path="/farmer/profile" element={<ProtectedRoute allowedRoles={['farmer']}> <Dashboard/> </ProtectedRoute>}/>
+    <Route path="/buyer" element={<ProtectedRoute allowedRoles={['buyer']}> <MyAccount/></ProtectedRoute>}/>
+    <Route path="/farmer" element={<ProtectedRoute allowedRoles={['farmer']}> <Dashboard/> </ProtectedRoute>}/>
    </Routes>
   )
 }

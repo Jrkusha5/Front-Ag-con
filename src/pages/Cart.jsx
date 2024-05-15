@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect ,useContext} from "react";
+
 
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -86,8 +87,8 @@ const Cart = () => {
                       <th scope="row">
                         <div className="d-flex align-items-center">
                           <img
-                            src={cartProduct.img}
-                            alt={cartProduct.img}
+                            src={cartProduct.image}
+                            alt={cartProduct.image}
                             style={{ width: 100 }}
                           />
                         </div>
