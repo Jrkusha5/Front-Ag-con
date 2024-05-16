@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo1 from '../assets/img/logo1.png';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCartTotal } from '../redux/cartSlice';
+import { useSelector } from 'react-redux';
+import { getCartTotal } from '../redux/cartSlice'; // Assuming LOGOUT action is defined
 import { authContext } from '../context/AuthContext';
 
 const Header = () => {
-  const dispatch = useDispatch();
+  const {dispatch} = useContext(authContext);
+  const { dropdownMenu, setDropdownMenu } = useState(false);
+
   const { totalItems } = useSelector((state) => state.cart);
   const { user, role, token } = useContext(authContext);
 
@@ -18,6 +20,10 @@ const Header = () => {
 
   const handleToggle = () => {
     setShowMenu(!showMenu);
+  };
+
+  const handleLogout = () => {
+    dispatch({type:'LOGOUT'}); // Assuming LOGOUT action dispatches logout logic
   };
 
   return (
@@ -50,7 +56,7 @@ const Header = () => {
           style={{ fontSize: '27px', color: 'black' }}
         >
           <div
-            className={`navbar-nav p-4 p-lg-0  animated bounceInDown ${
+            className={`navbar-nav p-4 p-lg-0  animated bounceInDown ${
               !showMenu && 'd-none d-md-flex'
             }`}
           >
@@ -63,31 +69,41 @@ const Header = () => {
             <Link to="/contactUs" className="nav-item nav-link">
               Contact
             </Link>
-            {token ? (
-              <>
-                <Link to="/profile" className="nav-item nav-link">
-                  {user ? `Welcome, ${user.name}` : 'Profile'}
+
+            
+            <button className="btn-cart btn-md-square btn btn-black bg-white rounded-pill ms-4 d-lg-inline-flex">
+              {!user ? (
+                <span className="fa fa-user"></span>
+              ) : (
+                <img
+                  src={`https://localhost:3000/${user.photo.replace("public", "")}`}
+                  alt=""
+                  style={{ objectFit: 'cover', borderRadius: '50px' }}
+                />
+              )}
+          </button>
+            {dropdownMenu && !user && (
+              <div className="nav-link dropdown-menu show"> {/* Added dropdown-menu class */}
+                <Link to="/login" className="nav-item nav-link">
+                  Login
                 </Link>
-                {role === 'farmer' && (
-                  <Link to="/farmer" className="nav-item nav-link">
-                    Farmer Dashboard
-                  </Link>
-                )}
-                {role === 'buyer' && (
-                  <Link to="/buyer" className="nav-item nav-link">
-                    Buyer Dashboard
-                  </Link>
-                )}
-                {role === 'transportation' && (
-                  <Link to="/transportation" className="nav-item nav-link">
-                    Transportation Dashboard
-                  </Link>
-                )}
-              </>
-            ) : (
-              <Link to="/login" className="nav-item nav-link">
-                Login
-              </Link>
+                <Link to="/Signup" className="nav-item nav-link">
+                  Sign Up
+                </Link>
+              </div>
+            )}
+            {dropdownMenu && user && (
+              <div className="nav-link dropdown-menu show"> {/* Added dropdown-menu class */}
+                <Link to="/buyer-profile" className="nav-item nav-link">
+                  Profile
+                </Link>
+                <Link to="/" className="nav-item nav-link">
+                  Dashboard
+                </Link>
+                <Link to="/login" onClick={handleLogout}>
+                  Log Out
+                </Link>
+              </div>
             )}
           </div>
           <Link to="/Cart" className="btn-cart btn-md-square btn btn-black bg-white rounded-pill ms-4 d-lg-inline-flex">

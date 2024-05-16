@@ -1,9 +1,9 @@
 import { createContext, useEffect,useReducer } from "react";
 
 const intialState={
-    user:null,
-    role: null,
-    token: null,
+    user:localStorage.getItem("user")!==undefined ? JSON.parse(localStorage.getItem("user")):null,
+    role: localStorage.getItem("role") || null,
+    token: localStorage.getItem("token") || null,
 };
 
 export const authContext =createContext(intialState);
