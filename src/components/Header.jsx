@@ -70,7 +70,7 @@ const Header = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <h1>hi</h1>
+                  <img src={user.photo || "https://i.ibb.co/4pDNDk1/avatar.png"} alt="Profile Picture" width="40" height="40" />
                 </button>
                 <ul className="dropdown-menu mt-3 shadow-sm rounded-4 w-auto fs-5 fw-bold">
                   <li>
