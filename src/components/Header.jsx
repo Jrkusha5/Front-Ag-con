@@ -8,7 +8,7 @@ import { authContext } from '../context/AuthContext';
 const Header = () => {
   const dispatch = useDispatch();
   const { totalItems } = useSelector((state) => state.cart);
-  const { role, token, user } = useContext(authContext);
+  const { token, user } = useContext(authContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -50,9 +50,7 @@ const Header = () => {
           id="navbarCollapse"
           style={{ fontSize: '27px', color: 'black' }}
         >
-          <div
-            className={`navbar-nav p-4 p-lg-0 animated bounceInDown ${!showMenu && 'd-none d-md-flex'}`}
-          >
+          <div className={`navbar-nav p-4 p-lg-0 animated bounceInDown ${!showMenu && 'd-none d-md-flex'}`}>
             <Link to="/" className="nav-item nav-link active">
               Home
             </Link>
@@ -62,45 +60,45 @@ const Header = () => {
             <Link to="/contactUs" className="nav-item nav-link">
               Contact
             </Link>
-            {token && user ? (
-              <div className="nav-item nav-link dropdown dropdown-end">
-                <button
-                  type="button"
-                  className="btn btn-light rounded-pill dropdown-toggle fs-5"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <img src={user.photo || "https://i.ibb.co/4pDNDk1/avatar.png"} alt="Profile Picture" width="40" height="40" />
-                </button>
-                <ul className="dropdown-menu mt-3 shadow-sm rounded-4 w-auto fs-5 fw-bold">
-                  <li>
-                    <Link className="dropdown-item d-flex justify-content-between" to="/profile">
-                      Profile
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/settings">
-                      Settings
-                    </Link>
-                  </li>
-                  <li>
-                    <button className="dropdown-item" onClick={handleLogout}>
-                      Logout
-                    </button>
-                  </li>
-                </ul>
-              </div>
-            ) : null}
-            {/* {token && user ? (
-              <Link to="/dashboard" className="nav-item nav-link">
-                Dashboard
-              </Link>
-            ) : null} */}
-            {!token && (
-              <Link to="/login" className="nav-item nav-link">
-                Login
-              </Link>
-            )}
+            {token && (
+  <div className="nav-item nav-link dropdown dropdown-end">
+    <button
+      type="button"
+      className="btn btn-light rounded-pill dropdown-toggle fs-5"
+      onClick={handleToggle}
+      aria-expanded={showMenu ? 'true' : 'false'}
+    >
+      <img src={user?.photo || "https://i.ibb.co/4pDNDk1/avatar.png"} alt="Profile Picture" width="40" height="40" />
+    </button>
+    <ul className={`dropdown-menu mt-3 shadow-sm rounded-4 w-auto fs-5 fw-bold ${showMenu ? 'show' : ''}`}>
+      
+        <>
+          <li>
+            <Link className="dropdown-item d-flex justify-content-between" to="/profile">
+              Profile
+            </Link>
+          </li>
+          <li>
+            <Link className="dropdown-item" to="/settings">
+              Settings
+            </Link>
+          </li>
+          <li>
+            <button className="dropdown-item" onClick={handleLogout}>
+              Logout
+            </button>
+          </li>
+        </>
+      
+    </ul>
+  </div>
+)}
+{!token && (
+  <Link to="/login" className="nav-item nav-link">
+    Login
+  </Link>
+)}
+
           </div>
 
           <Link to="/Cart" className="btn-cart btn-md-square btn btn-black bg-white rounded-pill ms-4 d-lg-inline-flex">
