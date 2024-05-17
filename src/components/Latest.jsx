@@ -67,7 +67,7 @@ const Latest = () => {
          <div className='row g-4'>
             {
                 recentData.map((val,index)=>(
-                    <div key={index} className='col-md-6 col-lg-3 bounceINUp' style={{fontFamily:''}}>
+                    <div key={index} className='col-md-6 col-lg-3 bounceINUp' >
                       <div className='product-item position-relative bg-light overflow-hidden '>
                      <img src={val.img} alt="img"
                       className='img-fluid rounded w-100' />

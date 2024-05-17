@@ -58,7 +58,7 @@ const Login = () => {
           role:result.role,
         },
       });
-       console.log(result,'login Data');
+      //  console.log(result,'login Data');
       setLoading(false); // Hide loading indicator
       toast.success(result.message);
       navigate("/"); // Redirect to login page on success

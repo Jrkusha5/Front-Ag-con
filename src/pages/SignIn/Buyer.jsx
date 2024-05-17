@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { BiShow, BiHide } from "react-icons/bi";
 import {BsArrowLeft} from 'react-icons/bs';
 import Images from "../../assets/img/images.png";
+import Dowload from "../../assets/img/download.png";
 import HashLoader from 'react-spinners/HashLoader'; // Assuming you're using HashLoader for loading indication
 
 const Buyer = () => {
@@ -99,14 +100,17 @@ const Buyer = () => {
               <img src={Images} style={{ width: "90%", height: "100%" }} alt="Logo" className="login-img" />
             </div>
             <div className="card bg-white p-4">
-              <form className="py-2" onSubmit={handleSubmit} style={{ color: "black" }}>
-                <label htmlFor="photo">Photo </label>
+              <form className="py-2 " onSubmit={handleSubmit} style={{ color: "black" }}>
+                <label htmlFor="file-upload">
+                <img src={Dowload} className=" rounded-pill mx-auto " alt="" />
+                </label>
+                <label className="text-center mb-2">Profile picture</label>
       <input
         type="file" // Specify file input type
-        id="photo"
+        id="file-upload"
+        label='Image'
         name="photo"
-        className="form-control mb-2 rounded-full px-4 py-2 cursor-pointer
-         bg-gray-200 hover:bg-gray-300 transition ease-in-out duration-150 outline-none"
+        className="hidden" accept='.jpeg .png .jpg'
         onChange={handleOnChange}
       />
                 <label htmlFor="Name">Name</label>

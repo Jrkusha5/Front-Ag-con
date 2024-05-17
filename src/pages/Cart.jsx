@@ -1,16 +1,13 @@
-import React, { useEffect ,useContext} from "react";
-
-
+import React, { useEffect, useContext, useReducer } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getCartTotal,
-  removeItem,
-  updateQuantity,
-} from "../redux/cartSlice";
-import emptyCartImage from "../assets/img/empty.gif"
+import { getCartTotal, removeItem, updateQuantity } from "../redux/cartSlice";
+import emptyCartImage from "../assets/img/empty.gif";
 
+import { authContext } from "../context/AuthContext";
+import { token } from "../config";
 
-const Cart = () => { 
+const Cart = () => {
+  const { user, token } = useContext(authContext);
   const dispatch = useDispatch();
   const {
     data: cartProducts,
@@ -19,8 +16,31 @@ const Cart = () => {
   } = useSelector((state) => state.cart);
 
   useEffect(() => {
+    const fetchCartData = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/v1/order", { // Replace with your actual API endpoint
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (!response.ok) {
+          throw new Error(`API request failed with status ${response.status}`);
+        }
+
+        const data = await response.json();
+        // Assuming the API response structure is like: { data: cartProducts }
+        dispatch({ type: 'updateCartData', payload: data.data }); // Assuming a Redux action for updating cart data
+      } catch (error) {
+        console.error("Error fetching cart data:", error);
+        // Handle errors appropriately, e.g., display an error message to the user
+      }
+    };
+
+    fetchCartData();
+  }, [dispatch, token]);
+
+  useEffect(() => {
     dispatch(getCartTotal());
-  }, [useSelector((state) => state.cart)]);
+  }, [cartProducts, dispatch]);
 
   const handleRemoveItem = (itemId) => {
     dispatch(removeItem({ id: itemId }));
@@ -35,83 +55,35 @@ const Cart = () => {
     const newQty = Math.max(currentQty - 1, 1);
     dispatch(updateQuantity({ id: cartProductId, quantity: newQty }));
   };
+
   const emptyCartMsg = (
-    <h4 className="container text-center mb-2 pt-3">Your Cart is Empty
-    <img src={emptyCartImage} />
+    <h4 className="container text-center mb-2 pt-3">
+      Your Cart is Empty
+      <img src={emptyCartImage} alt="Empty Cart" />
     </h4>
-    
   );
-  const handleCheckout = async () => {
-    const cartData = { cartItems: cartProducts, totalAmount }; // Cart data for backend
 
-    // 1. Create Chapa Payment Link on Backend
-    const response = await fetch("http://localhost:3000/api/v1/create-chapa-link", {
-      method: "POST",
-      body: JSON.stringify(cartData),
-      headers: { "Content-Type": "application/json" },
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      console.error(data.message);
-      return; // Handle errors (display user-friendly message)
-    }
-
-    const { paymentLink } = data; // Get Chapa payment link from backend response
-
-    // 2. Redirect User to Chapa Payment Link
-    window.location.href = paymentLink;
-  };
-
-  const handleOrderConfirmation = async () => {
-    // This function will be called by your backend after successful Chapa payment
-    // You'll likely receive a notification from Chapa and use that to confirm the order.
-
-    const response = await fetch("http://localhost:3000/api/v1/order", {
-      method: "POST",
-      body: JSON.stringify({ cartProducts }), // Order confirmation data (cart items)
-      headers: { "Content-Type": "application/json" },
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      console.error(data.message);
-      return; // Handle errors (display user-friendly message)
-    }
-
-    console.log("Order confirmed successfully!", data); // Log confirmation details
-
-    // Update UI to show successful order confirmation (optional)
-    alert("Order confirmed! Thank you for your purchase."); // Simple confirmation alert
-    dispatch(getCartTotal()); // Refresh cart data (assuming it's cleared on backend)
-  };
-
- 
-  
   return (
     <>
-      {/* <Heading title="Cart" subtitle="Home" heading="Cart" /> */}
-      <div class="container-fluid page-header mb-1 wow fadeIn text-center " data-wow-delay="0.2s" style={{fontSize:'25px'}}>
-        <div class="container text-center">
-            <h1 class="display-3 mb-2 animated slideInDown">Cart</h1>
-            <nav aria-label="breadcrumb animated slideInDown ">
-                <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a class="text-body" href="#">Home</a></li>
-                    <li class="breadcrumb-item text-dark active" aria-current="page">Cart</li>
-                </ol>
-            </nav>
+      <div className="container-fluid page-header mb-1 wow fadeIn text-center" data-wow-delay="0.2s" style={{ fontSize: '25px' }}>
+        <div className="container text-center">
+          <h1 className="display-3 mb-2 animated slideInDown">Cart</h1>
+          <nav aria-label="breadcrumb animated slideInDown">
+            <ol className="breadcrumb mb-0">
+              <li className="breadcrumb-item"><a className="text-body" href="#">Home</a></li>
+              <li className="breadcrumb-item text-dark active" aria-current="page">Cart</li>
+            </ol>
+          </nav>
         </div>
-    </div>
+      </div>
 
       {cartProducts.length === 0 ? (
         emptyCartMsg
       ) : (
-        <div className="container-fluid py-5" style={{ fontSize:"20px",color:'black'}}>
-          <div className="container py-5" >
+        <div className="container-fluid py-5" style={{ fontSize: "20px", color: 'black' }}>
+          <div className="container py-5">
             <div className="table-responsive">
-              <table className="table" style={{color:'black'}}>
+              <table className="table" style={{ color: 'black' }}>
                 <thead>
                   <tr>
                     <th scope="col">Products</th>
@@ -177,7 +149,7 @@ const Cart = () => {
                         </div>
                       </td>
                       <td>
-                        <p className="mb-0 mt-4">Birr:{cartProduct.totalPrice} </p>
+                        <p className="mb-0 mt-4">Birr: {cartProduct.totalPrice}</p>
                       </td>
                       <td>
                         <button
@@ -202,34 +174,27 @@ const Cart = () => {
                     </h1>
                     <div className="d-flex justify-content-between mb-4">
                       <h5 className="mb-0 me-4">Subtotal:</h5>
-                      <p className="mb-0">Birr:{totalAmount}</p>
+                      <p className="mb-0">Birr: {totalAmount}</p>
                     </div>
-                    {/* <div className="d-flex justify-content-between">
-                      <h5 className="mb-0 me-4">Shipping</h5>
-                      <div> 
-                         <p className="mb-0">Flat rate: ${deliverCharge}</p>
-                      </div>
-                    </div> */}
                   </div>
                   <div className="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
                     <h5 className="mb-0 ps-4 me-4">Total</h5>
                     <p className="mb-0 pe-4">Birr: {totalAmount + deliverCharge}</p>
                   </div>
-                   <button
+                  <button
                     className="btn border-primary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"
-                    type="button" onClick={handleCheckout}
+                    type="button"
                   >
                     Proceed Checkout
                   </button>
-                 
                 </div>
               </div>
             </div>
-           </div>
-         </div>
-        
+          </div>
+        </div>
       )}
     </>
   );
-}
-export default Cart
+};
+
+export default Cart;

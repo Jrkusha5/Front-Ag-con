@@ -12,9 +12,9 @@ import Logistics from '../pages/SignIn/Logistics'
 
 
 import {Routes, Route } from 'react-router-dom';
-import ProtectedRoute from './ProtectedRoutes';
-import MyAccount from '../Dashboard/buyer-account/MyAccount';
-import Dashboard from '../Dashboard/farmer-account/Dashboard';
+// import ProtectedRoute from './ProtectedRoutes';
+// import MyAccount from '../Dashboard/buyer-account/MyAccount';
+// import Dashboard from '../Dashboard/farmer-account/Dashboard';
 
 const Routers = () => {
   return (
@@ -30,8 +30,8 @@ const Routers = () => {
     <Route path='/signUpBuyer' element={<Buyer/>}/>
     <Route path='/signUpLogistics' element={<Logistics/>}/>
 
-    <Route path="/buyer-profile" element={<ProtectedRoute allowedRoles={['buyer']}> <MyAccount/></ProtectedRoute>}/>
-    <Route path="/farmer-profile" element={<ProtectedRoute allowedRoles={['farmer']}> <Dashboard/> </ProtectedRoute>}/>
+    {/* <Route path="/buyer-profile" element={<ProtectedRoute allowedRoles={['buyer']}> <MyAccount/></ProtectedRoute>}/>
+    <Route path="/farmer-profile" element={<ProtectedRoute allowedRoles={['farmer']}> <Dashboard/> </ProtectedRoute>}/> */}
    </Routes>
   )
 }

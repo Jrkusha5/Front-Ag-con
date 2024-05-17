@@ -67,12 +67,13 @@ const Products = () => {
             Select a product to Buy
           </h2>
           <div className="container">
+          <div className="col-lg-12">
             <div className="row g-4">
               {products.map((product, index) => (
-                <div className="col-lg-4" key={index}>
-                  <div className="menu-item d-flex align-items-center bg-white p-3 rounded">
+                <div className="col-md-6 col-lg-3 bounceINUp" key={index}>
+                  <div className="product-item position-relative bg-light overflow-hidden">
                     <img
-                      className="flex-shrink-0 img-fluid rounded-circle"
+                      className="img-fluid rounded w-100"
                       src={product.image}
                       style={{ width: '130px' }}
                       alt={product.name}
@@ -82,8 +83,8 @@ const Products = () => {
                         <h4>{product.name}</h4>
                         <h4 className="text-primary">Birr: {product.price}</h4>
                       </div>
-                      <p className="mb-0">{product.content}</p>
-                      <label htmlFor="">Farmer: {product.farmer}</label>
+                      <p className="mb-0">{product.descrption}</p>
+                      <label htmlFor="">Farmer: {product.productOwner}</label>
                       <div>
                         <button type="button" className="btn text-primary btn-lg rounded-pill shadow-sm hover:bg-blue-500">
                           <FaHeart />
@@ -101,6 +102,7 @@ const Products = () => {
               ))}
             </div>
           </div>
+        </div>
         </div>
       )}
     </div>
