@@ -1,13 +1,10 @@
-import React, { useEffect, useContext, useReducer } from "react";
+import React, { useEffect, } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCartTotal, removeItem, updateQuantity } from "../redux/cartSlice";
 import emptyCartImage from "../assets/img/empty.gif";
-
-import { authContext } from "../context/AuthContext";
-import { token } from "../config";
+import {Link} from 'react-router-dom'
 
 const Cart = () => {
-  const { user, token } = useContext(authContext);
   const dispatch = useDispatch();
   const {
     data: cartProducts,
@@ -15,28 +12,7 @@ const Cart = () => {
     deliverCharge,
   } = useSelector((state) => state.cart);
 
-  useEffect(() => {
-    const fetchCartData = async () => {
-      try {
-        const response = await fetch("http://localhost:3000/api/v1/order", { // Replace with your actual API endpoint
-          headers: { Authorization: `Bearer ${token}` },
-        });
 
-        if (!response.ok) {
-          throw new Error(`API request failed with status ${response.status}`);
-        }
-
-        const data = await response.json();
-        // Assuming the API response structure is like: { data: cartProducts }
-        dispatch({ type: 'updateCartData', payload: data.data }); // Assuming a Redux action for updating cart data
-      } catch (error) {
-        console.error("Error fetching cart data:", error);
-        // Handle errors appropriately, e.g., display an error message to the user
-      }
-    };
-
-    fetchCartData();
-  }, [dispatch, token]);
 
   useEffect(() => {
     dispatch(getCartTotal());
@@ -179,13 +155,13 @@ const Cart = () => {
                   </div>
                   <div className="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
                     <h5 className="mb-0 ps-4 me-4">Total</h5>
-                    <p className="mb-0 pe-4">Birr: {totalAmount + deliverCharge}</p>
+                    <p className="mb-0 pe-4">Birr: {totalAmount }</p>
                   </div>
                   <button
                     className="btn border-primary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"
                     type="button"
                   >
-                    Proceed Checkout
+                   <Link to="/order">Proceed Checkout</Link>
                   </button>
                 </div>
               </div>

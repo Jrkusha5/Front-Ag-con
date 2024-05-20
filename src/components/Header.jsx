@@ -68,7 +68,7 @@ const Header = () => {
       onClick={handleToggle}
       aria-expanded={showMenu ? 'true' : 'false'}
     >
-      <img src={user?.photo || "https://i.ibb.co/4pDNDk1/avatar.png"} alt="Profile Picture" width="40" height="40" />
+      <img src={user?.photo || "https://i.ibb.co/4pDNDk1/avatar.png"} alt="Profile Picture" width="50" height="50" />
     </button>
     <ul className={`dropdown-menu mt-3 shadow-sm rounded-4 w-auto fs-5 fw-bold ${showMenu ? 'show' : ''}`}>
       

@@ -75,7 +75,7 @@ const Products = () => {
                     <img
                       className="img-fluid rounded w-100"
                       src={product.image}
-                      style={{ width: '130px' }}
+                      style={{ width: '130px' ,height:'200px'}}
                       alt={product.name}
                     />
                     <div className="w-100 d-flex flex-column text-start ps-4">

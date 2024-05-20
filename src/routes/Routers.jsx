@@ -9,6 +9,7 @@ import Cart from '../pages/Cart';
 import Farmer from '../pages/SignIn/Farmer'
 import Buyer from '../pages/SignIn/Buyer'
 import Logistics from '../pages/SignIn/Logistics'
+import OrderPage from '../components/Order';
 
 
 import {Routes, Route } from 'react-router-dom';
@@ -29,6 +30,7 @@ const Routers = () => {
     <Route path='/signUpFarmer' element={<Farmer/>}/>
     <Route path='/signUpBuyer' element={<Buyer/>}/>
     <Route path='/signUpLogistics' element={<Logistics/>}/>
+    <Route path='/order' element={<OrderPage/>}/>
 
     {/* <Route path="/buyer-profile" element={<ProtectedRoute allowedRoles={['buyer']}> <MyAccount/></ProtectedRoute>}/>
     <Route path="/farmer-profile" element={<ProtectedRoute allowedRoles={['farmer']}> <Dashboard/> </ProtectedRoute>}/> */}
