@@ -39,9 +39,9 @@ const OrderPage = () => {
                 />
               </div>
               <h3 className="mb-4">Payment Method</h3>
-              <div className="form-group mb-3">
+              <div className="form-group mb-3 fs-3">
                 <select
-                  className="form-control"
+                  className="form-control "
                   value={paymentMethod}
                   onChange={(e) => setPaymentMethod(e.target.value)}
                 >
