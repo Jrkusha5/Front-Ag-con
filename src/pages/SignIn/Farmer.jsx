@@ -1,139 +1,215 @@
 import React, { useState } from "react";
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import Register from "../../assets/img/register.png";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import Dowload from "../../assets/img/download.png";
+import HashLoader from 'react-spinners/HashLoader';
+import { BiShow, BiHide } from "react-icons/bi";
+import {BsArrowLeft} from 'react-icons/bs';
+import Images from "../../assets/img/images.png";
 
 const Farmer = () => {
-  const [formData, setFormData] = useState({
-    firstName: "",
+  const [data, setData] = useState({
+    name: "",
     email: "",
     password: "",
     confirmPassword: "",
-    image: null,
-    licenses: "",
-    role: "transportation",
+    role: "farmer",
+    photo: "", // Default role is set to buyer
   });
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleChange = (e) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const handleOnChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+
+    if (name === "photo") { // Handle photo upload separately
+      const uploadedFile = e.target.files[0];
+      setData({ ...data, photo: uploadedFile }); // Store the uploaded file object
+    } else {
+      setData({ ...data, [name]: value });
+    }
+  };
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword);
   };
 
-  const handleFileChange = (e) => {
-    setFormData({
-      ...formData,
-      image: e.target.files[0],
-    });
+  const handleShowConfirmPassword = () => {
+    setShowConfirmPassword(!showConfirmPassword);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here, you can send formData to your backend
-    console.log(formData);
+    setLoading(true); // Show loading indicator
+
+    try {
+      const response = await fetch("http://localhost:3000/api/v1/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const { message } = await response.json();
+        throw new Error(message); // Re-throw for error handling
+      }
+
+      const responseData = await response.json(); // Parse successful response
+      setLoading(false); // Hide loading indicator
+      toast.success(responseData.message);
+      navigate("/login"); // Redirect to login page on success
+    } catch (error) {
+      setLoading(false); // Hide loading indicator in case of error
+      toast.error(error.message);
+    }
   };
   return (
     <div>
-        <div className="container-fluid  mb-3 wow fadeIn" data-wow-delay="0.1s">
+      <div className="container-fluid mb-3 wow fadeIn" data-wow-delay="0.1s">
         <div className="container">
-            <h1 className="display-3 mb-3 animated slideInDown">Farmer</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                {/* <ol className="breadcrumb mb-0">
-                    <li className="breadcrumb-item"></li>
-                    <li className="breadcrumb-item text-dark active" aria-current="page"></li>
-                </ol> */}
-            </nav>
+          <h1 className="display-3 mb-3 animated slideInDown">Farmer</h1>
+          <nav aria-label="breadcrumb animated slideInDown">
+            <ol className="breadcrumb mb-0">
+              <li className="breadcrumb-item">
+                <Link className="text-body" to="/">
+                  Home
+                </Link>
+              </li>
+              <li className="breadcrumb-item text-dark active" aria-current="page">
+                SignUp
+              </li>
+            </ol>
+          </nav>
         </div>
-    </div>
-    
-    <Container className="d-flex justify-content-center " style={{fontSize:'20px'}}>
-    <div className="col-md-4 ">
-              <img src={Register} style={{ width: "100%", height: "100%" }} alt="Logo" className="login-img" />
+      </div>
+      <div className="col-md-4">
+<Link className="btn btn-success btn-lg btn-block mt-4 rounded-pill" to='/Signup'>
+<BsArrowLeft/>
+</Link>
+</div>
+      <div className="container w-100 py-3">
+        <h2 className="text-center">SignUp</h2>
+        <div className="row justify-content-center">
+          <div className="col-12 col-md-6 d-flex g-1 ">
+            <div className="col-md-6">
+              <img src={Images} style={{ width: "90%", height: "100%" }} alt="Logo" className="login-img" />
             </div>
-      <Row className="justify-content-center  ">
-        <Col md={12} className="bg-white" style={{color:'#096111'}}>
-          <Form onSubmit={handleSubmit} className="p-4">
-            <h2 className="mb-4">Create Account(Farmer)</h2>
-            <Form.Group controlId="firstName" style={{fontSize:'20px'}}>
-              <Form.Label>First Name</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter your first name"
-                name="firstName"
-                value={formData.firstName}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group>
+            <div className="card bg-white p-4">
+              <form className="py-2 " onSubmit={handleSubmit} style={{ color: "black" }}>
+                <label htmlFor="file-upload">
+                <img src={Dowload} className=" rounded-pill mx-auto " alt="" />
+                </label>
+                <label className="text-center mb-2">Profile picture</label>
+      <input
+        type="file" // Specify file input type
+        id="file-upload"
+        label='Image'
+        name="photo"
+        className="hidden" accept='.jpeg .png .jpg'
+        onChange={handleOnChange}
+      />
+                <label htmlFor="Name">Name</label>
+                <input
+                  type={"text"}
+                  id="name"
+                  name="name"
+                  className="form-control mb-2 border-2"
+                  value={data.name}
+                  onChange={handleOnChange}
+                  required // Add validation for required fields
+                />
 
-            <Form.Group controlId="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Enter your email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group>
+                <label htmlFor="email">Email</label>
+                <input
+                  type={"email"}
+                  id="email"
+                  name="email"
+                  className="form-control mb-2"
+                  value={data.email}
+                  onChange ={handleOnChange}
+                  required // Add validation for required fields
+                />
 
-            <Form.Group controlId="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Enter your password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group>
+                <label htmlFor="password">Password</label>
+                <div className="input-group mb-2">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    name="password"
+                    className="form-control"
+                    value={data.password}
+                    onChange={handleOnChange}
+                    required // Add validation for required fields
+                    minLength={8} // Enforce minimum password length
+                  />
+                  <button
+                    className="btn btn-outline-primary"
+                    type="button"
+                    onClick={handleShowPassword}
+                  >
+                    {showPassword ? "Hide" : <BiHide />}
+                  </button>
+                </div>
 
-            <Form.Group controlId="confirmPassword">
-              <Form.Label>Confirm Password</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Confirm your password"
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group>
+                <label htmlFor="confirmPassword">Confirm Password</label>
+                <div className="input-group mb-2">
+                  <input
+                    type={showConfirmPassword ? "text" : "password"}
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    className="form-control"
+                    value={data.confirmPassword}
+                    onChange={handleOnChange}
+                    required // Add validation for required fields
+                  />
+                  <button
+                    className="btn btn-outline-primary"
+                    type="button"
+                    onClick={handleShowConfirmPassword}
+                  >
+                    {showConfirmPassword ? <BiShow /> : <BiHide />}
+                  </button>
+                </div>
 
-            <Form.Group controlId="image">
-              <Form.Label>Upload Image</Form.Label>
-              <Form.Control
-                type="file"
-                name="image"
-                onChange={handleFileChange}
-                accept="image/*"
-              />
-            </Form.Group>
+                <label htmlFor="role">Role</label>
+                <select
+                  id="role"
+                  name="role"
+                  className="form-select mb-2"
+                  value={data.role}
+                  onChange={handleOnChange}
+                  disabled // Disable role selection for simplicity (adjust as needed)
+                >
+                  <option value="farmer">Farmer</option>
+                </select>
 
-            <Form.Group controlId="licenses">
-              <Form.Label>Licenses</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Enter your licenses"
-                name="licenses"
-                value={formData.licenses}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group>
-
-            <Button variant="primary text-center" type="submit">
-              Sign Up
-            </Button>
-          </Form>
-        </Col>
-      </Row>
-    </Container>
+                <div className="text-center rounded-pill">
+                  {loading ? (
+                    <HashLoader color={'#36D7B7'} loading={loading} size={50} />
+                  ) : (
+                    <button  className="btn btn-primary btn-block">
+                      SignUp
+                    </button>
+                  )}
+                </div>
+              </form>
+              <p className="text-left mt-2" style={{ color: "black" }}>
+                Already have an account?{" "}
+                <Link to={"/login"} className="text-primary">
+                  Login
+                </Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
 export default Farmer

@@ -9,7 +9,7 @@ const Cart = () => {
   const {
     data: cartProducts,
     totalAmount,
-    deliverCharge,
+    
   } = useSelector((state) => state.cart);
 
 
@@ -43,7 +43,7 @@ const Cart = () => {
     <>
       <div className="container-fluid page-header mb-1 wow fadeIn text-center" data-wow-delay="0.2s" style={{ fontSize: '25px' }}>
         <div className="container text-center">
-          <h1 className="display-3 mb-2 animated slideInDown">Cart</h1>
+          <h1 className="display-3 mb-2 animated slideInDown">Order</h1>
           <nav aria-label="breadcrumb animated slideInDown">
             <ol className="breadcrumb mb-0">
               <li className="breadcrumb-item"><a className="text-body" href="#">Home</a></li>
@@ -155,7 +155,7 @@ const Cart = () => {
                   </div>
                   <div className="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
                     <h5 className="mb-0 ps-4 me-4">Total</h5>
-                    <p className="mb-0 pe-4">Birr: {totalAmount }</p>
+                    <p className="mb-0 pe-4">Birr: {totalAmount}</p>
                   </div>
                   <button
                     className="btn border-primary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"
