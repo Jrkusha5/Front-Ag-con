@@ -3,12 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo1 from '../assets/img/logo1.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCartTotal } from '../redux/cartSlice';
-import { authContext } from '../context/AuthContext';
+// import { AuthContext } from '../context/AuthContext';
 
 const Header = () => {
   const dispatch = useDispatch();
   const { totalItems } = useSelector((state) => state.cart);
-  const { token, user } = useContext(authContext);
+  // const { token, user } = useContext(authContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -60,44 +60,10 @@ const Header = () => {
             <Link to="/contactUs" className="nav-item nav-link">
               Contact
             </Link>
-            {token && (
-  <div className="nav-item nav-link dropdown dropdown-end">
-    <button
-      type="button"
-      className="btn btn-light rounded-pill dropdown-toggle fs-5"
-      onClick={handleToggle}
-      aria-expanded={showMenu ? 'true' : 'false'}
-    >
-      <img src={user?.photo || "https://i.ibb.co/4pDNDk1/avatar.png"} alt="Profile Picture" width="40" height="40" />
-    </button>
-    <ul className={`dropdown-menu mt-3 shadow-sm rounded-4 w-auto fs-5 fw-bold ${showMenu ? 'show' : ''}`}>
-      
-        <>
-          <li>
-            <Link className="dropdown-item d-flex justify-content-between" to="/profile">
-              Profile
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item" to="/settings">
-              Settings
-            </Link>
-          </li>
-          <li>
-            <button className="dropdown-item" onClick={handleLogout}>
-              Logout
-            </button>
-          </li>
-        </>
-      
-    </ul>
-  </div>
-)}
-{!token && (
-  <Link to="/login" className="nav-item nav-link">
-    Login
-  </Link>
-)}
+          <Link to="/login" className="nav-item nav-link">
+             Login
+          </Link>
+
 
           </div>
 

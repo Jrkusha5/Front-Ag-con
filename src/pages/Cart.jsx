@@ -1,9 +1,10 @@
-import React, { useEffect, } from "react";
+import React, { useEffect, useContext} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCartTotal, removeItem, updateQuantity } from "../redux/cartSlice";
 import emptyCartImage from "../assets/img/empty.gif";
-import {Link} from 'react-router-dom'
-
+import {Link,useNavigate} from 'react-router-dom'
+import axios from "axios";
+import { AuthContext } from '../context/AuthContext';
 const Cart = () => {
   const dispatch = useDispatch();
   const {
@@ -12,7 +13,8 @@ const Cart = () => {
     
   } = useSelector((state) => state.cart);
 
-
+const navigate=useNavigate()
+const { user } = useContext(AuthContext);
 
   useEffect(() => {
     dispatch(getCartTotal());
@@ -31,6 +33,30 @@ const Cart = () => {
     const newQty = Math.max(currentQty - 1, 1);
     dispatch(updateQuantity({ id: cartProductId, quantity: newQty }));
   };
+  const handleCheckout = async () => {
+    const buyerId = user._id; // Replace with actual buyer ID
+    const products = cartProducts.map(product => ({
+      productId: product._id,
+      quantity: product.quantity,
+    }));
+    console.log(products)
+    console.log(buyerId)
+    try {
+      const response = await axios.post('http://localhost:3000/api/v1/order', {
+        buyerId,
+        products,
+      });
+      
+      if (response.status === 201) {
+        // Redirect to the order confirmation page or any other page
+        navigate('/order-confirmation');
+      } else {
+        console.error('Failed to place order:', response.data);
+      }
+    } catch (error) {
+      console.error('Error placing order:', error);
+    }
+  }
 
   const emptyCartMsg = (
     <h4 className="container text-center mb-2 pt-3">
@@ -159,9 +185,9 @@ const Cart = () => {
                   </div>
                   <button
                     className="btn border-primary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"
-                    type="button"
+                    type="button" onClick={handleCheckout}
                   >
-                   <Link to="/order">Proceed Checkout</Link>
+                  Proceed Checkout
                   </button>
                 </div>
               </div>

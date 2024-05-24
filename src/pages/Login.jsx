@@ -1,72 +1,43 @@
-import React, {useState,useContext} from 'react'
+import { useContext, useRef, useEffect } from "react";
 import { Link,useNavigate } from 'react-router-dom'
+import { loginCall } from "../ApiCalls";
+import { AuthContext } from '../context/AuthContext';
 import '../styles/login.css'
 import { BiShow, BiHide } from "react-icons/bi";
 import Bg1 from '../assets/img/bg.svg'
 import { toast } from "react-toastify";
-import { authContext } from '../context/AuthContext.jsx';
-
+// import { authContext } from '../context/AuthContext.jsx';
 import HashLoader from 'react-spinners/HashLoader'; // Assuming you're using HashLoader for loading indication
 
-const Login = () => {
-   const [showPassword, setShowPassword] = useState(false);
-   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState({
-    email: "",
-    password: "",
-  });
-  const navigate = useNavigate()  
-  const {dispatch}= useContext(authContext)
-  
-  const handleShowPassword = () => {
-    setShowPassword((preve) => !preve);
-  };
-
-  const handleOnChange = (e)=>{
-    const {name,value} = e.target
-    setData((preve)=>{
-        return{
-            ...preve,
-            [name] : value
-        }
-    })
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true); // Show loading indicator
-
-    try {
-      const response = await fetch("http://localhost:3000/api/v1/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-      const  result  = await response.json();
-      if (!response.ok) {
-        
-        throw new Error(result.message); // Re-throw for error handling
-      }
-      
-      dispatch({
-        type:'LOGIN_SUCCESS',
-        payload:{
-          user:result.data,
-          token:result.token,
-          role:result.role,
-        },
-      });
-      //  console.log(result,'login Data');
-      setLoading(false); // Hide loading indicator
-      toast.success(result.message);
-      navigate("/"); // Redirect to login page on success
-    } catch (error) {
-      setLoading(false); // Hide loading indicator in case of error
-      toast.error(error.message);
-    }
-  };
+export default function Login() {
+  //  const [showPassword, setShowPassword] = useState(false);
+  //  const [loading, setLoading] = useState(false);
+   const email = useRef();
+   const password = useRef();
+   const { user, isFetching, error, dispatch } = useContext(AuthContext);
+   const navigate = useNavigate();
+ 
+   const handleClick = (e) => {
+     e.preventDefault();
+     loginCall({ email: email.current.value, password: password.current.value }, dispatch);
+   };
+ 
+   useEffect(() => {
+     if (error) {
+       toast.error('Login failed. Please check your credentials and try again.');
+     }
+   }, [error]);
+ 
+   useEffect(() => {
+     if (user) {
+       navigate('/');
+       console.log(user._id)
+     }
+   }, [user, navigate]);
+ 
+   const handleRegister = () => {
+     navigate('/Signup');
+   };
   return (
     <>
       <div className="container-fluid page-header wow fadeIn" data-wow-delay="0.2s" style={{fontSize:'20px'}}>
@@ -89,57 +60,36 @@ const Login = () => {
               <div className="col-md-6 d-flex pt-4 align-items-center">
                 <img src={Bg1} alt="Logo" className="login-img" />
               </div>
-              <div className="col-md-6">
-                <div className="form-container">
-                  <h1 className="text-center mb-4">Login</h1>
-                  <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                      <label for="exampleInputEmail1" className="form-label">Email address</label>
-                      <input 
-                      type={"email"} 
-                      name="email"
-                      id="email"
-                      className="form-control"  
-                      aria-describedby="emailHelp" placeholder="Enter email"
-                      value={data.email}
-                  onChange={handleOnChange} />
-                    </div>
-                    <div className="mb-3">
-                      <label for="exampleInputPassword1" className="form-label">Password</label>
-                      <input  
-                      type={showPassword ? "text" : "password"}
-                      id="password"
-                      name="password"
-                      className="form-control" 
-                       placeholder="Password" 
-                       value={data.password}
-                      onChange={handleOnChange}
-                       />
-                       <span
-            className=""
-            onClick={handleShowPassword}
-          >
-            {showPassword ? <BiShow /> : <BiHide />}
-          </span>
-                    </div>
-                    <div className="text-center">
-                    {loading ? (
-                    <HashLoader color={'#36D7B7'} loading={loading} size={50} />
-                  ) : (
-                      <button type="submit" className="btn btn-primary btn-lg btn-block rounded-pill">Login</button>
-                    )}
-                    </div>
-                  </form>
-                  <p className="text-center mt-3">
-                    Don't have an account? <Link to="/SignUp">Sign up</Link>
-                  </p>
-                  <div className="text-center social-icons">
-                    <a href="#"><i className="fab fa-facebook fa-2x"></i></a>
-                    <a href="#"><i className="fab fa-twitter fa-2x"></i></a>
-                    <a href="#"><i className="fab fa-instagram fa-2x"></i></a>
-                  </div>
-                </div>
-              </div>
+              <div className="container">
+  
+  <div className="row justify-content-center">
+    <div className="col-md-6 col-lg-4">
+      <form className="card card-body" onSubmit={handleClick}>
+        <label className="form-label">Email</label>
+        <input placeholder="Enter your email" type="email" className="form-control" ref={email} required />
+        <label className="form-label">Password</label>
+        <input
+          placeholder="Enter your password"
+          type="password"
+          className="form-control"
+          minLength="6"
+          ref={password}
+          required
+        />
+        <button className="btn btn-primary" type="submit">
+          {isFetching ? <HashLoader color={'#fff'} size={20} loading={isFetching} /> : 'Log In'}
+        </button>
+        <span className="form-text text-muted">Forgot Password?</span>
+        <button type="button" className="btn btn-link" onClick={handleRegister}>
+          {isFetching ? <HashLoader color={'#fff'} size={20} loading={isFetching} /> : 'Create a New Account'}
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
             </div>
           </div>
         </div>
@@ -147,5 +97,4 @@ const Login = () => {
     </>
   );
 };
-
-export default Login;
+;

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaHeart } from 'react-icons/fa';
 import Star from '../assets/img/Star.png';
-import { Link } from 'react-router-dom';
 import { addToCart, getCartTotal } from '../redux/cartSlice';
 import { useDispatch } from 'react-redux';
 
@@ -13,7 +12,7 @@ const Products = () => {
   
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/v1/products')
+    fetch('https://agribackend-mstw.onrender.com/api/v1/products')
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to fetch data');
