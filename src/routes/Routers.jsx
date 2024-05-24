@@ -10,6 +10,7 @@ import Farmer from '../pages/SignIn/Farmer'
 import Buyer from '../pages/SignIn/Buyer'
 import Logistics from '../pages/SignIn/Logistics'
 import OrderPage from '../components/Order';
+import Blogs from '../components/BlogList';
 import {Routes, Route } from 'react-router-dom';
 //import ProtectedRoute from './ProtectedRoutes';
 // import MyAccount from '../Dashboard/buyer-account/MyAccount';
@@ -29,6 +30,7 @@ const Routers = () => {
     <Route path='/signUpBuyer' element={<Buyer/>}/>
     <Route path='/signUpLogistics' element={<Logistics/>}/>
     <Route path="/order" element={<OrderPage/>}/>
+    <Route path="/blogs" element={<Blogs/>}/>
 
 
     {/* <Route path="/buyer-profile" element={<ProtectedRoute allowedRoles={['buyer']}> <MyAccount/></ProtectedRoute>}/>

@@ -48,8 +48,8 @@ const { user } = useContext(AuthContext);
       });
       
       if (response.status === 201) {
-        // Redirect to the order confirmation page or any other page
-        navigate('/order-confirmation');
+        // Redirect to the chapa page or any other page
+        
       } else {
         console.error('Failed to place order:', response.data);
       }
