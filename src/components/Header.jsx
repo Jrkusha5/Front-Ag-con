@@ -3,9 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo1 from '../assets/img/logo1.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCartTotal } from '../redux/cartSlice';
+import { AuthContext } from '../../context/AuthContext';
 
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
   const dispatch = useDispatch();
   const { totalItems } = useSelector((state) => state.cart);
   
@@ -21,11 +23,7 @@ const Header = () => {
     setShowMenu(!showMenu);
   };
 
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate('/login');
-  };
-
+ 
   return (
     <div className="container-fluid fixed-top pt-4 wow fadeIn" data-wow-delay="0.1s">
       <nav
