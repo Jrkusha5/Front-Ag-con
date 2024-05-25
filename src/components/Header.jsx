@@ -3,12 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo1 from '../assets/img/logo1.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCartTotal } from '../redux/cartSlice';
-// import { AuthContext } from '../context/AuthContext';
+
 
 const Header = () => {
   const dispatch = useDispatch();
   const { totalItems } = useSelector((state) => state.cart);
-  // const { token, user } = useContext(authContext);
+  
   const navigate = useNavigate();
 
   useEffect(() => {
