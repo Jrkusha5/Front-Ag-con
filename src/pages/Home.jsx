@@ -9,14 +9,15 @@ import Check from '../assets/img/check.png'
 import Transport from '../assets/img/import.png'
 import {Link} from 'react-router-dom'
 import Services from '../services/Services'
-
+import Header from '../components/Header'
+import Footer from '../components/Footer' 
 import Latest from '../components/Latest'
 
 
 const Home = () => {
   return (
     <div>
-      
+      <Header/>
     
     <div className="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s" >
         <div id="header-carousel" className="carousel slide" data-bs-ride="carousel">
@@ -190,7 +191,7 @@ const Home = () => {
 
    
 
-   
+   <Footer/>
     
     </div>
     

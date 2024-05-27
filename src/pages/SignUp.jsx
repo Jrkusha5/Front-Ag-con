@@ -1,11 +1,13 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 const SignUp = () => {
   return (
     <div>
-    
+    <Header/>
     <div>
          <div className="container-fluid  mb-3 wow fadeIn" data-wow-delay="0.1s">
         <div className="container">
@@ -53,6 +55,7 @@ const SignUp = () => {
     <Link to='/login' className="btn btn-success btn-lg btn-block mt-4 rounded-pill">Back to Login</Link>
     <p className="text-center mt-3">By clicking "Continue", you agree to our Terms of Service and <a href="#">Privacy Policy</a>.</p>
   </div>
+  <Footer/>
     </div>
 
     

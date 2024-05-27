@@ -1,8 +1,11 @@
 import React from 'react'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 const ContactUs = () => {
   return (
     <div>
+        <Header/>
        
     <div className="container-fluid page-header wow fadeIn" data-wow-delay="0.1s" style={{fontSize:'23px'}}>
         <div className="container">
@@ -80,7 +83,7 @@ const ContactUs = () => {
         </div>
     </div>
    
-    
+    <Footer/>
     </div>
   )
 }

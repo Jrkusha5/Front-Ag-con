@@ -1,5 +1,7 @@
 import React, { useEffect, useContext} from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Header from '../components/Header'
+import Footer from '../components/Footer' 
 import { getCartTotal, removeItem, updateQuantity } from "../redux/cartSlice";
 import emptyCartImage from "../assets/img/empty.gif";
 import {Link,useNavigate} from 'react-router-dom'
@@ -67,6 +69,7 @@ const { user } = useContext(AuthContext);
 
   return (
     <>
+    <Header/>
       <div className="container-fluid page-header mb-1 wow fadeIn text-center" data-wow-delay="0.2s" style={{ fontSize: '25px' }}>
         <div className="container text-center">
           <h1 className="display-3 mb-2 animated slideInDown">Order</h1>
@@ -195,6 +198,7 @@ const { user } = useContext(AuthContext);
           </div>
         </div>
       )}
+      <Footer/>
     </>
   );
 };

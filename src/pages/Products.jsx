@@ -3,6 +3,8 @@ import { FaHeart } from 'react-icons/fa';
 import Star from '../assets/img/Star.png';
 import { addToCart, getCartTotal } from '../redux/cartSlice';
 import { useDispatch } from 'react-redux';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -43,6 +45,7 @@ const Products = () => {
 
   return (
     <div>
+      <Header/>
        <div class="container-fluid page-header mb-1 wow fadeIn text-center " data-wow-delay="0.2s" style={{fontSize:'25px'}}>
         <div class="container text-center">
             <h1 class="display-3 mb-2 animated slideInDown">Markets</h1>
@@ -104,6 +107,9 @@ const Products = () => {
         </div>
         </div>
       )}
+      
+      <Footer/>
+
     </div>
   );
 };

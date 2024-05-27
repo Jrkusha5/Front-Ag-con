@@ -8,6 +8,8 @@ import Bg1 from '../assets/img/bg.svg'
 import { toast } from "react-toastify";
 // import { authContext } from '../context/AuthContext.jsx';
 import HashLoader from 'react-spinners/HashLoader'; // Assuming you're using HashLoader for loading indication
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function Login() {
   //  const [showPassword, setShowPassword] = useState(false);
@@ -40,6 +42,7 @@ export default function Login() {
    };
   return (
     <>
+    <Header/>
       <div className="container-fluid page-header wow fadeIn" data-wow-delay="0.2s" style={{fontSize:'20px'}}>
         <div className="container ">
           <h1 className="display-3 animated slideInDown">Login</h1>
@@ -94,6 +97,7 @@ export default function Login() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
