@@ -12,7 +12,7 @@ import Services from '../services/Services'
 import Header from '../components/Header'
 import Footer from '../components/Footer' 
 import Latest from '../components/Latest'
-
+import Marquee from '../components/mark/Marquee'
 
 const Home = () => {
   return (
@@ -139,6 +139,8 @@ const Home = () => {
             </div>
         </div>
     </div>
+
+    <Marquee/>
 
     <div className='container-features'>
   <div className="container">
