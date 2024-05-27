@@ -107,9 +107,8 @@ const Products = () => {
         </div>
         </div>
       )}
-      
       <Footer/>
-
+      
     </div>
   );
 };
