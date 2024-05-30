@@ -13,8 +13,6 @@ import ProductDetail from '../pages/ProductDetail';
 import OrderTable from '../components/OrderTable';
 import {Routes, Route } from 'react-router-dom';
 //import ProtectedRoute from './ProtectedRoutes';
-// import MyAccount from '../Dashboard/buyer-account/MyAccount';
-// import Dashboard from '../Dashboard/farmer-account/Dashboard';
 
 const Routers = () => {
   return (
