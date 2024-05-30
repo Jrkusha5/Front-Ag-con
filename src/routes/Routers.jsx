@@ -10,7 +10,7 @@ import Farmer from '../pages/SignIn/Farmer'
 import Buyer from '../pages/SignIn/Buyer'
 import Logistics from '../pages/SignIn/Logistics'
 import ProductDetail from '../pages/ProductDetail';
-// import OrderPage from '../components/Order';
+import OrderTable from '../components/OrderTable';
 import {Routes, Route } from 'react-router-dom';
 //import ProtectedRoute from './ProtectedRoutes';
 // import MyAccount from '../Dashboard/buyer-account/MyAccount';
@@ -30,6 +30,7 @@ const Routers = () => {
     <Route path='/signUpBuyer' element={<Buyer/>}/>
     <Route path='/signUpLogistics' element={<Logistics/>}/>
     <Route path="/product/:id" component={ProductDetail} />
+    <Route path="/orders" element={<OrderTable />} />
 
    </Routes>
   )

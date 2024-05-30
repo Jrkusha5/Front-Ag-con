@@ -1,22 +1,18 @@
-import React, { useEffect, useContext} from "react";
+import React, { useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from '../components/Header'
 import Footer from '../components/Footer' 
 import { getCartTotal, removeItem, updateQuantity } from "../redux/cartSlice";
 import emptyCartImage from "../assets/img/empty.gif";
-import {Link,useNavigate} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from "axios";
 import { AuthContext } from '../context/AuthContext';
+
 const Cart = () => {
   const dispatch = useDispatch();
-  const {
-    data: cartProducts,
-    totalAmount,
-    
-  } = useSelector((state) => state.cart);
-
-const navigate=useNavigate()
-const { user } = useContext(AuthContext);
+  const { data: cartProducts, totalAmount } = useSelector((state) => state.cart);
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getCartTotal());
@@ -35,6 +31,7 @@ const { user } = useContext(AuthContext);
     const newQty = Math.max(currentQty - 1, 1);
     dispatch(updateQuantity({ id: cartProductId, quantity: newQty }));
   };
+
   const handleCheckout = async () => {
     const buyerId = user._id; // Replace with actual buyer ID
     const products = cartProducts.map(product => ({
@@ -44,16 +41,38 @@ const { user } = useContext(AuthContext);
     console.log(products)
     console.log(buyerId)
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/order', {
+      const orderResponse = await axios.post('http://localhost:3000/api/v1/order', {
         buyerId,
         products,
       });
       
-      if (response.status === 201) {
-        // Redirect to the chapa page or any other page
+      if (orderResponse.status === 201) {
+        const orderId = orderResponse.data._id; // Assuming the response contains the order ID
         
+        // Now initiate the Chapa payment process
+        const paymentResponse = await axios.post(
+          "http://localhost:3000/accept-payment",
+          {
+            amount: totalAmount,
+            currency: 'ETB',
+            email: user.email,
+            first_name: user.firstName,
+            phone_number: user.phoneNumber,
+            tx_ref: `order-${orderId}-${Date.now()}`,
+            // return_url: `http://localhost:3001/home`,
+          },
+          {
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+        
+        if (paymentResponse.status === 200) {
+          window.location.href = paymentResponse.data.data.checkout_url;
+        } else {
+          console.error('Failed to initialize payment:', paymentResponse.data);
+        }
       } else {
-        console.error('Failed to place order:', response.data);
+        console.error('Failed to place order:', orderResponse.data);
       }
     } catch (error) {
       console.error('Error placing order:', error);
@@ -69,7 +88,7 @@ const { user } = useContext(AuthContext);
 
   return (
     <>
-    <Header/>
+      <Header/>
       <div className="container-fluid page-header mb-1 wow fadeIn text-center" data-wow-delay="0.2s" style={{ fontSize: '25px' }}>
         <div className="container text-center">
           <h1 className="display-3 mb-2 animated slideInDown">Order</h1>
@@ -190,7 +209,7 @@ const { user } = useContext(AuthContext);
                     className="btn border-primary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"
                     type="button" onClick={handleCheckout}
                   >
-                  Proceed Checkout
+                    Proceed Checkout
                   </button>
                 </div>
               </div>
