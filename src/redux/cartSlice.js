@@ -9,7 +9,7 @@ const cartSlice = createSlice({
   initialState: {
     data: [],
     totalItems: 0,
-    totalAmount: 0,
+    totalAmount: 1,
     deliverCharge: 10,
   },
   reducers: {

@@ -23,7 +23,7 @@ const Footer = () => {
                     <h4 className="text-light mb-4" style={{fontSize:'18px'}}>Quick Links</h4>
                     <Link to='/' className="btn btn-link" style={{fontSize:'18px'}}>About Us</Link>
                     <Link to='/' className="btn btn-link"style={{fontSize:'18px'}} >Contact Us</Link>
-                    <Link to='/blogs' className="btn btn-link"style={{fontSize:'18px'}} >blogs</Link>
+                    <Link to='/blog' className="btn btn-link"style={{fontSize:'18px'}} >blogs</Link>
                     <Link to='/' className="btn btn-link"style={{fontSize:'18px'}} >Terms & Condition</Link>
                     <Link to='/' className="btn btn-link"style={{fontSize:'18px'}} >Support</Link>
                 </div>

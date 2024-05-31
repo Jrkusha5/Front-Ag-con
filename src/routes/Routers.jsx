@@ -1,37 +1,47 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
 import Home from '../pages/Home';
-import ContactUs from '../pages/ContactUs'
-import Login from '../pages/Login'
-import Products from '../pages/Products'
-
+import ContactUs from '../pages/ContactUs';
+import Login from '../pages/Login';
+import Products from '../pages/Products';
+import SingleProduct from '../components/productDetails/ProductDetail';
 import SignUp from '../pages/SignUp';
 import Cart from '../pages/Cart';
-import Farmer from '../pages/SignIn/Farmer'
-import Buyer from '../pages/SignIn/Buyer'
-import Logistics from '../pages/SignIn/Logistics'
-import ProductDetail from '../pages/ProductDetail';
-import OrderTable from '../components/OrderTable';
-import {Routes, Route } from 'react-router-dom';
-//import ProtectedRoute from './ProtectedRoutes';
+import Farmer from '../pages/SignIn/Farmer';
+import Buyer from '../pages/SignIn/Buyer';
+import Logistics from '../pages/SignIn/Logistics';
+import Blog from '../pages/blog/BlogPage';
+import Single from '../pages/single/Single';
+import OrderTable from '../pages/OrderTable';
+import { Routes, Route } from 'react-router-dom';
 
 const Routers = () => {
+  const { user } = useContext(AuthContext);
+
   return (
     <Routes>
-      <Route path='/' element={<Home/>}/>
-    <Route path='/home' element={<Home/>}/>
-    <Route path='/contactUs' element={<ContactUs/>}/>
-    <Route path='/login' element={<Login/>}/>
-    <Route path='/Signup' element={<SignUp/>}/>
-    <Route path='/Cart' element={<Cart/>}/>
-    <Route path='/Products' element={<Products/>}/>
-    <Route path='/signUpFarmer' element={<Farmer/>}/>
-    <Route path='/signUpBuyer' element={<Buyer/>}/>
-    <Route path='/signUpLogistics' element={<Logistics/>}/>
-    <Route path="/product/:id" component={ProductDetail} />
-    <Route path="/orders" element={<OrderTable />} />
+      <Route
+        path="/"
+        element={
+          user && user.role === 'buyer' ? <Home /> : <Home />
+        }
+      />
+      <Route path="/home" element={<Home />} />
+      <Route path="/contactUs" element={<ContactUs />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/productdetail/:id" element={<SingleProduct />} />
+      <Route path="/signUpFarmer" element={<Farmer />} />
+      <Route path="/signUpBuyer" element={<Buyer />} />
+      <Route path="/signUpLogistics" element={<Logistics />} />
+      <Route path="/orders" element={<OrderTable />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/blog/:id" element={<Single />} />
+      <Route path="/productlist" element={user && user.role === 'buyer' ? <OrderTable /> : <Login />} />
+    </Routes>
+  );
+};
 
-   </Routes>
-  )
-}
-
-export default Routers
+export default Routers;

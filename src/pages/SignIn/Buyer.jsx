@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { BiShow, BiHide } from "react-icons/bi";
-import {BsArrowLeft} from 'react-icons/bs';
+import { BsArrowLeft } from 'react-icons/bs';
 import Images from "../../assets/img/images.png";
 import Dowload from "../../assets/img/download.png";
 import HashLoader from 'react-spinners/HashLoader'; // Assuming you're using HashLoader for loading indication
@@ -15,6 +15,8 @@ const Buyer = () => {
     confirmPassword: "",
     role: "buyer",
     photo: "", // Default role is set to buyer
+    phone: "",
+    address: "",
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -32,6 +34,7 @@ const Buyer = () => {
       setData({ ...data, [name]: value });
     }
   };
+
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -44,13 +47,21 @@ const Buyer = () => {
     e.preventDefault();
     setLoading(true); // Show loading indicator
 
+    if (data.password !== data.confirmPassword) {
+      toast.error("Passwords do not match!");
+      setLoading(false);
+      return;
+    }
+
     try {
-      const response = await fetch("http://localhost:3000/api/v1/auth/register", {
+      const formData = new FormData();
+      for (const key in data) {
+        formData.append(key, data[key]);
+      }
+
+      const response = await fetch("http://localhost:3000/api/v1/auth/buyer/register", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
+        body: formData,
       });
 
       if (!response.ok) {
@@ -88,10 +99,10 @@ const Buyer = () => {
         </div>
       </div>
       <div className="col-md-4">
-<Link className="btn btn-success btn-lg btn-block mt-4 rounded-pill" to='/Signup'>
-<BsArrowLeft/>
-</Link>
-</div>
+        <Link className="btn btn-success btn-lg btn-block mt-4 rounded-pill" to='/Signup'>
+          <BsArrowLeft />
+        </Link>
+      </div>
       <div className="container w-100 py-3">
         <h2 className="text-center">SignUp</h2>
         <div className="row justify-content-center">
@@ -102,20 +113,20 @@ const Buyer = () => {
             <div className="card bg-white p-4">
               <form className="py-2 " onSubmit={handleSubmit} style={{ color: "black" }}>
                 <label htmlFor="file-upload">
-                <img src={Dowload} className=" rounded-pill mx-auto " alt="" />
+                  <img src={Dowload} className="rounded-pill mx-auto" alt="" />
                 </label>
                 <label className="text-center mb-2">Profile picture</label>
-      <input
-        type="file" // Specify file input type
-        id="file-upload"
-        label='Image'
-        name="photo"
-        className="hidden" accept='.jpeg .png .jpg'
-        onChange={handleOnChange}
-      />
-                <label htmlFor="Name">Name</label>
                 <input
-                  type={"text"}
+                  type="file" // Specify file input type
+                  id="file-upload"
+                  label='Image'
+                  name="photo"
+                  className="hidden" accept='.jpeg .png .jpg'
+                  onChange={handleOnChange}
+                />
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
                   id="name"
                   name="name"
                   className="form-control mb-2 border-2"
@@ -126,12 +137,12 @@ const Buyer = () => {
 
                 <label htmlFor="email">Email</label>
                 <input
-                  type={"email"}
+                  type="email"
                   id="email"
                   name="email"
                   className="form-control mb-2"
                   value={data.email}
-                  onChange ={handleOnChange}
+                  onChange={handleOnChange}
                   required // Add validation for required fields
                 />
 
@@ -176,6 +187,19 @@ const Buyer = () => {
                   </button>
                 </div>
 
+                <label htmlFor="phone">Phone</label>
+                <input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  className="form-control mb-2"
+                  value={data.phone}
+                  onChange={handleOnChange}
+                  required // Add validation for required fields
+                />
+
+               
+
                 <label htmlFor="role">Role</label>
                 <select
                   id="role"
@@ -192,7 +216,7 @@ const Buyer = () => {
                   {loading ? (
                     <HashLoader color={'#36D7B7'} loading={loading} size={50} />
                   ) : (
-                    <button  className="btn btn-primary btn-block">
+                    <button className="btn btn-primary btn-block">
                       SignUp
                     </button>
                   )}

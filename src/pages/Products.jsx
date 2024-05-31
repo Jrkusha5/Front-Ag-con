@@ -5,12 +5,15 @@ import { addToCart, getCartTotal } from '../redux/cartSlice';
 import { useDispatch } from 'react-redux';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 
 const Products = () => {
   const dispatch = useDispatch();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+   const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(5); // Change this value as needed
   
 
   useEffect(() => {
@@ -42,6 +45,12 @@ const Products = () => {
 
   
   };
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = products.slice(indexOfFirstProduct,indexOfLastProduct);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div>
@@ -82,10 +91,11 @@ const Products = () => {
                     />
                     <div className="w-100 d-flex flex-column text-start ps-4">
                       <div className="d-flex justify-content-between border-bottom border-primary pb-2 mb-2">
-                        <h4>{product.name}</h4>
+                        <Link to={`/productdetail/${product._id}`}><h4>{product.name}</h4></Link>
                         <h4 className="text-primary">Birr: {product.price}</h4>
                       </div>
-                      <p className="mb-0">{product.descrption}</p>
+                      <p className="mb-0">....</p>
+                      <p className="mb-0">Available Quantity :{product.availableQuantity}</p>
                       <label htmlFor="">Farmer: {product.productOwner}</label>
                       <div>
                         <button type="button" className="btn text-primary btn-lg rounded-pill shadow-sm hover:bg-blue-500">
@@ -107,6 +117,17 @@ const Products = () => {
         </div>
         </div>
       )}
+      <div className="pagination justify-content-center">
+        <ul className="pagination">
+          {Array.from({ length: Math.ceil(products.length / productsPerPage) }).map((_, index) => (
+            <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
+              <button onClick={() => paginate(index + 1)} className="page-link">
+                {index + 1}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
       <Footer/>
     </div>
   );
