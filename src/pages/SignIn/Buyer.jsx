@@ -6,6 +6,8 @@ import { BsArrowLeft } from 'react-icons/bs';
 import Images from "../../assets/img/images.png";
 import Dowload from "../../assets/img/download.png";
 import HashLoader from 'react-spinners/HashLoader'; // Assuming you're using HashLoader for loading indication
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 const Buyer = () => {
   const [data, setData] = useState({
@@ -118,6 +120,8 @@ const Buyer = () => {
   };
 
   return (
+    <>
+    <Header/>
     <div style={containerStyle}>
       <div className="container mb-3 wow fadeIn" data-wow-delay="0.1s">
         <div className="container">
@@ -248,7 +252,7 @@ const Buyer = () => {
                     className="form-control"
                     value={data.phone}
                     onChange={handleOnChange}
-                    required // Add validation for required fields
+                    required 
                     style={inputStyle}
                   />
                 </div>
@@ -303,6 +307,8 @@ const Buyer = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 
