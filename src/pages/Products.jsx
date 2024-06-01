@@ -13,7 +13,7 @@ const Products = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
    const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(5); // Change this value as needed
+  const [productsPerPage] = useState(2); // Change this value as needed
   
 
   useEffect(() => {

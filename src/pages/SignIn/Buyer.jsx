@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { BiShow, BiHide } from "react-icons/bi";
 import { BsArrowLeft } from 'react-icons/bs';
-import Images from "../../assets/img/images.png";
+// import Images from "../../assets/img/images.png";
 import Dowload from "../../assets/img/download.png";
 import HashLoader from 'react-spinners/HashLoader'; // Assuming you're using HashLoader for loading indication
 import Header from "../../components/Header";
@@ -149,9 +149,9 @@ const Buyer = () => {
         <h2 className="text-center" style={{ fontWeight: "bold", fontSize: "2rem" }}>SignUp</h2>
         <div className="row justify-content-center">
           <div className="col-12 col-md-8 col-lg-6 d-flex g-1">
-            <div className="col-md-6">
+            {/* <div className="col-md-6">
               <img src={Images} style={{ width: "90%", height: "100%" }} alt="Logo" className="login-img" />
-            </div>
+            </div> */}
             <div className="card bg-white p-4 shadow" style={formContainerStyle}>
               <form className="py-2" onSubmit={handleSubmit} style={{ color: "black" }}>
                 <label htmlFor="file-upload" className="d-flex flex-column align-items-center">
