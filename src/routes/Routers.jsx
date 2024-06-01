@@ -14,6 +14,7 @@ import Blog from '../pages/blog/BlogPage';
 import Single from '../pages/single/Single';
 import OrderTable from '../pages/OrderTable';
 import ProfilePage from '../pages/profile/ProfilePage';
+import PaymentSuccess from '../pages/paymentSuccess'
 import { Routes, Route } from 'react-router-dom';
 
 const Routers = () => {
@@ -42,6 +43,8 @@ const Routers = () => {
       <Route path="/blog/:id" element={<Single />} />
       <Route path="/productlist" element={user && user.role === 'buyer' ? <OrderTable /> : <Login />} />
       <Route path="/profile/:id" element={user ? <ProfilePage /> : <Login />} />
+      <Route path="/payment-success" element={  <PaymentSuccess  /> } />
+
     </Routes>
   );
 };
