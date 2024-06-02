@@ -1,19 +1,15 @@
 import { useContext, useRef, useEffect } from "react";
-import { Link,useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
 import { loginCall } from "../ApiCalls";
 import { AuthContext } from '../context/AuthContext';
-import '../styles/login.css'
 import { BiShow, BiHide } from "react-icons/bi";
-import Bg1 from '../assets/img/bg.svg'
+import Bg1 from '../assets/img/bg.svg';
 import { toast } from "react-toastify";
-// import { authContext } from '../context/AuthContext.jsx';
 import HashLoader from 'react-spinners/HashLoader'; // Assuming you're using HashLoader for loading indication
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export default function Login() {
-  //  const [showPassword, setShowPassword] = useState(false);
-  //  const [loading, setLoading] = useState(false);
    const email = useRef();
    const password = useRef();
    const { user, isFetching, error, dispatch } = useContext(AuthContext);
@@ -40,11 +36,12 @@ export default function Login() {
    const handleRegister = () => {
      navigate('/Signup');
    };
-  return (
+  
+   return (
     <>
-    <Header/>
-      <div className="container-fluid page-header wow fadeIn" data-wow-delay="0.2s" style={{fontSize:'20px'}}>
-        <div className="container ">
+      <Header />
+      <div className="container-fluid page-header wow fadeIn" data-wow-delay="0.2s" style={{ fontSize: '20px' }}>
+        <div className="container">
           <h1 className="display-3 animated slideInDown">Login</h1>
           <nav aria-label="breadcrumb animated slideInDown">
             <ol className="breadcrumb mb-2">
@@ -56,49 +53,40 @@ export default function Login() {
           </nav>
         </div>
       </div>
-      <div className="container pt-7" style={{  color: 'black' }}>
+      <div className="container pt-7" style={{ color: 'black' }}>
         <div className="row justify-content-center">
-          <div className="col-md-8 mx-auto">  {/* Center the entire form area */}
-            <div className="row">
-              <div className="col-md-6 d-flex pt-4 align-items-center">
-                <img src={Bg1} alt="Logo" className="login-img" />
+          <div className="col-md-10"> {/* Center the entire form area */}
+            <div className="row align-items-center">
+              <div className="col-md-6 d-flex align-items-center">
+                <img src={Bg1} alt="Logo" className="img-fluid" />
               </div>
-              <div className="container">
-  
-  <div className="row justify-content-center">
-    <div className="col-md-6 col-lg-4">
-      <form className="card card-body" onSubmit={handleClick}>
-        <label className="form-label">Email</label>
-        <input placeholder="Enter your email" type="email" className="form-control" ref={email} required />
-        <label className="form-label">Password</label>
-        <input
-          placeholder="Enter your password"
-          type="password"
-          className="form-control"
-          minLength="6"
-          ref={password}
-          required
-        />
-        <button className="btn btn-primary" type="submit">
-          {isFetching ? <HashLoader color={'#fff'} size={20} loading={isFetching} /> : 'Log In'}
-        </button>
-        <span className="form-text text-muted">Forgot Password?</span>
-        <button type="button" className="btn btn-link" onClick={handleRegister}>
-          {isFetching ? <HashLoader color={'#fff'} size={20} loading={isFetching} /> : 'Create a New Account'}
-        </button>
-      </form>
-    </div>
-  </div>
-</div>
-
-
-
+              <div className="col-md-6">
+                <form className="card card-body" onSubmit={handleClick}>
+                  <label className="form-label">Email</label>
+                  <input placeholder="Enter your email" type="email" className="form-control" ref={email} required />
+                  <label className="form-label">Password</label>
+                  <input
+                    placeholder="Enter your password"
+                    type="password"
+                    className="form-control"
+                    minLength="6"
+                    ref={password}
+                    required
+                  />
+                  <button className="btn btn-primary mt-3" type="submit">
+                    {isFetching ? <HashLoader color={'#fff'} size={20} loading={isFetching} /> : 'Log In'}
+                  </button>
+                  <span className="form-text text-muted mt-2">Forgot Password?</span>
+                  <button type="button" className="btn btn-link mt-2" onClick={handleRegister}>
+                    {isFetching ? <HashLoader color={'#fff'} size={20} loading={isFetching} /> : 'Create a New Account'}
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };
-;

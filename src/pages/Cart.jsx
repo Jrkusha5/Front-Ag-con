@@ -51,7 +51,7 @@ const Cart = () => {
         
         // Now initiate the Chapa payment process
         const paymentResponse = await axios.post(
-          "http://localhost:3000/accept-payment",
+          "https://agribackend-mstw.onrender.com/accept-payment",
           {
             amount: totalAmount,
             currency: 'ETB',

@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer'; 
 import axios from "axios";
 import { AuthContext } from '../context/AuthContext';
+import { Link } from "react-router-dom";
 
 const OrderTable = () => {
   const { user } = useContext(AuthContext);
@@ -70,15 +71,11 @@ const OrderTable = () => {
                 <tbody>
                   {currentOrders.map((order) => (
                     <tr key={order._id}>
-                      <td>{order._id}</td>
+                     
+                      <Link to={`/orderdetailpage/${order._id}`}> <td>{order._id}</td></Link>
+
                       <td>{new Date(order.createdAt).toLocaleDateString()}</td>
-                      {/* <td>
-                        {order.products.map(product => (
-                          <div key={product.productId}>
-                            <p>{product.name} (x{product.quantity})</p>
-                          </div>
-                        ))}
-                      </td> */}
+                      
                       <td>Birr: {order.overallTotal}</td>
                       <td>{order.orderStatus}</td>
                       

@@ -14,9 +14,11 @@ import Blog from '../pages/blog/BlogPage';
 import Single from '../pages/single/Single';
 import OrderTable from '../pages/OrderTable';
 import ProfilePage from '../pages/profile/ProfilePage';
+import FarmerStatus from '../pages/FarmerStatus'
 import PaymentSuccess from '../pages/paymentSuccess'
 import PageNotFound from '../components/PageNotFound';
 import { Routes, Route } from 'react-router-dom';
+import OrderDetailPage from '../components/OrderDetailPage';
 
 const Routers = () => {
   const { user } = useContext(AuthContext);
@@ -33,7 +35,7 @@ const Routers = () => {
       <Route path="/contactUs" element={<ContactUs />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
-      <Route path="/cart" element={<Cart />} />
+      <Route path="/cart" element={user && user.role === 'buyer' ? <Cart /> : <Login />} />
       <Route path="/products" element={<Products />} />
       <Route path="/productdetail/:id" element={<SingleProduct />} />
       <Route path="/signUpFarmer" element={<Farmer />} />
@@ -43,6 +45,9 @@ const Routers = () => {
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:id" element={<Single />} />
       <Route path="/productlist" element={user && user.role === 'buyer' ? <OrderTable /> : <Login />} />
+      <Route path="/orderdetailpage/:id" element={user && user.role === 'buyer' ? <OrderDetailPage /> : <Login />} />
+      <Route path="/farmerStatus" element={user && user.role === 'buyer' ? <FarmerStatus /> : <Login />} />
+
       <Route path="/profile/:id" element={user ? <ProfilePage /> : <Login />} />
       <Route path="/payment-success" element={  <PaymentSuccess  /> } />
       <Route path="/*" element={<PageNotFound />} />

@@ -61,7 +61,7 @@ const Buyer = () => {
         formData.append(key, data[key]);
       }
 
-      const response = await fetch("http://localhost:3000/api/v1/auth/register", {
+      const response = await fetch("http://localhost:3000/api/v1/auth/buyer/register", {
         method: "POST",
         body: formData,
       });
@@ -81,65 +81,23 @@ const Buyer = () => {
     }
   };
 
-  const containerStyle = {
-    backgroundColor: "#f8f9fa",
-    minHeight: "100vh",
-    paddingTop: "50px"
-  };
-
-  const headingStyle = {
-    fontWeight: "bold",
-    fontSize: "2.5rem"
-  };
-
-  const breadcrumbLinkStyle = {
-    fontSize: "1rem"
-  };
-
-  const formContainerStyle = {
-    borderRadius: "15px"
-  };
-
-  const labelStyle = {
-    fontWeight: "bold"
-  };
-
-  const inputStyle = {
-    fontSize: "1rem",
-    fontWeight: 500
-  };
-
-  const buttonStyle = {
-    fontSize: "1rem",
-    fontWeight: 500
-  };
-
-  const primaryButtonStyle = {
-    fontSize: "1.2rem",
-    fontWeight: "bold"
-  };
-
+  
   return (
     <>
     <Header/>
-    <div style={containerStyle}>
-      <div className="container mb-3 wow fadeIn" data-wow-delay="0.1s">
+    <div className="container-fluid page-header wow fadeIn" data-wow-delay="0.2s" style={{ fontSize: '20px' }}>
         <div className="container">
-          <h1 className="display-3 mb-3 animated slideInDown" style={headingStyle}>Buyer</h1>
+          <h1 className="display-3 animated slideInDown">Login</h1>
           <nav aria-label="breadcrumb animated slideInDown">
-            <ol className="breadcrumb mb-0">
+            <ol className="breadcrumb mb-2">
               <li className="breadcrumb-item">
-                <Link className="text-body" to="/" style={breadcrumbLinkStyle}>
-                  Home
-                </Link>
+                <Link to="/" className="text-body">Home</Link>
               </li>
-              <li className="breadcrumb-item text-dark active" aria-current="page" style={breadcrumbLinkStyle}>
-                SignUp
-              </li>
+              <li className="breadcrumb-item text-dark active" aria-current="page">Login</li>
             </ol>
           </nav>
         </div>
-      </div>
+      
       <div className="col-md-4">
         <Link className="btn btn-success btn-lg btn-block mt-4 rounded-pill" to='/Signup'>
           <BsArrowLeft />
@@ -152,11 +110,11 @@ const Buyer = () => {
             {/* <div className="col-md-6">
               <img src={Images} style={{ width: "90%", height: "100%" }} alt="Logo" className="login-img" />
             </div> */}
-            <div className="card bg-white p-4 shadow" style={formContainerStyle}>
+            <div className="card bg-white p-4 shadow" >
               <form className="py-2" onSubmit={handleSubmit} style={{ color: "black" }}>
                 <label htmlFor="file-upload" className="d-flex flex-column align-items-center">
                   <img src={Dowload} className="rounded-pill mx-auto mb-2" alt="" />
-                  <span style={labelStyle}>Profile picture</span>
+                  <span >Profile picture</span>
                 </label>
                 <input
                   type="file" // Specify file input type
@@ -167,7 +125,7 @@ const Buyer = () => {
                   onChange={handleOnChange}
                 />
                 <div className="form-group mb-3">
-                  <label htmlFor="name" style={labelStyle}>Name</label>
+                  <label htmlFor="name" >Name</label>
                   <input
                     type="text"
                     id="name"
@@ -176,12 +134,12 @@ const Buyer = () => {
                     value={data.name}
                     onChange={handleOnChange}
                     required // Add validation for required fields
-                    style={inputStyle}
+                    
                   />
                 </div>
 
                 <div className="form-group mb-3">
-                  <label htmlFor="email" style={labelStyle}>Email</label>
+                  <label htmlFor="email">Email</label>
                   <input
                     type="email"
                     id="email"
@@ -190,12 +148,12 @@ const Buyer = () => {
                     value={data.email}
                     onChange={handleOnChange}
                     required // Add validation for required fields
-                    style={inputStyle}
+                   
                   />
                 </div>
 
                 <div className="form-group mb-3">
-                  <label htmlFor="password" style={labelStyle}>Password</label>
+                  <label htmlFor="password" >Password</label>
                   <div className="input-group">
                     <input
                       type={showPassword ? "text" : "password"}
@@ -206,13 +164,13 @@ const Buyer = () => {
                       onChange={handleOnChange}
                       required // Add validation for required fields
                       minLength={8} // Enforce minimum password length
-                      style={inputStyle}
+                      
                     />
                     <button
                       className="btn btn-outline-primary"
                       type="button"
                       onClick={handleShowPassword}
-                      style={buttonStyle}
+                     
                     >
                       {showPassword ? "Hide" : <BiHide />}
                     </button>
@@ -220,7 +178,7 @@ const Buyer = () => {
                 </div>
 
                 <div className="form-group mb-3">
-                  <label htmlFor="confirmPassword" style={labelStyle}>Confirm Password</label>
+                  <label htmlFor="confirmPassword">Confirm Password</label>
                   <div className="input-group">
                     <input
                       type={showConfirmPassword ? "text" : "password"}
@@ -230,13 +188,13 @@ const Buyer = () => {
                       value={data.confirmPassword}
                       onChange={handleOnChange}
                       required // Add validation for required fields
-                      style={inputStyle}
+                    
                     />
                     <button
                       className="btn btn-outline-primary"
                       type="button"
                       onClick={handleShowConfirmPassword}
-                      style={buttonStyle}
+                     
                     >
                       {showConfirmPassword ? <BiShow /> : <BiHide />}
                     </button>
@@ -244,7 +202,7 @@ const Buyer = () => {
                 </div>
 
                 <div className="form-group mb-3">
-                  <label htmlFor="phone" style={labelStyle}>Phone</label>
+                  <label htmlFor="phone" >Phone</label>
                   <input
                     type="text"
                     id="phone"
@@ -253,12 +211,12 @@ const Buyer = () => {
                     value={data.phone}
                     onChange={handleOnChange}
                     required 
-                    style={inputStyle}
+                    
                   />
                 </div>
 
                 <div className="form-group mb-3">
-                  <label htmlFor="address" style={labelStyle}>Address</label>
+                  <label htmlFor="address" >Address</label>
                   <input
                     type="text"
                     id="address"
@@ -267,12 +225,12 @@ const Buyer = () => {
                     value={data.address}
                     onChange={handleOnChange}
                     required // Add validation for required fields
-                    style={inputStyle}
+                    
                   />
                 </div>
 
                 <div className="form-group mb-3">
-                  <label htmlFor="role" style={labelStyle}>Role</label>
+                  <label htmlFor="role" >Role</label>
                   <select
                     id="role"
                     name="role"
@@ -280,7 +238,7 @@ const Buyer = () => {
                     value={data.role}
                     onChange={handleOnChange}
                     disabled // Disable role selection for simplicity (adjust as needed)
-                    style={inputStyle}
+                   
                   >
                     <option value="buyer">Buyer</option>
                   </select>
@@ -290,7 +248,7 @@ const Buyer = () => {
                   {loading ? (
                     <HashLoader color={'#36D7B7'} loading={loading} size={50} />
                   ) : (
-                    <button className="btn btn-primary btn-block rounded-pill" style={primaryButtonStyle}>
+                    <button className="btn btn-primary btn-block rounded-pill" >
                       SignUp
                     </button>
                   )}

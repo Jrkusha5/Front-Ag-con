@@ -89,14 +89,15 @@ const Products = () => {
                       style={{ width: '130px' ,height:'200px'}}
                       alt={product.name}
                     />
-                    <div className="w-100 d-flex flex-column text-start ps-4">
+                    <div className="w-100 d-flex flex-column text-start ps-4 mb-2">
                       <div className="d-flex justify-content-between border-bottom border-primary pb-2 mb-2">
                         <Link to={`/productdetail/${product._id}`}><h4>{product.name}</h4></Link>
-                        <h4 className="text-primary">Birr: {product.price}</h4>
+                        <h4 className="text-primary mt-2">Birr: {product.price}</h4>
                       </div>
                       <p className="mb-0">....</p>
                       <p className="mb-0">Available Quantity :{product.availableQuantity}</p>
                       <label htmlFor="">Farmer: {product.productOwner}</label>
+                      
                       <div>
                         <button type="button" className="btn text-primary btn-lg rounded-pill shadow-sm hover:bg-blue-500">
                           <FaHeart />

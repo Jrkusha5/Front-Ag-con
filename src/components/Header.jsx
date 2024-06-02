@@ -89,6 +89,7 @@ const Header = () => {
                 <div className="dropdownMenu position-absolute mt-2" style={{ top: '100%', right: 0, background: 'white', border: '1px solid #ccc', borderRadius: '5px', zIndex: 1000 }}>
                   <Link to={`/profile/${user._id} `} className="dropdownItem" style={{ display: 'block', padding: '10px' }}>Profile</Link>
                   <Link to='/productlist' className="dropdownItem" style={{ display: 'block', padding: '10px' }}>MyOrder</Link>
+                  <Link to='/farmerStatus' className="dropdownItem" style={{ display: 'block', padding: '10px' }}>FarmerStatus</Link>
                   <span className="dropdownItem" onClick={handleLogout} style={{ display: 'block', padding: '10px', cursor: 'pointer' }}>LogOut</span>
                 </div>
               )}
