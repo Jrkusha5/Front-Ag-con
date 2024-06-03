@@ -8,6 +8,7 @@ import store from './redux/store';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContextProvider } from './context/AuthContext';
+import '../src/components/i18n';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

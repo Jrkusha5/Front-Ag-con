@@ -4,9 +4,11 @@ import logo1 from '../assets/img/logo1.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCartTotal } from '../redux/cartSlice';
 import { AuthContext } from '../context/AuthContext';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
-  const { user, logout } = useContext(AuthContext); // Destructure logout from AuthContext
+  const { t, i18n } = useTranslation();
+  const { user, logout } = useContext(AuthContext);
   const dispatch = useDispatch();
   const { totalItems } = useSelector((state) => state.cart);
   const navigate = useNavigate();
@@ -27,8 +29,12 @@ const Header = () => {
   };
 
   const handleLogout = () => {
-    logout(); // Call the logout function from AuthContext
-    navigate('/'); // Navigate to the home page
+    logout();
+    navigate('/');
+  };
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
   };
 
   return (
@@ -57,17 +63,17 @@ const Header = () => {
         >
           <div className={`navbar-nav p-4 p-lg-0 animated bounceInDown ${!showMenu && 'd-none d-md-flex'}`}>
             <Link to="/" className="nav-item nav-link active">
-              Home
+              {t('home')}
             </Link>
             <Link to="/Products" className="nav-item nav-link">
-              Products
+              {t('products')}
             </Link>
             <Link to="/contactUs" className="nav-item nav-link">
-              Contact
+              {t('contact')}
             </Link>
             {!user && (
               <Link to="/login" className="nav-item nav-link">
-                Login
+                {t('login')}
               </Link>
             )}
           </div>
@@ -87,14 +93,19 @@ const Header = () => {
               />
               {dropdownVisible && (
                 <div className="dropdownMenu position-absolute mt-2" style={{ top: '100%', right: 0, background: 'white', border: '1px solid #ccc', borderRadius: '5px', zIndex: 1000 }}>
-                  <Link to={`/profile/${user._id} `} className="dropdownItem" style={{ display: 'block', padding: '10px' }}>Profile</Link>
-                  <Link to='/productlist' className="dropdownItem" style={{ display: 'block', padding: '10px' }}>MyOrder</Link>
-                  <Link to='/farmerStatus' className="dropdownItem" style={{ display: 'block', padding: '10px' }}>FarmerStatus</Link>
-                  <span className="dropdownItem" onClick={handleLogout} style={{ display: 'block', padding: '10px', cursor: 'pointer' }}>LogOut</span>
+                  <Link to={`/profile/${user._id} `} className="dropdownItem" style={{ display: 'block', padding: '10px' }}>{t('profile')}</Link>
+                  <Link to='/productlist' className="dropdownItem" style={{ display: 'block', padding: '10px' }}>{t('myOrder')}</Link>
+                  <Link to='/farmerStatus' className="dropdownItem" style={{ display: 'block', padding: '10px' }}>{t('farmerStatus')}</Link>
+                  <span className="dropdownItem" onClick={handleLogout} style={{ display: 'block', padding: '10px', cursor: 'pointer' }}>{t('logout')}</span>
                 </div>
               )}
             </div>
           )}
+          <div className="language-switcher ms-4">
+          <button className="lang-btn" onClick={() => changeLanguage('en')}>EN</button>
+          <button className="lang-btn" onClick={() => changeLanguage('am')}>AM</button>
+</div>
+
         </div>
       </nav>
     </div>
