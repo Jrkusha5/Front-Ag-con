@@ -54,7 +54,6 @@ const SignUp = () => {
       </div>
     </div>
     <Link to='/login' className="btn btn-success btn-lg btn-block mt-4 rounded-pill">Back to Login</Link>
-    {/* <p >By clicking "Continue", you agree to our Terms of Service and <a href="#">Privacy Policy</a>.</p> */}
     <p className="text-center mt-3 text-black">We Provide Organic And Tasty Agricultural Products For Our Customers.</p>
 
   </div>
