@@ -4,7 +4,7 @@ import { loginCall } from "../ApiCalls";
 import { AuthContext } from '../context/AuthContext';
 import Bg1 from '../assets/img/bg.svg';
 import { toast } from "react-toastify";
-import HashLoader from 'react-spinners/HashLoader'; // Assuming you're using HashLoader for loading indication
+import HashLoader from 'react-spinners/HashLoader'; 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
