@@ -2,7 +2,6 @@ import { useContext, useRef, useEffect } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { loginCall } from "../ApiCalls";
 import { AuthContext } from '../context/AuthContext';
-import { BiShow, BiHide } from "react-icons/bi";
 import Bg1 from '../assets/img/bg.svg';
 import { toast } from "react-toastify";
 import HashLoader from 'react-spinners/HashLoader'; // Assuming you're using HashLoader for loading indication
@@ -55,7 +54,7 @@ export default function Login() {
       </div>
       <div className="container pt-7" style={{ color: 'black' }}>
         <div className="row justify-content-center">
-          <div className="col-md-10"> {/* Center the entire form area */}
+          <div className="col-md-10"> 
             <div className="row align-items-center">
               <div className="col-md-6 d-flex align-items-center">
                 <img src={Bg1} alt="Logo" className="img-fluid" />

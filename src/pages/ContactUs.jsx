@@ -45,7 +45,6 @@ const ContactUs = () => {
                     </div>
                 </div>
                 <div className="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-                    {/* <p className="mb-4 text-dark" style={{fontSize:'18px'}}>The contact form is currently inactive. </p> */}
                     <form>
                         <div className="row g-3">
                             <div className="col-md-6">
