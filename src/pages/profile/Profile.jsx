@@ -5,10 +5,10 @@ const ProfileDisplay = ({ buyer, onEdit }) => {
     return (
         <>
             {buyer[0] &&
-            <div className="profile-display">
-                <div className="cover-photo">
+            <div className="profile-display bg-light">
+                {/* <div className="cover-photo">
                     <img src="https://i.ibb.co/bNY25qJ/22539f0cbe01.jpg" alt="Cover" />
-                </div>
+                </div> */}
                 <div className="profile-info">
                     <img src={buyer[0].photo} alt="Profile" className="profile-picture" />
                     <div className="info-section">

@@ -38,7 +38,7 @@ const OrderDetailPage = () => {
         {order ? (
           <div className="order-detail-info">
             <p><strong>Order ID:</strong> {id}</p>
-            <p><strong>Buyer ID:</strong> {order.farmerId}</p>
+            <p><strong>Buyer ID:</strong> {order.buyerId}</p>
             <p><strong>Created At:</strong> {order.createdAt}</p>
             {/* <p><strong>Updated At:</strong> {order.updatedAt}</p> */}
             <div className="products-container">

@@ -6,10 +6,10 @@ import Footer from '../components/Footer'
 
 const SignUp = () => {
   return (
-    <div>
+    <>
     <Header/>
-    <div>
-         <div className="container-fluid  mb-3 wow fadeIn" data-wow-delay="0.1s">
+          <div>
+         <div className="container-fluid page-header  mb-3 wow fadeIn" data-wow-delay="0.1s">
         <div className="container">
             <h1 className="display-3 mb-3 animated slideInDown">SignUp</h1>
             <nav aria-label="breadcrumb animated slideInDown">
@@ -19,6 +19,7 @@ const SignUp = () => {
                 </ol>
             </nav>
         </div>
+    
     </div>
     </div>
 
@@ -53,10 +54,12 @@ const SignUp = () => {
       </div>
     </div>
     <Link to='/login' className="btn btn-success btn-lg btn-block mt-4 rounded-pill">Back to Login</Link>
-    <p className="text-center mt-3">By clicking "Continue", you agree to our Terms of Service and <a href="#">Privacy Policy</a>.</p>
+    {/* <p >By clicking "Continue", you agree to our Terms of Service and <a href="#">Privacy Policy</a>.</p> */}
+    <p className="text-center mt-3 text-black">We Provide Organic And Tasty Agricultural Products For Our Customers.</p>
+
   </div>
   <Footer/>
-    </div>
+    </>
 
     
   )
