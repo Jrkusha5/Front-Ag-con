@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer' 
 import { getCartTotal, removeItem, updateQuantity } from "../redux/cartSlice";
 import emptyCartImage from "../assets/img/empty.gif";
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import axios from "axios";
 import { AuthContext } from '../context/AuthContext';
 
