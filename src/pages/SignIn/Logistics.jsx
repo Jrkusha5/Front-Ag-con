@@ -80,9 +80,9 @@ const Logistics = () => {
     <div className="row justify-content-center">
     <div className="col-md-8 mx-auto">
     <div className="row d-flex">
-    <div className="col-md-6 d-flex pt-4 align-items-center">
+    {/* <div className="col-md-6 d-flex pt-4 align-items-center">
                 <img src={Bg1} alt="Logo" className="login-img" />
-              </div>
+              </div> */}
     
               <div className="col-md-6">
                 <div className="form-container">
