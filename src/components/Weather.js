@@ -5,10 +5,10 @@ const Weather = () => {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(false); // Start with false
   const [error, setError] = useState(null);
-  const [location, setLocation] = useState('Arbaminch,ET'); // Default location
+  const [location, setLocation] = useState(''); // Default location
 
   const fetchWeather = async () => {
-    setLoading(true); // Set loading to true when fetching data
+    setLoading(true); 
     setError(null); // Reset error state before fetching
     try {
       const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather`, {
