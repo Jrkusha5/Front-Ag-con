@@ -10,7 +10,7 @@ const OrderTable = () => {
   const { user } = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [ordersPerPage] = useState(5); // Change this value as needed
+  const [ordersPerPage] = useState(5); 
 
   useEffect(() => {
     const fetchOrders = async () => {
