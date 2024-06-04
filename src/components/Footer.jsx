@@ -1,4 +1,4 @@
-// src/components/Footer.js
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Weather from '../components/Weather'; // Import the Weather component
