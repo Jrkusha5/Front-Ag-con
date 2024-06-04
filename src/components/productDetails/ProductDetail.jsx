@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import './productDetailPage.css'; // Import your CSS file for styling
 import Footer from '../Footer';
 import Header from '../Header';
+import { BASE_URL } from '../../utils/config';
 
 const ProductDetailPage = () => {
   const { id } = useParams(); // Get productId from URL parameter
@@ -13,7 +14,7 @@ const ProductDetailPage = () => {
     // Fetch product details using productId
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/v1/products/singleProduct/${id}`);
+        const response = await axios.get(`${BASE_URL}/api/v1/products/singleProduct/${id}`);
         const productData = response.data;
         setProduct(productData);
       } catch (error) {

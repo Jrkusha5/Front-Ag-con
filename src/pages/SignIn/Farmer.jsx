@@ -6,6 +6,8 @@ import Dowload from "../../assets/img/download.png";
 import HashLoader from 'react-spinners/HashLoader';
 import { BiShow, BiHide } from "react-icons/bi";
 import {BsArrowLeft} from 'react-icons/bs';
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import Images from "../../assets/img/images.png";
 
 const Farmer = () => {
@@ -15,7 +17,9 @@ const Farmer = () => {
     password: "",
     confirmPassword: "",
     role: "farmer",
-    photo: "", // Default role is set to buyer
+    photo: "",
+    phone:"" ,
+    address:""
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -70,7 +74,8 @@ const Farmer = () => {
   };
   return (
     <div>
-      <div className="container-fluid mb-3 wow fadeIn" data-wow-delay="0.1s">
+      <Header/>
+      <div className="container-fluid mb-3 page-header wow fadeIn" data-wow-delay="0.1s">
         <div className="container">
           <h1 className="display-3 mb-3 animated slideInDown">Farmer</h1>
           <nav aria-label="breadcrumb animated slideInDown">
@@ -92,27 +97,27 @@ const Farmer = () => {
 <BsArrowLeft/>
 </Link>
 </div>
-      <div className="container w-100 py-3">
+      <div className="container w-100 py-3 ">
         <h2 className="text-center">SignUp</h2>
         <div className="row justify-content-center">
           <div className="col-12 col-md-6 d-flex g-1 ">
-            <div className="col-md-6">
+            {/* <div className="col-md-6">
               <img src={Images} style={{ width: "90%", height: "100%" }} alt="Logo" className="login-img" />
-            </div>
+            </div> */}
             <div className="card bg-white p-4">
               <form className="py-2 " onSubmit={handleSubmit} style={{ color: "black" }}>
-                <label htmlFor="file-upload">
-                <img src={Dowload} className=" rounded-pill mx-auto " alt="" />
+                <label htmlFor="file-upload" className="">
+                <img src={Dowload} className=" rounded-pill mx-auto text-center " alt="" />
                 </label>
-                <label className="text-center mb-2">Profile picture</label>
+                {/* <label className="text-center mb-2">Profile picture</label>
       <input
-        type="file" // Specify file input type
+        type="file" 
         id="file-upload"
         label='Image'
         name="photo"
-        className="hidden" accept='.jpeg .png .jpg'
+        className="hidden" 
         onChange={handleOnChange}
-      />
+      /> */}
                 <label htmlFor="Name">Name</label>
                 <input
                   type={"text"}
@@ -175,6 +180,27 @@ const Farmer = () => {
                     {showConfirmPassword ? <BiShow /> : <BiHide />}
                   </button>
                 </div>
+                <label >Phone</label>
+              <input
+                placeholder="Enter your phone number" 
+                type="tel"
+                  id={"phone"}
+                  name="phone"
+                  className="form-control mb-2"
+                  value={data.phone}
+                  onChange ={handleOnChange}
+                  required 
+              />
+              <label >Address</label>
+              <input
+               type={"text"}
+                id="address"
+                name="address"
+                className="form-control mb-2"
+                value={data.address}
+                onChange ={handleOnChange}
+                required 
+              />
 
                 <label htmlFor="role">Role</label>
                 <select
@@ -208,6 +234,7 @@ const Farmer = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

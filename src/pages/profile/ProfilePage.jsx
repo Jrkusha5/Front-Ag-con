@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import './profilePage.css';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import { BASE_URL } from "../utils/config";
 
 const ProfilePage = () => {
     const [buyer, setBuyer] = useState(null);
@@ -18,7 +19,7 @@ const ProfilePage = () => {
 
     const fetchBuyer = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/api/v1/user/buyer/${id}`);
+            const response = await axios.get(`${BASE_URL}/api/v1/user/buyer/${id}`);
             const { data } = response;
             console.log("Data received from server:", data); // Log received data
             if (data && data.buyer) {
@@ -49,7 +50,7 @@ const ProfilePage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:3000/api/v1/user/buyer/${id}`, buyer)
+        axios.put(`${BASE_URL}/api/v1/user/buyer/${id}`, buyer)
             .then(response => {
                 setBuyer(response.data.buyer);
                 setIsEditing(false);

@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import HashLoader from 'react-spinners/HashLoader'; 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { BASE_URL } from "../utils/config";
 
 export default function Login() {
    const email = useRef();

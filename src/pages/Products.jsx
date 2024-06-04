@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+import { BASE_URL } from "../utils/config";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const Products = () => {
   
 
   useEffect(() => {
-    fetch('https://agribackend-mstw.onrender.com/api/v1/products')
+    fetch(`${BASE_URL}/api/v1/products`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to fetch data');

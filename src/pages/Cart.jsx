@@ -7,6 +7,7 @@ import emptyCartImage from "../assets/img/empty.gif";
 import { useNavigate } from 'react-router-dom'
 import axios from "axios";
 import { AuthContext } from '../context/AuthContext';
+import { BASE_URL } from "../utils/config";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const Cart = () => {
 
   useEffect(() => {
     dispatch(getCartTotal());
-  }, [cartProducts, dispatch]);
+  }, [useSelector((state) => state.cart)]);
 
   const handleRemoveItem = (itemId) => {
     dispatch(removeItem({ id: itemId }));
@@ -41,7 +42,7 @@ const Cart = () => {
     console.log(products)
     console.log(buyerId)
     try {
-      const orderResponse = await axios.post('http://localhost:3000/api/v1/order', {
+      const orderResponse = await axios.post(`${BASE_URL}/api/v1/order`, {
         buyerId,
         products,
       });

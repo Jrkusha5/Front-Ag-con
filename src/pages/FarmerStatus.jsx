@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer'; 
 import axios from "axios";
 import { AuthContext } from '../context/AuthContext';
+import { BASE_URL } from "../utils/config";
 
 
 const FarmerStatus = () => {
@@ -17,7 +18,7 @@ const FarmerStatus = () => {
 
     const fetchFarmers = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/api/v1/user/farmer`); // Update endpoint to fetch farmers
+            const response = await axios.get(`${BASE_URL}/api/v1/user/farmer`); // Update endpoint to fetch farmers
             const { data } = response;
             console.log(data)
             if (Array.isArray(data.farmers)) {

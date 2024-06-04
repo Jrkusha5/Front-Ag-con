@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import axios from "axios";
 import { AuthContext } from '../context/AuthContext';
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../utils/config";
 
 const OrderTable = () => {
   const { user } = useContext(AuthContext);
@@ -14,7 +15,7 @@ const OrderTable = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/v1/order/buyer/${user._id}`);
+        const response = await axios.get(`${BASE_URL}/v1/order/buyer/${user._id}`);
         setOrders(response.data);
       } catch (error) {
         console.error('Error fetching orders:', error);

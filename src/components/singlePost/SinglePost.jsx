@@ -5,6 +5,7 @@ import { AuthContext } from '../../context/AuthContext';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import './singlePost.css';
+import { BASE_URL } from '../../utils/config';
 
 export default function SinglePost() {
   const [post, setPost] = useState({});
@@ -16,7 +17,7 @@ export default function SinglePost() {
   }, [id]);
   const fetchPost = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/v1/blog/posts/${id}`);
+        const response = await axios.get(`${BASE_URL}/api/v1/blog/posts/${id}`);
         setPost(response.data);
       } catch (error) {
         console.error('Error fetching post:', error);

@@ -85,14 +85,14 @@ const Header = () => {
           {user && (
             <div className="profileMenu ms-4 d-flex align-items-center position-relative">
               <img 
-                src='https://i.ibb.co/4pDNDk1/avatar.png' 
+                src={`${user.photo}||https://i.ibb.co/4pDNDk1/avatar.png` }
                 alt="" 
                 className="topbarImg" 
                 onClick={toggleDropdown}
                 style={{ cursor: 'pointer', width: '40px', height: '40px', borderRadius: '50%' }}
               />
               {dropdownVisible && (
-                <div className="dropdownMenu position-absolute mt-2" style={{ top: '100%', right: 0, background: 'white', border: '1px solid #ccc', borderRadius: '5px', zIndex: 1000 }}>
+                <div className="dropdownMenu position-absolute mt-2" style={{ top: '100%',  background: 'white', border: '1px solid #ccc', borderRadius: '5px', zIndex: 1000 }}>
                   <Link to={`/profile/${user._id} `} className="dropdownItem" style={{ display: 'block', padding: '10px' }}>{t('profile')}</Link>
                   <Link to='/productlist' className="dropdownItem" style={{ display: 'block', padding: '10px' }}>{t('myOrder')}</Link>
                   <Link to='/farmerStatus' className="dropdownItem" style={{ display: 'block', padding: '10px' }}>{t('farmerStatus')}</Link>
