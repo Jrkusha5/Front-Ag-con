@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import './profilePage.css';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { BASE_URL } from "../utils/config";
+import { BASE_URL } from '../../utils/config';
 
 const ProfilePage = () => {
     const [buyer, setBuyer] = useState(null);
@@ -19,7 +19,7 @@ const ProfilePage = () => {
 
     const fetchBuyer = async () => {
         try {
-            const response = await axios.get(`${BASE_URL}/api/v1/user/buyer/${id}`);
+            const response = await axios.get(`${BASE_URL}/api/v1/user/buyer/profile/${id}`);
             const { data } = response;
             console.log("Data received from server:", data); // Log received data
             if (data && data.buyer) {
