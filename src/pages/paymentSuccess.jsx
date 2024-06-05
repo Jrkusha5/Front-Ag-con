@@ -10,10 +10,6 @@ const PaymentSuccess = ({ transactionId, totalAmount }) => {
         navigate('/productlist');
     };
 
-    // const handleOrderHistory = () => {
-    //     navigate('/order-history');
-    // };
-
     return (
         <div>
         <Header/>
@@ -21,16 +17,11 @@ const PaymentSuccess = ({ transactionId, totalAmount }) => {
             <div className="shadow p-5 bg-white rounded bg-light">
                 <h1 className="text-success mb-4 ">Payment Successful!</h1>
                 <p className="mb-4">Thank you for your purchase.</p>
-                {/* <div className="mb-4">
-                    <p><strong>Transaction ID:</strong> {transactionId}</p>
-                    <p><strong>Amount Paid:</strong> ${totalAmount}</p>
-                </div> */}
+                
                 <button className="btn btn-success mr-2" onClick={handleGoHome}>
                     Orders page
                 </button>
-                {/* <button className="btn btn-success" onClick={handleOrderHistory}>
-                    View Order History
-                </button> */}
+                
             </div>
         </div>
         <Footer/>

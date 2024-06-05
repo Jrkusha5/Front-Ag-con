@@ -78,7 +78,7 @@ const Products = () => {
           <h2 className="commodity__title white text-center text-uppercase mt-4" style={{ color: 'black' }}>
             Select a product to Buy
           </h2>
-          <div className="container">
+          <div className="container mb-2">
           <div className="col-lg-12">
             <div className="row g-4">
               {products.map((product, index) => (
