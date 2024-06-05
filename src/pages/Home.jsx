@@ -144,7 +144,7 @@ const Home = () => {
     </div>
     
 
-    <div className='container-features'>
+    <div className='container-features mb-5'>
   <div className="container">
     <div className="row">
       <div className="col-12">
