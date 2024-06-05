@@ -2,8 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import payment from '../assets/img/success.png'
 
-const PaymentSuccess = ({ transactionId, totalAmount }) => {
+const PaymentSuccess = () => {
     const navigate = useNavigate();
 
     const handleGoHome = () => {
@@ -17,7 +18,7 @@ const PaymentSuccess = ({ transactionId, totalAmount }) => {
             <div className="shadow p-5 bg-white rounded bg-light">
                 <h1 className="text-success mb-4 ">Payment Successful!</h1>
                 <p className="mb-4">Thank you for your purchase.</p>
-                
+                <img  className='text-center' src={payment} alt="photo" />
                 <button className="btn btn-success mr-2" onClick={handleGoHome}>
                     Orders page
                 </button>

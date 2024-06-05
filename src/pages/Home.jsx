@@ -107,33 +107,33 @@ const Home = () => {
 
     <div class="container-fluid bg-light bg-icon py-6">
         <div class="container">
-            <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s"  style={{maxWidth: '500px',fontSize:'20px'}}>
-                <h1 class="display-5 mb-3">Our Features</h1>
+            <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s"  style={{maxWidth: '500px',fontSize:'17px'}}>
+                <h5 class="display-5 mb-3">Our Features</h5>
                 <p style={{color:'black'}}></p>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" >
                     <div class="bg-white text-center h-100 p-4 p-xl-5">
                         <img class="img-fluid mb-4" src="assets/img/icon-1.png" alt=""/>
-                        <h4 class="mb-3" style={{fontSize:'22px'}}>Natural Process</h4>
-                        <p class="mb-4" style={{fontSize:'18px',color:'black'}}>Preserving the integrity of the land and delivering food that is as close to nature as it gets.</p>
+                        <h4 class="mb-3" style={{fontSize:'18px'}}>Natural Process</h4>
+                        <p class="mb-4" style={{fontSize:'16px',color:'black'}}>Preserving the integrity of the land and delivering food that is as close to nature as it gets.</p>
                         <Link to='/' class="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" href="">Read More</Link>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s" >
                     <div class="bg-white text-center h-100 p-4 p-xl-5">
                         <img class="img-fluid mb-4" src="assets/img/icon-2.png" alt=""/>
-                        <h4 class="mb-3" style={{fontSize:'22px'}}>Organic Products</h4>
-                        <p class="mb-4" style={{fontSize:'18px',color:'black'}}>Free from synthetic pesticides and fertilizers, ensuring the purest, most wholesome produce for our customers</p>
-                        <Link to='/' class="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" style={{fontSize:'18px'}}>Read More</Link>
+                        <h4 class="mb-3" style={{fontSize:'18px'}}>Organic Products</h4>
+                        <p class="mb-4" style={{fontSize:'16px',color:'black'}}>Free from synthetic pesticides and fertilizers, ensuring the purest, most wholesome produce for our customers</p>
+                        <Link to='/' class="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" style={{fontSize:'16px'}}>Read More</Link>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="bg-white text-center h-100 p-4 p-xl-5">
                         <img class="img-fluid mb-4" src="assets/img/icon-3.png" alt=""/>
-                        <h4 class="mb-3" style={{fontSize:'22px'}}>Biologically Safe</h4>
-                        <p class="mb-4" style={{fontSize:'18px',color:'black'}}>We prioritize the health and well-being of both consumers and the environment</p>
-                        <Link to='/' class="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" >Read More</Link>
+                        <h4 class="mb-3" style={{fontSize:'18px'}}>Biologically Safe</h4>
+                        <p class="mb-4" style={{fontSize:'16px',color:'black'}}>We prioritize the health and well-being of both consumers and the environment</p>
+                        <Link to='/' class="btn btn-outline-primary border-2 py-2 px-4 rounded-pill"style={{fontSize:'16px'}} >Read More</Link>
                     </div>
                 </div>
             </div>
@@ -187,7 +187,7 @@ const Home = () => {
           <img src={Transport} style={{ width: '150px' }} alt="" />
         </div>
         <p className="container-features__subtitle" style={{ fontSize: '20px', color: 'black', fontWeight: 'bold' }}>Logistic</p>
-        <p className="container-features__text">Direct transaction between farmers and industry/retail</p>
+        <p className="container-features__text">Efficient management and coordination flow of goods, services</p>
       </div>
     </div>
   </div>

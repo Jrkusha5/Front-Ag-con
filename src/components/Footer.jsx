@@ -10,22 +10,22 @@ const Footer = () => {
         <div className="container py-5">
           <div className="row g-5">
             <div className="col-lg-3 col-md-6">
-              <h1 className="fw-bold text-primary mb-4">One ገበያ</h1>
+              <h3 className="fw-bold text-primary mb-4">One ገበያ</h3>
               <p>We Provide Organic And Tasty Agricultural Products For Our Customers.</p>
             </div>
             <div className="col-lg-3 col-md-6">
-              <h4 className="text-light mb-4">Address</h4>
+              <h5 className="text-light mb-4">Address</h5>
               <p><i className="fa fa-map-marker-alt me-3"></i>Arbaminch, Ethiopia</p>
-              <p><i className="fa fa-phone-alt me-3"></i>+0939063697</p>
+              <p><i className="fa fa-phone-alt me-3"></i>+251939063697</p>
               <p><i className="fa fa-envelope me-3"></i>AgroCon@gmail.com</p>
             </div>
             <div className="col-lg-3 col-md-6">
-              <h4 className="text-light mb-4" style={{ fontSize: '18px' }}>Quick Links</h4>
-              <Link to='/' className="btn btn-link" style={{ fontSize: '18px' }}>Weather Api</Link>
-              <Link to='/' className="btn btn-link" style={{ fontSize: '18px' }}>Contact Us</Link>
-              <Link to='/blog' className="btn btn-link" style={{ fontSize: '18px' }}>blogs</Link>
-              <Link to='/' className="btn btn-link" style={{ fontSize: '18px' }}>Terms & Condition</Link>
-              <Link to='/' className="btn btn-link" style={{ fontSize: '18px' }}>Support</Link>
+              <h5 className="text-light mb-4" >Quick Links</h5>
+              <Link to='/' className="btn btn-link" style={{ fontSize: '17px' }}>Weather Api</Link>
+              <Link to='/' className="btn btn-link" style={{ fontSize: '17px' }}>Contact Us</Link>
+              <Link to='/blog' className="btn btn-link" style={{ fontSize: '17px' }}>blogs</Link>
+              <Link to='/' className="btn btn-link" style={{ fontSize: '17px' }}>Terms & Condition</Link>
+              <Link to='/' className="btn btn-link" style={{ fontSize: '17px' }}>Support</Link>
             </div>
             <div className="col-lg-3 col-md-6">
               <Weather /> {/* Use the Weather component here */}
