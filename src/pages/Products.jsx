@@ -96,8 +96,8 @@ const Products = () => {
                         <h4 className="text-primary mt-2">Birr: {product.price}</h4>
                       </div>
                       <p className="mb-0">....</p>
-                      <p className="mb-0 fs-5 ">Available Quantity :{product.availableQuantity}</p>
-                      <label htmlFor="" className="mt-2 fs-5 ">Farmer: {product.productOwner}</label>
+                      <p className="mb-0  ">Available Quantity :{product.availableQuantity}</p>
+                      <label htmlFor="" className="mt-2  ">Farmer: {product.productOwner}</label>
                       
                       <div>
                         <button type="button" className="btn text-primary btn-lg rounded-pill shadow-sm hover:bg-blue-500">

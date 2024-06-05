@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import { BASE_URL } from '../utils/config';
 
 
 const OrderDetailPage = () => {
@@ -17,7 +18,7 @@ const OrderDetailPage = () => {
     // Fetch order details using orderId
     const fetchOrder = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/v1/order/singleOrder/${id}`);
+        const response = await axios.get(`${BASE_URL}/api/v1/order/singleOrder/${id}`);
         const orderData = response.data; // Get order data from response
         setOrder(orderData);
       } catch (error) {
