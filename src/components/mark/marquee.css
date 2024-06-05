@@ -19,8 +19,8 @@
 }
 
 .image_wrapper img {
-  width: 250px; /* Ensure all images have the same width */
-  height: 250px; /* Ensure all images have the same height */
+  width: 200px; /* Ensure all images have the same width */
+  height: 200px; /* Ensure all images have the same height */
   border-radius: 50%; /* Make all images circular */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for better aesthetics */
   transition: transform 0.3s ease; /* Smooth transition for scaling effect */

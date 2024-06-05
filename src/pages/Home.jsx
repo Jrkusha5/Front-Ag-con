@@ -93,8 +93,8 @@ const Home = () => {
         <div className="container">
             <div className="row g-5 align-items-center">
                 <div className="col-md-7 wow fadeIn" data-wow-delay="0.1s">
-                    <h1 className="display-5 text-black mb-3" style={{fontSize:'50px'}}>Overview</h1>
-                    <p className="text-black mb-0" style={{fontSize:'25px',color:'black'}}>Our mission is to Provide customers with access to nutritions food that is free from genetically modified ingridients.
+                    <h1 className="display-5 text-black mb-3" style={{fontSize:'30px'}}>Overview</h1>
+                    <p className="text-black mb-0" style={{fontSize:'17px',color:'black'}}>Our mission is to Provide customers with access to nutritions food that is free from genetically modified ingridients.
                        We work with local farmers who share our commitment to Organic agriculture, and we carefully select every product that we selll to ensure that it meets our high quality standards</p>
                 </div>
                 <div className='col-md-4'>
@@ -139,7 +139,7 @@ const Home = () => {
             </div>
         </div>
     </div>
-    <div>
+    <div className='mb-5'>
     <Marquee/>
     </div>
     
@@ -155,38 +155,38 @@ const Home = () => {
     </div>
     <div className="row">
       <div className="col-12">
-        <p className='text-center features-text' style={{ color: 'black', fontSize: '25px' }}>
+        <p className='text-center features-text' style={{ color: 'black', fontSize: '20px' }}>
           "Discover how One ገበታ can benefit you and all other food supply chain actors"
         </p>
       </div>
     </div>
-    <div className="features-row d-flex flex-wrap justify-content-center align-items-center" style={{ fontSize: '20px', color: 'black' }}>
+    <div className="features-row d-flex flex-wrap justify-content-center align-items-center" style={{ fontSize: '17px', color: 'black' }}>
       <div className="col-md-3 col-adv">
         <div className="container">
-          <img src={Trust} style={{ width: '200px' }} alt="" />
+          <img src={Trust} style={{ width: '150px' }} alt="" />
         </div>
-        <p className="container-features__subtitle" style={{ fontWeight: 'bold', fontSize: '25px' }}>Transparency</p>
+        <p className="container-features__subtitle" style={{ fontWeight: 'bold', fontSize: '20px' }}>Transparency</p>
         <p className="container-features__text">Direct transaction between farmers and buyers/retail</p>
       </div>
       <div className="col-md-3 col-adv">
         <div className="container">
-          <img src={Trading} style={{ width: '200px' }} alt="" />
+          <img src={Trading} style={{ width: '150px' }} alt="" />
         </div>
-        <p className="container-features__subtitle" style={{ fontWeight: 'bold', fontSize: '25px' }}>FairTrade</p>
+        <p className="container-features__subtitle" style={{ fontWeight: 'bold', fontSize: '20px' }}>FairTrade</p>
         <p className="container-features__text">Redistribution of value in food supply chain</p>
       </div>
       <div className="col-md-3 col-adv">
         <div className="container">
-          <img src={Check} style={{ width: '200px' }} alt="" />
+          <img src={Check} style={{ width: '150px' }} alt="" />
         </div>
-        <p className="container-features__subtitle" style={{ fontWeight: 'bold', fontSize: '25px' }}>UserFriendly</p>
+        <p className="container-features__subtitle" style={{ fontWeight: 'bold', fontSize: '20px' }}>UserFriendly</p>
         <p className="container-features__text">Reduce costs to buyers without losing reliability</p>
       </div>
       <div className="col-md-3 col-adv">
         <div className="container">
-          <img src={Transport} style={{ width: '200px' }} alt="" />
+          <img src={Transport} style={{ width: '150px' }} alt="" />
         </div>
-        <p className="container-features__subtitle" style={{ fontSize: '25px', color: 'black', fontWeight: 'bold' }}>Logistic</p>
+        <p className="container-features__subtitle" style={{ fontSize: '20px', color: 'black', fontWeight: 'bold' }}>Logistic</p>
         <p className="container-features__text">Direct transaction between farmers and industry/retail</p>
       </div>
     </div>
