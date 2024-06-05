@@ -28,9 +28,9 @@ const Home = () => {
                         <div className="container">
                             <div className="row justify-content-start">
                                 <div className="col-lg-7">
-                                    <h2 className="display-2 mb-5 animated slideInDown" style={{fontFamily:''}} >OnE ገበያ where Fair trade made Easy.</h2>
-                                    <Link to='/products' className="btn btn-primary  py-sm-3 px-sm-5" style={{borderRadius:'50px',fontSize:'23px',color:'black'}}>Products</Link>
-                                    <Link to ='/contactUs'  className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3"style={{borderRadius:'50px',fontSize:'23px',color:'black'}}>Services</Link>
+                                    <h4 className="display-2 mb-5 animated slideInDown"  >OnE ገበያ where Fair trade made Easy.</h4>
+                                    <Link to='/products' className="btn btn-primary  py-sm-3 px-sm-5" style={{borderRadius:'50px',fontSize:'18px',color:'black'}}>Products</Link>
+                                    <Link to ='/contactUs'  className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3"style={{borderRadius:'50px',fontSize:'18px',color:'black'}}>Services</Link>
                                 </div>
                             </div>
                         </div>
@@ -42,9 +42,9 @@ const Home = () => {
                         <div className="container">
                             <div className="row justify-content-start">
                                 <div className="col-lg-7">
-                                    <h1 className="display-2 mb-5 animated bounceInDown" style={{fontFamily:''}}>Organic Products Are Always Healthy</h1>
-                                    <Link to='/products' className="btn btn-primary rounded-pill py-sm-3 px-sm-5" style={{borderRadius:'50px',fontSize:'23px',color:'black'}}>Products</Link >
-                                    <Link to='/contactUs' className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3" style={{borderRadius:'50px',fontSize:'23px',color:'black'}}>Contact Us</Link>
+                                    <h3 className="display-2 mb-5 animated bounceInDown" >Organic Products Are Always Healthy</h3>
+                                    <Link to='/products' className="btn btn-primary rounded-pill py-sm-3 px-sm-5" style={{borderRadius:'50px',fontSize:'18px',color:'black'}}>Products</Link >
+                                    <Link to='/contactUs' className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3" style={{borderRadius:'50px',fontSize:'18px',color:'black'}}>Contact Us</Link>
                                 </div>
                             </div>
                         </div>

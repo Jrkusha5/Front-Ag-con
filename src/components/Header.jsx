@@ -59,7 +59,7 @@ const Header = () => {
         <div
           className={`collapse navbar-collapse d-flex justify-content-center animated bounceInDown ${showMenu ? 'show' : ''}`}
           id="navbarCollapse"
-          style={{ fontSize: '27px', color: 'black' }}
+          style={{ fontSize: '22px', color: 'black' }}
         >
           <div className={`navbar-nav p-4 p-lg-0 animated bounceInDown ${!showMenu && 'd-none d-md-flex'}`}>
             <Link to="/" className="nav-item nav-link active">
