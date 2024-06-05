@@ -28,7 +28,7 @@ const Home = () => {
                         <div className="container">
                             <div className="row justify-content-start">
                                 <div className="col-lg-7">
-                                    <h4 className="display-2 mb-5 animated slideInDown"  >OnE ገበያ where Fair trade made Easy.</h4>
+                                    <h5 className="display-2 mb-5 animated slideInDown"  >OnE ገበያ where Fair trade made Easy.</h5>
                                     <Link to='/products' className="btn btn-primary  py-sm-3 px-sm-5" style={{borderRadius:'50px',fontSize:'18px',color:'black'}}>Products</Link>
                                     <Link to ='/contactUs'  className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3"style={{borderRadius:'50px',fontSize:'18px',color:'black'}}>Services</Link>
                                 </div>
@@ -42,9 +42,9 @@ const Home = () => {
                         <div className="container">
                             <div className="row justify-content-start">
                                 <div className="col-lg-7">
-                                    <h3 className="display-2 mb-5 animated bounceInDown" >Organic Products Are Always Healthy</h3>
-                                    <Link to='/products' className="btn btn-primary rounded-pill py-sm-3 px-sm-5" style={{borderRadius:'50px',fontSize:'18px',color:'black'}}>Products</Link >
-                                    <Link to='/contactUs' className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3" style={{borderRadius:'50px',fontSize:'18px',color:'black'}}>Contact Us</Link>
+                                    <h5 className="display-2 mb-5 animated bounceInDown" >Organic Products Are Always Healthy</h5>
+                                    <Link to='/products' className="btn btn-primary rounded-pill py-sm-3 px-sm-5" style={{borderRadius:'50px',fontSize:'17px',color:'black'}}>Products</Link >
+                                    <Link to='/contactUs' className="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3" style={{borderRadius:'50px',fontSize:'17px',color:'black'}}>Contact Us</Link>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@ const Home = () => {
 
    <Services/>
     
-    <div className="container-xxl py-5" style={{fontSize:'23px',color:'black'}}>
+    <div className="container-xxl py-5" style={{fontSize:'17px',color:'black'}}>
         <div className="container">
             <div className="row g-5 align-items-center">
                 <div className="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
@@ -75,7 +75,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                    <h1 className="display-5 mb-4" style={{fontSize:'50px'}}>Best Organic Fruits And Vegetables</h1>
+                    <h1 className="display-5 mb-4" style={{fontSize:'30px'}}>Best Organic Fruits And Vegetables</h1>
                     <p className="mb-4">Transparent and reliable market information, deal creation and negotiation.</p>
                     <p><i className="fa fa-check text-primary me-3"></i>Trusted Organic Food</p>
                     <p><i className="fa fa-check text-primary me-3"></i>Tasty And Healthier Organic Vegetables</p>
