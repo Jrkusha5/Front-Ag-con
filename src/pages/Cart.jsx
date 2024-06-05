@@ -60,7 +60,7 @@ const Cart = () => {
             first_name: user.firstName,
             phone_number: user.phoneNumber,
             tx_ref: `order-${orderId}-${Date.now()}`,
-            // return_url: `http://localhost:3001/home`,
+            return_url: 'http://agribuyer.vercel.app/payment-success', 
           },
           {
             headers: { "Content-Type": "application/json" },
