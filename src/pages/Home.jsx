@@ -139,8 +139,10 @@ const Home = () => {
             </div>
         </div>
     </div>
-
+    <div>
     <Marquee/>
+    </div>
+    
 
     <div className='container-features'>
   <div className="container">
