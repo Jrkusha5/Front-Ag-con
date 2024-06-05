@@ -2,9 +2,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import payment from '../assets/img/success.png'
+import payment from '../assets/img/success.png';
 
-const PaymentSuccess = () => {
+const PaymentSuccess = ({ transactionId, totalAmount }) => {
     const navigate = useNavigate();
 
     const handleGoHome = () => {
@@ -13,19 +13,20 @@ const PaymentSuccess = () => {
 
     return (
         <div>
-        <Header/>
-        <div className="container d-flex flex-column align-items-center justify-content-center vh-100 text-center ">
-            <div className="shadow p-5 bg-white rounded bg-light">
-                <h1 className="text-success mb-4 ">Payment Successful!</h1>
-                <p className="mb-4">Thank you for your purchase.</p>
-                <img  className='text-center' src={payment} alt="photo" />
-                <button className="btn btn-success mr-2" onClick={handleGoHome}>
-                    Orders page
-                </button>
-                
+            <Header />
+            <div className="container d-flex flex-column align-items-center justify-content-center vh-100 text-center">
+                <div className="shadow p-5 bg-white rounded bg-light d-flex flex-column align-items-center" style={{ height: '70vh' }}>
+                    <h1 className="text-success mb-4">Payment Successful!</h1>
+                    <p className="mb-4">Thank you for your purchase.</p>
+                    <img className="mb-4" src={payment} alt="Payment Success" style={{ width: '150px', height: 'auto' }} />
+                    <div className="mt-auto">
+                        <button className="btn btn-success" onClick={handleGoHome}>
+                            Orders page
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-        <Footer/>
+            <Footer />
         </div>
     );
 };

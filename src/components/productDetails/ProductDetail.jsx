@@ -30,7 +30,7 @@ const ProductDetailPage = () => {
     <Header/>
     <div className='center'>
       <div className="product-detail-container"> {/* Add a class for styling */}
-      <h2 className="product-detail-title">Product Detail</h2> {/* Add a class for styling */}
+      <h4 className="product-detail-title">Product Detail</h4> {/* Add a class for styling */}
       {product ? (
         <div className="product-detail-info"> {/* Add a class for styling */}
           <div className="product-detail-header">
