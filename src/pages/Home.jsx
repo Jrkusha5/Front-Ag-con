@@ -105,7 +105,7 @@ const Home = () => {
         </div>
     </div>
 
-    <div class="container-fluid bg-light bg-icon py-6">
+    <div class="container-fluid bg-light bg-icon py-6 mb-5">
         <div class="container">
             <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s"  style={{maxWidth: '500px',fontSize:'17px'}}>
                 <h5 class="display-5 mb-3">Our Features</h5>
@@ -139,13 +139,13 @@ const Home = () => {
             </div>
         </div>
     </div>
-    <div className='mb-5'>
+    <div className='mb-5 my-4'>
     <Marquee/>
     </div>
     
 
-    <div className='container-features mb-5'>
-  <div className="container">
+    <div className='container-features mb-5 my-4'>
+  <div className="container my-4">
     <div className="row">
       <div className="col-12">
         <h1 className='text-center'>

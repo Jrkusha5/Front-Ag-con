@@ -1,100 +1,101 @@
-import React, { useState } from 'react'
-import CommonHeading from './CommonHeading'
-import recentData  from '../assets/data/recentData'
-import Star from '../assets/img/Star.png'
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { FaHeart } from 'react-icons/fa';
+import Star from '../assets/img/Star.png';
+import { addToCart, getCartTotal } from '../redux/cartSlice'; // Adjust the import according to your file structure
 
-
+import { BASE_URL } from "../utils/config";// Replace with your actual API URL
 
 const Latest = () => {
-    const [product, setProduct]=useState(recentData);
+  const dispatch = useDispatch();
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    const filterItems= (category)=>{
-        const recentData =recentData.filter((item)=>item.category==category);
-        setProduct(product);
-        if(category ==='all'){
-            setProduct(recentData);
+  useEffect(() => {
+    fetch(`${BASE_URL}/api/v1/products`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
         }
-    }
+        return response.json();
+      })
+      .then(data => {
+        setProducts(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        setError(error);
+        setLoading(false);
+      });
+  }, []);
+
+  const handleAddToCart = (item) => {
+    let totalPrice = item.quantity * item.price;
+    const tempProduct = {
+      ...item,
+      totalPrice,
+    };
+    dispatch(addToCart(tempProduct));
+    dispatch(getCartTotal());
+  };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  // Sort products by createdAt in descending order and take the latest four
+  const latestProducts = products
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    .slice(0, 4);
+
   return (
-   <>
-   <div className="container-fluid event py-6">
-     <div className="container">
-        <CommonHeading title="Latest Products" description="Keep Your health with Organic foods."/>
-        <div className="tab-className text-center">
-            <ul className='nav nav-pills d-inline-flex justify-content-center mb-5 bounceInUp'>
-            <li className="nav-items p-2">
-                    <a href="" className='d-flex mx-2 py-2 border border-primary text-uppercase  bg-light rounded-pill'>
-                        <span className="text-dark" style={{width:'150px',fontSize:"20px",color:'black'}}>
-                            All Items
-                        </span>
-                    </a>
-                </li>
-                <li className="nav-items p-2">
-                    <a href="" className='d-flex mx-2 py-2 border border-primary text-uppercase  bg-light rounded-pill'>
-                        <span className="text-dark" style={{width:'150px', fontSize:"20px",color:'black'}}>
-                            Grains
-                        </span>
-                    </a>
-                </li>
-                <li className="nav-items p-2">
-                    <a href="" className='d-flex mx-2 py-2 border border-primary text-uppercase  bg-light rounded-pill'>
-                        <span className="text-dark" style={{width:'150px', fontSize:"20px",color:'black'}}>
-                            Vegetables
-                        </span>
-                    </a>
-                </li>
-
-                <li className="nav-items p-2">
-                    <a href="" className='d-flex mx-2 py-2 border border-primary text-uppercase  bg-light rounded-pill '>
-                        <span className="text-dark" style={{width:'150px', fontSize:"20px",color:'black',}}>
-                            Fruits
-                        </span>
-                    </a>
-                </li>
-
-                <li className="nav-items p-2">
-                    <a href="" className='d-flex mx-2 py-2 border border-primary text-uppercase  bg-light rounded-pill'>
-                        <span className="text-dark" style={{width:'150px', fontSize:"20px",color:'black'}}>
-                            Dairy
-                        </span>
-                    </a>
-                </li>
-
-            </ul>
-         
-       
-         <div className='col-lg-12'>
-         <div className='row g-4'>
-            {
-                recentData.map((val,index)=>(
-                    <div key={index} className='col-md-6 col-lg-3 bounceINUp' >
-                      <div className='product-item position-relative bg-light overflow-hidden '>
-                     <img src={val.img} alt="img"
-                      className='img-fluid rounded w-100' />
-                       </div>
-                       <div className=' p-3' >
-                        <h4 className='me-auto' >{val.productName}</h4>
-                        <label  style={{fontSize:'20px',color:'black'}} >Farmer: {val.farmer}</label>
-                        <div>
-                        <img style={{width:'15px'}} src={Star} alt="" />
-                        <img style={{width:'15px'}} src={Star} alt="" />
-                        <img style={{width:'15px'}} src={Star} alt="" />
-                        </div>
-                        <button className='btn btn-primary mt-5 rounded-pill ' >Add to Cart</button>
-                       </div>
+    <div className="container mb-2">
+      <div className="col-lg-12">
+        <h3 className="text-center mb-4">Latest Products</h3>
+        <div className="row g-4">
+          {latestProducts.map((product, index) => (
+            <div className="col-md-6 col-lg-3 bounceINUp" key={index}>
+              <div className="product-item position-relative bg-light overflow-hidden p-2">
+                <img
+                  className="img-fluid rounded"
+                  src={product.image}
+                  style={{ width: '300px', height: '150px' }}
+                  alt={product.name}
+                />
+                <div className="d-flex flex-column text-start mt-2">
+                  <div className="d-flex justify-content-between border-bottom border-primary pb-1 mb-1">
+                    <Link to={`/productdetail/${product._id}`}><h5>{product.name}</h5></Link>
+                    <h5 className="text-primary">Birr: {product.price}</h5>
+                  </div>
+                  <p className="mb-0">Available Quantity: {product.availableQuantity}</p>
+                  <label className="mt-1">Farmer: {product.productOwner}</label>
+                  <div className="d-flex justify-content-between align-items-center mt-2">
+                    <button type="button" className="btn text-primary btn-sm rounded-pill shadow-sm">
+                      <FaHeart />
+                    </button>
+                    <div>
+                      {[...Array(5)].map((_, i) => (
+                        <img key={i} style={{ width: '12px' }} src={Star} alt="star" />
+                      ))}
                     </div>
-                ))
-            }
+                  </div>
+                  <button onClick={() => handleAddToCart(product)} className="btn btn-primary btn-sm mt-2 rounded-pill">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
             </div>
-            </div>
-            </div>
-            
-          
-     </div>
-
-   </div>
-   </>
-  )
-}
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Latest;

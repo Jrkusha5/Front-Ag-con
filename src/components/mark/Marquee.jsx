@@ -9,12 +9,12 @@ import '../mark/marquee.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-icon">
       <div className="title">
         <h1>Our Partners</h1>
       </div>
 
-      <div>
+      <div className='bg-icon'>
         <Marquee direction="right" speed={100} delay={3} gradient={false}>
           <div className="image_wrapper">
             <img src={img1} alt="Technology Partner 1" />
