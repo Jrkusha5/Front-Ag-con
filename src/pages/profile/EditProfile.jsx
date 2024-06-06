@@ -1,12 +1,12 @@
 import React from 'react';
 import './ProfileEdit.css';
-
+import ppg from '../../assets/img/ppg.jpg'
 const ProfileEdit = ({ buyer, handleChange, handleSubmit, onCancel }) => {
     return <>
         {buyer &&
         <div className="profile-edit">
             <div className="cover-photo">
-                <img src="https://i.ibb.co/bNY25qJ/22539f0cbe01.jpg" alt="Cover" />
+                <img src={ppg} alt="Cover" />
             </div>
             <div className="profile-info">
                 <img src={buyer[0].photo} alt="Profile" className="profile-picture" />

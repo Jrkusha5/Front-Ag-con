@@ -1,14 +1,15 @@
 import React from 'react';
 import './profile.css';
+import ppg from '../../assets/img/ppg.jpg'
 
 const ProfileDisplay = ({ buyer, onEdit }) => {
     return (
         <>
             {buyer[0] &&
             <div className="profile-display bg-light">
-                {/* <div className="cover-photo">
-                    <img src="https://i.ibb.co/bNY25qJ/22539f0cbe01.jpg" alt="Cover" />
-                </div> */}
+                <div className="cover-photo">
+                    <img src={ppg} alt="Cover" />
+                </div>
                 <div className="profile-info">
                     <img src={buyer[0].photo} alt="Profile" className="profile-picture" />
                     <div className="info-section">
