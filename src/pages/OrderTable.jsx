@@ -15,7 +15,7 @@ const OrderTable = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/v1/order/buyer/${user._id}`);
+        const response = await axios.get(`${BASE_URL}/api/v1/order/buyer/${user._id}`);
         setOrders(response.data);
       } catch (error) {
         console.error('Error fetching orders:', error);
