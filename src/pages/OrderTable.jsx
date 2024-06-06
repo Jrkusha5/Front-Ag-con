@@ -9,6 +9,8 @@ import { BASE_URL } from "../utils/config";
 const OrderTable = () => {
   const { user } = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [ordersPerPage] = useState(5); 
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -22,6 +24,12 @@ const OrderTable = () => {
 
     fetchOrders();
   }, [user]);
+
+  const indexOfLastOrder = currentPage * ordersPerPage;
+  const indexOfFirstOrder = indexOfLastOrder - ordersPerPage;
+  const currentOrders = orders.slice(indexOfFirstOrder, indexOfLastOrder);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const emptyOrdersMsg = (
     <h4 className="container text-center mb-2 pt-3">
@@ -44,7 +52,7 @@ const OrderTable = () => {
         </div>
       </div>
 
-      {orders.length === 0 ? (
+      {currentOrders.length === 0 ? (
         emptyOrdersMsg
       ) : (
         <div className="container-fluid py-5" style={{ fontSize: "20px", color: 'black' }}>
@@ -55,17 +63,23 @@ const OrderTable = () => {
                   <tr>
                     <th scope="col">Order ID</th>
                     <th scope="col">Date</th>
+                    {/* <th scope="col">Products</th> */}
                     <th scope="col">Total Amount</th>
                     <th scope="col">Status</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
-                  {orders.map((order) => (
+                  {currentOrders.map((order) => (
                     <tr key={order._id}>
-                      <Link to={`/orderdetailpage/${order._id}`}><td>{order._id}</td></Link>
+                     
+                      <Link to={`/orderdetailpage/${order._id}`}> <td>{order._id}</td></Link>
+
                       <td>{new Date(order.createdAt).toLocaleDateString()}</td>
+                      
                       <td>Birr: {order.overallTotal}</td>
                       <td>{order.orderStatus}</td>
+                      
                     </tr>
                   ))}
                 </tbody>
@@ -74,6 +88,17 @@ const OrderTable = () => {
           </div>
         </div>
       )}
+      <div className="pagination justify-content-center">
+        <ul className="pagination">
+          {Array.from({ length: Math.ceil(orders.length / ordersPerPage) }).map((_, index) => (
+            <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
+              <button onClick={() => paginate(index + 1)} className="page-link">
+                {index + 1}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
       <Footer/>
     </>
   );
