@@ -42,7 +42,7 @@ export default function Login() {
       <Header />
       <div className="container-fluid page-header wow fadeIn" data-wow-delay="0.2s" style={{ fontSize: '20px' }}>
   <div className="container">
-    <h1 className="display-5 animated slideInDown">Login</h1> {/* Changed from display-3 to display-4 */}
+    <h1 className="display-5 animated slideInDown">Login</h1> 
     <nav aria-label="breadcrumb animated slideInDown">
       <ol className="breadcrumb mb-2">
         <li className="breadcrumb-item">
