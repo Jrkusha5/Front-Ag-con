@@ -7,9 +7,9 @@ const ContactUs = () => {
     <div>
         <Header/>
        
-    <div className="container-fluid page-header wow fadeIn" data-wow-delay="0.1s" style={{fontSize:'23px'}}>
+    <div className="container-fluid page-header wow fadeIn" data-wow-delay="0.1s" style={{fontSize:'20px'}}>
         <div className="container">
-            <h2 className="display-3 mb-3 animated slideInDown">Contact </h2>
+            <h2 className="display-6 mb-3 animated slideInDown">Contact </h2>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol className="breadcrumb mb-0">
                     <li className="breadcrumb-item"><a className="text-body" href="#">Home</a></li>

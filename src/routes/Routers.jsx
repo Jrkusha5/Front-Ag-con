@@ -38,9 +38,9 @@ const Routers = () => {
       <Route path="/cart" element={user && user.role === 'buyer' ? <Cart /> : <Login />} />
       <Route path="/products" element={<Products />} />
       <Route path="/productdetail/:id" element={<SingleProduct />} />
-      <Route path="/signUpFarmer" element={<Farmer />} />
-      <Route path="/signUpBuyer" element={<Buyer />} />
-      <Route path="/signUpLogistics" element={<Logistics />} />
+      <Route path="/signUpFarmers" element={<Farmer />} />
+      <Route path="/signUpBuyers" element={<Buyer />} />
+      <Route path="/signUpLogistic" element={<Logistics />} />
       <Route path="/orders" element={<OrderTable />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:id" element={<Single />} />
