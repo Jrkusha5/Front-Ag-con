@@ -3,7 +3,7 @@ import { FaTruck, FaRedoAlt, FaLock, FaMoneyBillAlt } from 'react-icons/fa'; // 
 
 const serviceData = [
   {
-    icon: <FaTruck className="text-dark fa-2x" />, // Use FaTruck component
+    icon: <FaTruck className="text-dark fa-1x" />, // Use FaTruck component
     title: "Facilitating Shipping",
     subtitle: "From Cart to Doorstep.",
     bg: "#fdefe6",

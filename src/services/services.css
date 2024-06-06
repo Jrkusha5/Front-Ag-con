@@ -10,7 +10,7 @@
     cursor: pointer;
 }
 .service__item span i{
-    font-style: 2.2rem;
+    font-style: 2rem;
     background: var();
     padding: 10px;
     border-radius: 50px;
@@ -20,14 +20,14 @@
 .service__item h3{
     color: var(--primary-color);
     font-style: 1.1rem;
-    font-weight: 600;
+    font-weight: 500;
 
 
 }
 .service__item p{
-    font-style: 0.9rem;
+    font-style: 0.7rem;
     margin-top: 5px;
-    color: #222;
+    color: #0c0b0b;
 }
 
 @media only screen and (max-width:992px){
