@@ -87,6 +87,16 @@ const ProductDetailPage = () => {
                   reviews.map((review, index) => (
                     <div key={index} className="review">
                       <p><strong>{review.username}</strong> - Rating: {review.rating}/5</p>
+                      <div className="rating-group">
+                        {[1, 2, 3, 4, 5].map((rate) => (
+                          <img 
+                            key={rate}
+                            src={Star} 
+                            alt={`${rate} Star`} 
+                            className={review.rating >= rate ? 'active-star' : 'inactive-star'} 
+                          />
+                        ))}
+                      </div>
                       <p>{review.comment}</p>
                     </div>
                   ))

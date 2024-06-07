@@ -1,7 +1,15 @@
-.posts{
-    flex: 9;
+
+
+.posts {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center; /* Center items horizontally */
     margin: 20px;
-}
-
+  }
+  
+  @media (max-width: 768px) {
+    .posts {
+      margin: 10px; /* Adjust margin for smaller screens */
+    }
+  }
+  
