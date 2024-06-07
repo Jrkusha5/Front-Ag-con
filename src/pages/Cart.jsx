@@ -1,10 +1,10 @@
 import React, { useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Header from '../components/Header';
-import Footer from '../components/Footer'; 
+import Header from '../components/Header'
+import Footer from '../components/Footer' 
 import { getCartTotal, removeItem, updateQuantity } from "../redux/cartSlice";
 import emptyCartImage from "../assets/img/empty.gif";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import axios from "axios";
 import { AuthContext } from '../context/AuthContext';
 import { BASE_URL } from "../utils/config";
@@ -17,7 +17,7 @@ const Cart = () => {
 
   useEffect(() => {
     dispatch(getCartTotal());
-  }, [cartProducts, dispatch]);
+  }, [useSelector((state) => state.cart)]);
 
   const handleRemoveItem = (itemId) => {
     dispatch(removeItem({ id: itemId }));
@@ -34,13 +34,13 @@ const Cart = () => {
   };
 
   const handleCheckout = async () => {
-    const buyerId = user._id; 
+    const buyerId = user._id; // Replace with actual buyer ID
     const products = cartProducts.map(product => ({
       productId: product._id,
       quantity: product.quantity,
     }));
-    console.log(products);
-    console.log(buyerId);
+    console.log(products)
+    console.log(buyerId)
     try {
       const orderResponse = await axios.post(`${BASE_URL}/api/v1/order`, {
         buyerId,
@@ -48,8 +48,9 @@ const Cart = () => {
       });
       
       if (orderResponse.status === 201) {
-        const orderId = orderResponse.data._id; 
+        const orderId = orderResponse.data._id; // Assuming the response contains the order ID
         
+        // Now initiate the Chapa payment process
         const paymentResponse = await axios.post(
           "https://agribackend-mstw.onrender.com/accept-payment",
           {
@@ -77,7 +78,7 @@ const Cart = () => {
     } catch (error) {
       console.error('Error placing order:', error);
     }
-  };
+  }
 
   const emptyCartMsg = (
     <h4 className="container text-center mb-2 pt-3">

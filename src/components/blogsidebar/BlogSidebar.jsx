@@ -11,8 +11,7 @@ export default function BlogSidebar() {
           alt=""
         />
         <p>
-          Laboris sunt aute cupidatat velit magna velit ullamco dolore mollit
-          amet ex esse.Sunt eu ut nostrud id quis proident.
+        This is One ገበያ to discover the range of services we offer to support your agricultural needs.
         </p>
       </div>
       <div className="blogsidebarItem">

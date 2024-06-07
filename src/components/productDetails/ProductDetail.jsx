@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import './productDetailPage.css'; 
 import Footer from '../Footer';
 import Header from '../Header';
+import Star from '../../assets/img/Star.png';
 import { BASE_URL } from '../../utils/config';
 import { AuthContext } from '../../context/AuthContext';
 
@@ -101,7 +102,11 @@ const ProductDetailPage = () => {
                     <div className="rating-group">
                       {[1, 2, 3, 4, 5].map((rate) => (
                         <span key={rate} onClick={() => setNewReview({ ...newReview, rating: rate })}>
-                          {rate} <i className="ri-star-fill" style={{ color: newReview.rating >= rate ? 'gold' : 'grey' }}></i>
+                          <img 
+                            src={Star} 
+                            alt={`${rate} Star`} 
+                            className={newReview.rating >= rate ? 'active-star' : 'inactive-star'} 
+                          />
                         </span>
                       ))}
                     </div>
