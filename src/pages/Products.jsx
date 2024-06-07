@@ -37,30 +37,15 @@ const Products = () => {
 
   const handleAddToCart = (item) => {
     let totalPrice = item.quantity * item.price;
-    const existingProduct = state.data.find(
-      (product) => product.id === item.id
-    );
-  
-    if (existingProduct) {
-      if (existingProduct.quantity !== item.quantity) { // Check for different quantities
-        const tempCart = state.data.map((product) => {
-          if (product.id === item.id) {
-            return { ...product, quantity: item.quantity, totalPrice };
-          } else {
-            return product;
-          }
-        });
-        state.data = tempCart;
-      }
-    } else {
-      state.data.push({ ...item, totalPrice });
-    }
-  
-    storeInLocalStorage(state.data);
-    dispatch(addToCart(tempProduct)); // Dispatch the action even for existing product updates
+    const tempProduct = {
+      ...item,
+      totalPrice,
+    };
+    dispatch(addToCart(tempProduct));
     dispatch(getCartTotal());
-  };
+
   
+  };
 
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
