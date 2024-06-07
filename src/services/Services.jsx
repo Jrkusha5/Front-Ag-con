@@ -19,8 +19,8 @@ const Services = () => {
                                 {item.icon}
                                 </span>
                                 <div>
-                                    <h3 style={{fontSize:'21px',color:'black'}}>{item.title}</h3>
-                                    <p style={{fontSize:'16px',color:'black'}}>{item.subtitle}</p>
+                                    <h3 style={{fontSize:'18px',color:'black'}}>{item.title}</h3>
+                                    <p style={{fontSize:'15px',color:'black'}}>{item.subtitle}</p>
                                 </div>
                             </div>
                         </div>

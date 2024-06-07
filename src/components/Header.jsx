@@ -59,7 +59,7 @@ const Header = () => {
         <div
           className={`collapse navbar-collapse d-flex justify-content-center animated bounceInDown ${showMenu ? 'show' : ''}`}
           id="navbarCollapse"
-          style={{ fontSize: '22px', color: 'black' }}
+          style={{ fontSize: '20px', color: 'black' }}
         >
           <div className={`navbar-nav p-4 p-lg-0 animated bounceInDown ${!showMenu && 'd-none d-md-flex'}`}>
             <Link to="/" className="nav-item nav-link active">
@@ -94,7 +94,7 @@ const Header = () => {
               {dropdownVisible && (
                 <div className="dropdownMenu position-absolute mt-2" style={{ top: '100%',  background: 'white', border: '1px solid #ccc', borderRadius: '5px', zIndex: 1000 }}>
                   <Link to={`/profile/${user._id} `} className="dropdownItem" style={{ display: 'block', padding: '10px' }}>{t('profile')}</Link>
-                  <Link to='/productlist' className="dropdownItem" style={{ display: 'block', padding: '10px' }}>{t('myOrder')}</Link>
+                  <Link to='/productlist' className="dropdownItem" style={{ display: 'block', padding: '10px' }}>{t('Order')}</Link>
                   <Link to='/farmerStatus' className="dropdownItem" style={{ display: 'block', padding: '10px' }}>{t('farmerStatus')}</Link>
                   <span className="dropdownItem" onClick={handleLogout} style={{ display: 'block', padding: '10px', cursor: 'pointer' }}>{t('logout')}</span>
                 </div>
