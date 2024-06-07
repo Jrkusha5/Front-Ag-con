@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./blogsidebar.css";
+import asset from '../../assets/img/Asset 1.png';
+
 export default function BlogSidebar() {
   return (
     <div className="blogsidebar">
       <div className="blogsidebarItem">
         <span className="blogsidebarTitle">Articles</span>
         <img
-          src="https://i.ibb.co/zVB24m9/6bc2f4b45da7.jpg"
+          src={asset}
           alt=""
         />
         <p>
