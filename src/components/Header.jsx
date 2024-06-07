@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import logo1 from '../assets/img/logo1.png';
+import logo2 from '../assets/img/logo2.jpg';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCartTotal } from '../redux/cartSlice';
 import { AuthContext } from '../context/AuthContext';
@@ -41,7 +41,7 @@ const Header = () => {
     <div className="container-fluid fixed-top pt-4 wow fadeIn" data-wow-delay="0.1s">
       <nav className="navbar navbar-expand-lg navbar-primary py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
         <Link to="/" className="navbar-brand pt-3 ms-4 ms-lg-0">
-          <img src={logo1} alt="Your Logo" style={{ width: '300px', height: '120px' }} />
+          <img src={logo2} alt="Your Logo" style={{ width: '100px', height: '100px',borderRadius:'50px' }} />
         </Link>
         <button
           onClick={handleToggle}

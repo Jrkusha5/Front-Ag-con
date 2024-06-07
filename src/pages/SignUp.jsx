@@ -25,16 +25,9 @@ const SignUp = () => {
 
     <div className="container">
     <h2 className="text-center mb-4">Welcome to One ገበያ</h2>
-    <h4 className="text-center">Before you start, please tell us who you are:</h4>
+    <h4 className="text-center">Sign up to unlock exclusive deals and offers!</h4>
     <div className="row justify-content-center mt-4">
-      {/* <div className="col-md-4">
-        <div className="card mb-3">
-          <div className="card-body text-center">
-            <h5 className="card-title">🌾Farmer</h5>
-            <Link to='/signUpFarmer' className="btn btn-primary rounded-pill btn-lg btn-block">Select</Link>
-          </div>
-        </div>
-      </div> */}
+      
       <div className="col-md-4">
         <div className="card mb-3">
           <div className="card-body text-center">
@@ -43,15 +36,7 @@ const SignUp = () => {
           </div>
         </div>
       </div>
-      {/* <div className="col-md-4">
-        <div className="card mb-3">
-          <div className="card-body text-center">
-            <h5 className="card-title">🚚Logistic</h5>
-            <Link to='/signUpLogistics' className="btn btn-primary rounded-pill btn-lg btn-block">Select</Link>
-
-          </div>
-        </div>
-      </div> */}
+      
     </div>
     <Link to='/login' className="btn btn-success btn-lg btn-block mt-4 rounded-pill">Back to Login</Link>
     <p className="text-center mt-3 text-black">We Provide Organic And Tasty Agricultural Products For Our Customers.</p>
