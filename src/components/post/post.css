@@ -1,14 +1,14 @@
 .post {
   font-family: "Montserrat", sans-serif;
-  width: 100%; /* Change width to fit the screen */
-  margin: 0px 0px 40px 0px; /* Adjust margin for smaller screens */
+  width: 385px;
+  margin: 0px 25px 40px 25px;
   display: flex;
   flex-direction: column;
 }
 
 .postImg {
-  width: 100%; /* Make the image fill the container */
-  height: auto; /* Maintain aspect ratio */
+  width: 385px;
+  height: 280px;
   object-fit: cover;
   border-radius: 7px;
 }
@@ -32,7 +32,7 @@
 
 .postTitle {
   font-family: "Montserrat", sans-serif;
-  font-size: 24px;
+    font-size: 24px;
   font-weight: 900;
   margin-top: 15px;
   cursor: pointer;
@@ -40,7 +40,7 @@
 
 .postDate {
   font-family: "Montserrat", sans-serif;
-  font-style: italic;
+    font-style: italic;
   font-size: 13px;
   font-weight: 400;
   color: #999999;
@@ -49,28 +49,14 @@
 
 .postDesc {
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+    font-weight: 400;
   font-size: 14px;
   line-height: 24px;
-  color: #000;
+  color: #444444;
   margin-top: 15px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-}
-
-@media (max-width: 768px) {
-  .post {
-    margin: 0px 0px 20px 0px; /* Adjust margin for smaller screens */
-  }
-
-  .postTitle {
-    font-size: 20px; /* Decrease title font size */
-  }
-
-  .postDesc {
-    font-size: 13px; /* Decrease description font size */
-  }
 }

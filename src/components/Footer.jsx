@@ -27,7 +27,9 @@ const Footer = () => {
               <Link to='/' className="btn btn-link" style={{ fontSize: '17px' }}>Support</Link>
             </div>
             <div className="col-lg-3 col-md-6">
+
               <Weather /> 
+              
               <h4 className="text-light mb-4">Our Social Links</h4>
               <div className="d-flex pt-2">
                 <Link to='/' className="btn btn-square btn-outline-light rounded-circle me-1"><i className="fab fa-twitter"></i></Link>

@@ -80,7 +80,7 @@ const Latest = () => {
                       <FaHeart />
                     </button>
                     <div>
-                      {[...Array(5)].map((_, i) => (
+                      {[...Array(4)].map((_, i) => (
                         <img key={i} style={{ width: '12px' }} src={Star} alt="star" />
                       ))}
                     </div>

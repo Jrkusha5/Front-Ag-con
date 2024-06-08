@@ -77,7 +77,7 @@ export default function Login() {
                   <button className="btn btn-primary mt-3" type="submit">
                     {isFetching ? <HashLoader color={'#fff'} size={20} loading={isFetching} /> : 'Log In'}
                   </button>
-                  <span className="form-text text-muted mt-2">Forgot Password?</span>
+                  {/* <span className="form-text text-muted mt-2">Forgot Password?</span> */}
                   <button type="button" className="btn btn-link mt-2" onClick={handleRegister}>
                     {isFetching ? <HashLoader color={'#fff'} size={20} loading={isFetching} /> : 'Create a New Account'}
                   </button>

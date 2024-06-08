@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import payment from '../assets/img/success.png';
 
-const PaymentSuccess = ({ transactionId, totalAmount }) => {
+const PaymentSuccess = () => {
     const navigate = useNavigate();
 
     const handleGoHome = () => {
