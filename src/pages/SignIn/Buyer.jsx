@@ -7,6 +7,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 import { toast, ToastContainer } from 'react-toastify';
+import { BASE_URL } from "../../utils/config";
 
 export default function Register() {
   const name = useRef();
@@ -35,7 +36,7 @@ export default function Register() {
       formData.append("phone", phone.current.value);
       formData.append("address", address.current.value);
       try {
-        await axios.post("http://localhost:3000/api/v1/auth/buyer/register", formData, {
+        await axios.post(`${BASE_URL}/api/v1/auth/buyer/register`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
