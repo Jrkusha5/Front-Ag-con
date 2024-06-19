@@ -95,13 +95,7 @@ export default function Register() {
               <select ref={role} required className="registerInput">
                 <option value="buyer">Buyer</option>
               </select>
-              {/* <label className="registerLabel">License</label>
-              <input
-                type="file"
-                ref={license}
-                required
-                className="registerInput"
-              /> */}
+              
               <label className="registerLabel">Profile Picture</label>
               <input
                 type="file"
