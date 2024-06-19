@@ -1,12 +1,8 @@
-css
-Copy code
-/* Base styles */
 .register {
   margin-top: 200px;
   width: 50vw;
-  min-height: 100vh;
-  margin-left: auto;
-  margin-right: auto;
+  height: 100vh;
+  margin-left: 340px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,23 +10,23 @@ Copy code
 
 .registerWrapper {
   width: 70%;
-  height: auto;
+  height: 70%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
 
 .registerForm {
-  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 15px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: white;
 }
 
 .registerBox {
   padding: 20px;
+  background-color: white;
   border: 1px solid #ccc;
   border-radius: 10px;
   display: flex;
@@ -57,65 +53,38 @@ Copy code
   border-color: #00695c;
 }
 
-.registerButton, .loginRedirectButton {
+.registerButton {
   height: 40px;
   border-radius: 5px;
   border: none;
+  background-color: #00695c;
+  color: white;
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
 }
 
-.registerButton {
-  background-color: #00695c;
-  color: white;
-}
-
-.registerButton:focus, .loginRedirectButton:focus {
+.registerButton:focus {
   outline: none;
 }
 
 .loginRedirectButton {
   width: 100%;
   margin-top: 10px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
   background-color: #004d40;
   color: white;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  .register {
-    margin-top: 100px;
-    width: 90vw;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .registerWrapper {
-    width: 90%;
-    height: auto;
-  }
-
-  .registerForm {
-    padding: 10px;
-  }
-
-  .registerBox {
-    padding: 15px;
-  }
-
-  .registerInput {
-    height: 35px;
-    font-size: 14px;
-  }
-
-  .registerButton, .loginRedirectButton {
-    height: 35px;
-    font-size: 16px;
-  }
+.loginRedirectButton:focus {
+  outline: none;
 }
-
-@media (max-width: 480px) {
+@media (max-width: 512px) {
   .register {
     margin-top: 50px;
     width: 95vw;
