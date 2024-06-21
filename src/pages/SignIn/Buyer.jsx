@@ -55,7 +55,7 @@ export default function Register() {
       <Header/>
       <div className="container-fluid mb-3 page-header wow fadeIn" data-wow-delay="0.1s">
         <div className="container">
-          <h1 className="display-3 mb-3 animated slideInDown">Farmer</h1>
+          <h1 className="display-3 mb-3 animated slideInDown">Buyer</h1>
           <nav aria-label="breadcrumb animated slideInDown">
             <ol className="breadcrumb mb-0">
               <li className="breadcrumb-item">
