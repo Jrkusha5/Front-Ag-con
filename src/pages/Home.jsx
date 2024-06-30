@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import Carousel1 from '../assets/img/carousel-1.jpg';
 import Carousel2 from '../assets/img/carousel-2.jpg';
 import Green from '../assets/img/green-1.webp';
@@ -16,8 +15,6 @@ import Latest from '../components/Latest';
 import Marquee from '../components/mark/Marquee';
 
 const Home = () => {
-  const { t } = useTranslation();
-
   return (
     <div>
       <Header />
@@ -31,9 +28,9 @@ const Home = () => {
                 <div className="container">
                   <div className="row justify-content-start">
                     <div className="col-lg-7 col-md-10 col-sm-12">
-                      <h6 className="display-2 mb-5 animated slideInDown">{t('header')}</h6>
-                      <Link to='/products' className="btn btn-primary py-3 px-4" style={{ borderRadius: '50px', fontSize: '18px', color: 'black' }}>{t('products')}</Link>
-                      <Link to='/contactUs' className="btn btn-secondary py-3 px-4 ms-3" style={{ borderRadius: '50px', fontSize: '18px', color: 'black' }}>{t('services')}</Link>
+                      <h6 className="display-2 mb-5 animated slideInDown" >OnE ገበያ where Fair trade made Easy.</h6>
+                      <Link to='/products' className="btn btn-primary py-3 px-4" style={{ borderRadius: '50px', fontSize: '18px', color: 'black' }}>Products</Link>
+                      <Link to='/contactUs' className="btn btn-secondary py-3 px-4 ms-3" style={{ borderRadius: '50px', fontSize: '18px', color: 'black' }}>Services</Link>
                     </div>
                   </div>
                 </div>
@@ -45,9 +42,9 @@ const Home = () => {
                 <div className="container">
                   <div className="row justify-content-start">
                     <div className="col-lg-7 col-md-10 col-sm-12">
-                      <h6 className="display-2 mb-5 animated bounceInDown">{t('organic_products')}</h6>
-                      <Link to='/products' className="btn btn-primary py-3 px-4" style={{ borderRadius: '50px', fontSize: '17px', color: 'black' }}>{t('products')}</Link >
-                      <Link to='/contactUs' className="btn btn-secondary py-3 px-4 ms-3" style={{ borderRadius: '50px', fontSize: '17px', color: 'black' }}>{t('services')}</Link>
+                      <h6 className="display-2 mb-5 animated bounceInDown" >Organic Products Are Always Healthy</h6>
+                      <Link to='/products' className="btn btn-primary py-3 px-4" style={{ borderRadius: '50px', fontSize: '17px', color: 'black' }}>Products</Link >
+                      <Link to='/contactUs' className="btn btn-secondary py-3 px-4 ms-3" style={{ borderRadius: '50px', fontSize: '17px', color: 'black' }}>Contact Us</Link>
                     </div>
                   </div>
                 </div>
@@ -76,12 +73,12 @@ const Home = () => {
               </div>
             </div>
             <div className="col-lg-6 col-md-6 col-sm-12 wow fadeIn" data-wow-delay="0.5s">
-              <h1 className="display-5 mb-4" style={{ fontSize: '30px' }}>{t('organic_products')}</h1>
-              <p className="mb-4">{t('trusted_organic_food')}</p>
-              <p><i className="fa fa-check text-primary me-3"></i>{t('trusted')}</p>
-              <p><i className="fa fa-check text-primary me-3"></i>{t('tasty_healthier')}</p>
-              <p><i className="fa fa-check text-primary me-3"></i>{t('integrated_secure')}</p>
-              <Link to='/aboutUs' className="btn btn-primary rounded-pill py-3 px-5 mt-3">{t('read_more')}</Link>
+              <h1 className="display-5 mb-4" style={{ fontSize: '30px' }}>Best Organic Fruits And Vegetables</h1>
+              <p className="mb-4">Transparent and reliable market information, deal creation and negotiation.</p>
+              <p><i className="fa fa-check text-primary me-3"></i>Trusted Organic Food</p>
+              <p><i className="fa fa-check text-primary me-3"></i>Tasty And Healthier Organic Vegetables</p>
+              <p><i className="fa fa-check text-primary me-3"></i>Integrated and secure platform payment processes.</p>
+              <Link to='/aboutUs' className="btn btn-primary rounded-pill py-3 px-5 mt-3">Read More</Link>
             </div>
           </div>
         </div>
@@ -93,8 +90,8 @@ const Home = () => {
         <div className="container">
           <div className="row g-5 align-items-center">
             <div className="col-md-7 wow fadeIn" data-wow-delay="0.1s">
-              <h1 className="display-5 text-black mb-3" style={{ fontSize: '30px' }}>{t('overview')}</h1>
-              <p className="text-black mb-0" style={{ fontSize: '17px', color: 'black' }}>{t('trusted_organic_food')}</p>
+              <h1 className="display-5 text-black mb-3" style={{ fontSize: '30px' }}>Overview</h1>
+              <p className="text-black mb-0" style={{ fontSize: '17px', color: 'black' }}>Our mission is to provide customers with access to nutritious food that is free from genetically modified ingredients. We work with local farmers who share our commitment to organic agriculture, and we carefully select every product that we sell to ensure that it meets our high-quality standards.</p>
             </div>
             <div className="col-md-5 col-sm-12">
               <img src={Price1} className="img-fluid" alt="" />
@@ -106,32 +103,32 @@ const Home = () => {
       <div className="container-fluid bg-light bg-icon py-6 mb-5">
         <div className="container">
           <div className="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style={{ maxWidth: '500px', fontSize: '17px' }}>
-            <h5 className="display-5 mb-3">{t('our_features')}</h5>
+            <h5 className="display-5 mb-3">Our Features</h5>
             <p style={{ color: 'black' }}></p>
           </div>
           <div className="row g-4">
             <div className="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.1s">
               <div className="bg-white text-center h-100 p-4 p-xl-5">
                 <img className="img-fluid mb-4" src="assets/img/icon-1.png" alt="" />
-                <h4 className="mb-3" style={{ fontSize: '18px' }}>{t('natural_process')}</h4>
-                <p className="mb-4" style={{ fontSize: '16px', color: 'black' }}>{t('trusted_organic_food')}</p>
-                <Link to='/' className="btn btn-outline-primary border-2 py-2 px-4 rounded-pill">{t('read_more')}</Link>
+                <h4 className="mb-3" style={{ fontSize: '18px' }}>Natural Process</h4>
+                <p className="mb-4" style={{ fontSize: '16px', color: 'black' }}>Preserving the integrity of the land and delivering food that is as close to nature as it gets.</p>
+                <Link to='/' className="btn btn-outline-primary border-2 py-2 px-4 rounded-pill">Read More</Link>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.3s">
               <div className="bg-white text-center h-100 p-4 p-xl-5">
                 <img className="img-fluid mb-4" src="assets/img/icon-2.png" alt="" />
-                <h4 className="mb-3" style={{ fontSize: '18px' }}>{t('organic_products')}</h4>
-                <p className="mb-4" style={{ fontSize: '16px', color: 'black' }}>{t('trusted_organic_food')}</p>
-                <Link to='/' className="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" style={{ fontSize: '16px' }}>{t('read_more')}</Link>
+                <h4 className="mb-3" style={{ fontSize: '18px' }}>Organic Products</h4>
+                <p className="mb-4" style={{ fontSize: '16px', color: 'black' }}>Free from synthetic pesticides and fertilizers, ensuring the purest, most wholesome produce for our customers</p>
+                <Link to='/' className="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" style={{ fontSize: '16px' }}>Read More</Link>
               </div>
             </div>
             <div className="col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0.5s">
               <div className="bg-white text-center h-100 p-4 p-xl-5">
                 <img className="img-fluid mb-4" src="assets/img/icon-3.png" alt="" />
-                <h4 className="mb-3" style={{ fontSize: '18px' }}>{t('biologically_safe')}</h4>
-                <p className="mb-4" style={{ fontSize: '16px', color: 'black' }}>{t('trusted_organic_food')}</p>
-                <Link to='/' className="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" style={{ fontSize: '16px' }}>{t('read_more')}</Link>
+                <h4 className="mb-3" style={{ fontSize: '18px' }}>Biologically Safe</h4>
+                <p className="mb-4" style={{ fontSize: '16px', color: 'black' }}>We prioritize the health and well-being of both consumers and the environment</p>
+                <Link to='/' className="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" style={{ fontSize: '16px' }}>Read More</Link>
               </div>
             </div>
           </div>
@@ -146,12 +143,12 @@ const Home = () => {
         <div className="container my-4">
           <div className="row">
             <div className="col-12">
-              <h1 className='text-center'>{t('key_features')}</h1>
+              <h1 className='text-center'>KEY FEATURES</h1>
             </div>
           </div>
           <div className="row">
             <div className="col-12">
-              <p className='text-center features-text' style={{ color: 'black', fontSize: '20px' }}>{t('discover')}</p>
+              <p className='text-center features-text' style={{ color: 'black', fontSize: '20px' }}>"Discover how One ገበታ can benefit you and all other food supply chain actors"</p>
             </div>
           </div>
           <div className="features-row d-flex flex-wrap justify-content-center align-items-center" style={{ fontSize: '17px', color: 'black' }}>
@@ -159,29 +156,29 @@ const Home = () => {
               <div className="container">
                 <img src={Trust} style={{ width: '150px' }} alt="" />
               </div>
-              <p className="container-features__subtitle" style={{ fontWeight: 'bold', fontSize: '20px' }}>{t('transparency')}</p>
-              <p className="container-features__text">{t('trusted_organic_food')}</p>
+              <p className="container-features__subtitle" style={{ fontWeight: 'bold', fontSize: '20px' }}>Transparency</p>
+              <p className="container-features__text">Direct transaction between farmers and buyers/retail</p>
             </div>
             <div className="col-md-3 col-6 col-adv">
               <div className="container">
                 <img src={Trading} style={{ width: '150px' }} alt="" />
               </div>
-              <p className="container-features__subtitle" style={{ fontWeight: 'bold', fontSize: '20px' }}>{t('fairtrade')}</p>
-              <p className="container-features__text">{t('trusted_organic_food')}</p>
+              <p className="container-features__subtitle" style={{ fontWeight: 'bold', fontSize: '20px' }}>FairTrade</p>
+              <p className="container-features__text">Redistribution of value in food supply chain</p>
             </div>
             <div className="col-md-3 col-6 col-adv">
               <div className="container">
                 <img src={Check} style={{ width: '150px' }} alt="" />
               </div>
-              <p className="container-features__subtitle" style={{ fontWeight: 'bold', fontSize: '20px' }}>{t('user_friendly')}</p>
-              <p className="container-features__text">{t('trusted_organic_food')}</p>
+              <p className="container-features__subtitle" style={{ fontWeight: 'bold', fontSize: '20px' }}>UserFriendly</p>
+              <p className="container-features__text">Reduce costs to buyers without losing reliability</p>
             </div>
             <div className="col-md-3 col-6 col-adv">
               <div className="container">
                 <img src={Transport} style={{ width: '150px' }} alt="" />
               </div>
-              <p className="container-features__subtitle" style={{ fontSize: '20px', color: 'black', fontWeight: 'bold' }}>{t('logistic')}</p>
-              <p className="container-features__text">{t('trusted_organic_food')}</p>
+              <p className="container-features__subtitle" style={{ fontSize: '20px', color: 'black', fontWeight: 'bold' }}>Logistic</p>
+              <p className="container-features__text">Efficient management and coordination flow of goods, services</p>
             </div>
           </div>
         </div>
