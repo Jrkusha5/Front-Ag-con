@@ -151,7 +151,7 @@ const Home = () => {
               <p className='text-center features-text' style={{ color: 'black', fontSize: '20px' }}>"Discover how One ገበያ can benefit you and all other food supply chain actors"</p>
             </div>
           </div>
-          <div className="features-row d-flex flex-wrap justify-content-center align-items-center" style={{ fontSize: '17px', color: 'black' }}>
+          <div className="features-row d-flex flex-wrap justify-content-center align-items-center" style={{ fontSize: '16px', color: 'black' }}>
             <div className="col-md-3 col-6 col-adv">
               <div className="container">
                 <img src={Trust} style={{ width: '150px' }} alt="" />
