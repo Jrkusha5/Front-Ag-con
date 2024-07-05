@@ -148,7 +148,7 @@ const Home = () => {
           </div>
           <div className="row">
             <div className="col-12">
-              <p className='text-center features-text' style={{ color: 'black', fontSize: '20px' }}>"Discover how One ገበታ can benefit you and all other food supply chain actors"</p>
+              <p className='text-center features-text' style={{ color: 'black', fontSize: '20px' }}>"Discover how One ገበያ can benefit you and all other food supply chain actors"</p>
             </div>
           </div>
           <div className="features-row d-flex flex-wrap justify-content-center align-items-center" style={{ fontSize: '17px', color: 'black' }}>
