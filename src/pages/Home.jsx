@@ -13,8 +13,13 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Latest from '../components/Latest';
 import Marquee from '../components/mark/Marquee';
+import { useTranslation } from 'react-i18next';
+
 
 const Home = () => {
+  const { t  } = useTranslation();
+ 
+
   return (
     <div>
       <Header />
@@ -28,7 +33,7 @@ const Home = () => {
                 <div className="container">
                   <div className="row justify-content-start">
                     <div className="col-lg-7 col-md-10 col-sm-12">
-                      <h6 className="display-2 mb-5 animated slideInDown" >OnE ገበያ where Fair trade made Easy.</h6>
+                      <h6 className="display-2 mb-5 animated slideInDown" >{t('OnE ገበያ where Fair trade made Easy.')}</h6>
                       <Link to='/products' className="btn btn-primary py-3 px-4" style={{ borderRadius: '50px', fontSize: '18px', color: 'black' }}>Products</Link>
                       <Link to='/contactUs' className="btn btn-secondary py-3 px-4 ms-3" style={{ borderRadius: '50px', fontSize: '18px', color: 'black' }}>Services</Link>
                     </div>
