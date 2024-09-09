@@ -107,6 +107,16 @@ const Header = () => {
           </div>
         </div>
       </nav>
+
+      {/* Add this media query to handle small screen logo size */}
+      <style jsx="true">{`
+        @media (max-width: 768px) {
+          .logo-img {
+            width: 60px;
+            height: 60px;
+          }
+        }
+      `}</style>
     </div>
   );
 };
